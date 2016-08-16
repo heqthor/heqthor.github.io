@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejemplo con guión externo</title>
+  </head>
+  <body>
+    <hl> Ejemplo con guión externo</hl>
+    <canvas id="miCanvas" width="1000" height="1000">
+      &iexcl;No funciona!
+    </canvas>
+    <script src="ejemplo2.js></script>
+  </body>
+</html>
