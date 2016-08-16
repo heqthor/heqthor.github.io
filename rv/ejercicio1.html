@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 1</title>
+  </head>
+  <body>
+    <h1> Ejercicio 1</h1>
+    <canvas id="miCanvas1" width="100" height="100">
+      &iexcl; No Funciona!!
+    </canvas>
+    <canvas id="miCanvas2" width="500" height="100">
+      &iexcl; No Funciona!!
+    </canvas>
+    <canvas id="miCanvas3" width="300" height="600">
+      &iexcl; No Funciona!!
+    </canvas>
+    <script>
+      var miCanvas1 = document.getElementById("miCanvas");
+      var contexto = miCanvas.getContext("2d");
+      contexto.fillStyle = "red";
+      contexto.fillRect(30,30,1000,1000);
+      
+      var miCanvas2 = document.getElementById("miCanvas");
+      var contexto = miCanvas.getContext("2d");
+      contexto.fillStyle = "green";
+      contexto.fillRect(30,30,1000,1000);
+      
+      var miCanvas3 = document.getElementById("miCanvas");
+      var contexto = miCanvas.getContext("2d");
+      contexto.fillStyle = "blue";
+      contexto.fillRect(30,30,1000,1000);
+    </script>
+  </body>
+</html>
