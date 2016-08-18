@@ -10,8 +10,6 @@ document.body.appendChild(renderizador.domElement);
 var forma1 = new THREE.CylinderGeometry(5,5,30,64);
 var material = new THREE.MeshLambertMaterial( {color: 0x79553d});
 var tronco = new THREE.Mesh(forma,material);
-tronco.rotateX(-Math.PI/4);
-tronco.rotateY(Math.PI/4);
 
 escena.add(tronco);
 
