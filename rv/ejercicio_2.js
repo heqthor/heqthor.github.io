@@ -7,12 +7,12 @@ var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
 
-var forma = new THREE.BoxGeometry(1,1,1);
-var material = new THREE.MeshNormalMaterial();
-var cubo = new THREE.Mesh(forma,material);
-cubo.rotateX(-Math.PI/4);
-cubo.rotateY(Math.PI/4);
+var forma1 = new THREE.CylinderGeometry(5,5,30,64);
+var material = new THREE.MeshLambertMaterial( {color: 0x79553D});
+var tronco = new THREE.Mesh(forma,material);
+tronco.rotateX(-Math.PI/4);
+tronco.rotateY(Math.PI/4);
 
-escena.add(cubo);
+escena.add(tronco);
 
 renderizador.render(escena,camara);
