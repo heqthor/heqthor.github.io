@@ -4,7 +4,7 @@ var camara= new THREE.PerspectiveCamera();
 camara.position.z=5;
 
 var renderizador = new THREE.WebGLRenderer();
-renderizador.setSize(windows.innerHeight*0.95,window.innerHeight*0.95);
+renderizador.setSize(windows.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
 
 var forma = new THREE.BoxGeometry(1,1,1);
