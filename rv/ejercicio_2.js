@@ -11,7 +11,7 @@ var formaTronco = new THREE.CylinderGeometry(5,5,5,64);
 var materialTronco = new THREE.MeshBasicMaterial({color: 0x907736});
 var tronco = new THREE.Mesh(formaTronco,materialTronco);
 
-var formaHoja = new THREE.SphereGeometry(10,64,30);
+var formaHoja = new THREE.SphereGeometry(20,64,30);
 var materialHoja = new THREE.MeshBasicMaterial({color: 0x35D02A});
 var hoja = new THREE.Mesh(formaHoja,materialHoja);
 hoja.position.y=15;
