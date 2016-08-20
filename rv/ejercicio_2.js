@@ -7,7 +7,7 @@ var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
 
-var formaTronco = new THREE.CylinderGeometry(5,5,5,64);
+var formaTronco = new THREE.CylinderGeometry(5,5,10,64);
 var materialTronco = new THREE.MeshBasicMaterial({color: 0x907736});
 var tronco = new THREE.Mesh(formaTronco,materialTronco);
 tronco.position.y=0;
@@ -15,7 +15,7 @@ tronco.position.y=0;
 var formaHoja = new THREE.SphereGeometry(10,64,30);
 var materialHoja = new THREE.MeshBasicMaterial({color: 0x35D02A});
 var hoja = new THREE.Mesh(formaHoja,materialHoja);
-hoja.position.y=-15;
+hoja.position.y=-20;
 
 escena.add(tronco);
 escena.add(hoja);
