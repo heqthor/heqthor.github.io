@@ -8,7 +8,7 @@ renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
 
 var formaTronco = new THREE.CylinderGeometry(3,1,20,64);
-var materialTronco = new THREE.MeshPhongMaterial({color: 0x907736});
+var materialTronco = new THREE.MeshBasicMaterial({color: 0x907736});
 var tronco = new THREE.Mesh(formaTronco,materialTronco);
 tronco.position.y=10;
 
