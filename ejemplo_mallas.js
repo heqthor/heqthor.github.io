@@ -1,9 +1,9 @@
 var forma = new THREE.Geometry();
-forma.vertices.push( new THREE.Vector3( 1, 0, 1) ); // se crean vertices
-forma.vertices.push( new THREE.Vector3( 1, 0,-1) );
-forma.vertices.push( new THREE.Vector3(-1, 0,-1) );
+forma.vertices.push( new THREE.Vector3( 1,-5, 1) ); // se crean vertices
+forma.vertices.push( new THREE.Vector3( 1,-3,-1) );
+forma.vertices.push( new THREE.Vector3(-1,4,-1) );
 forma.vertices.push( new THREE.Vector3(-1, 0, 1) );
-forma.vertices.push( new THREE.Vector3( 0, 1, 0) );
+forma.vertices.push( new THREE.Vector3( 0, 8, 0) );
 
 forma.faces.push( new THREE.Face3( 3, 2, 1 ) ); //se crean las caras a partir del número de vertice
 forma.faces.push( new THREE.Face3( 3, 1, 0 ) );
