@@ -15,7 +15,7 @@ forma.faces.push( new THREE.Face3( 2, 3, 4 ) );
 forma.computeBoundingSphere(); // se computa la esfera que rodea al objeto
 forma.computeFaceNormals(); // se computan las normales a las caras del objeto
 
-var material new THREE.MeshNormalMaterial();
+var material = new THREE.MeshNormalMaterial();
 
 var malla = new THREE.Mesh( forma, material);
 malla.rotateX(Math.PI/4);
