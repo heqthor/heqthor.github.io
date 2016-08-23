@@ -15,7 +15,7 @@ forma.faces.push( new THREE.Face3( 2, 3, 4 ) );
 forma.computeBoundingSphere(); // se computa la esfera que rodea al objeto
 forma.computeFaceNormals(); // se computan las normales a las caras del objeto
 
-var material new THREE.MeshBasicMaterial();
+var material new THREE.MeshNormalMaterial();
 
 var malla = new THREE.Mesh( forma, material);
 malla.rotateX(Math.PI/4);
@@ -24,7 +24,7 @@ var escena = new THREE.Scene();
 escena.add( malla );
 
 var camara = new THREE.PerspectiveCamera();
-camara.position.z = 5;
+camara.position.z = 50;
 
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight * .95,window.innerHeight * .95);
