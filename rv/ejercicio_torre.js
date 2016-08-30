@@ -17,7 +17,10 @@ puntos.push(new THREE.Vector2(0,60));
 puntos.push(new THREE.Vector2(0,0));
 
 var torreForma= new THREE.LatheGeometry(puntos);
-
+for(var i=0; i<=6;i++){
+  var pico = new THREE.CylinderGeometry( 5, 6, 5, 32 );
+  pico.translate(60)
+}
 var material = new THREE.MeshNormalMaterial();
 var torreMalla = new THREE.Mesh(torreForma, material);
 torreMalla.rotateX(Math.PI/4);
