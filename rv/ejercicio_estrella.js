@@ -2,7 +2,7 @@ var figura = new THREE.Shape();
 var picos=4;
 var long=20;
 
-figura.moveTo(0,0);
+figura.moveTo(20,0);
 
 for(var i=1; i<=picos*2;i++){
   if(i%2==0){
@@ -12,7 +12,6 @@ for(var i=1; i<=picos*2;i++){
   }
 figura.lineTo(long*Math.cos(Math.PI*2/(picos*2)*i),long*Math.sin(Math.PI*2/(picos*2)*i));
 }
-figura.lineTo(0,0);
 var estrella= new THREE.ShapeGeometry(figura);
 var estrellaMalla = new THREE.Mesh(estrella);
 
