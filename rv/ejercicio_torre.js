@@ -19,13 +19,12 @@ puntos.push(new THREE.Vector2(0,0));
 var baseForma= new THREE.LatheGeometry(puntos);
 var torreForma= new THREE.Geometry();
 
-var picoForma = new THREE.CylinderGeometry( 5, 6, 5, 32 );
-
-
-  picoForma.translate(20*(Math.sin(Math.PI*2/6*2)),60,20*(Math.cos(Math.PI*2/6*2)));
-
+for(var i=0; i<=6; i++){
+  var picoForma = new THREE.CylinderGeometry( 5, 4, 5, 32 );
+  picoForma.translate(18*(Math.sin(Math.PI*2/6*i)),60,18*(Math.cos(Math.PI*2/6*i)));
 var picoMalla =new THREE.Mesh(picoForma); 
   torreForma.merge(picoMalla.geometry, picoMalla.matrix);
+}
 
 /*var troncoMalla = new THREE.Mesh(troncoForma);
 var esferaMalla = new THREE.Mesh(esferaForma);
