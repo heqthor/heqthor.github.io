@@ -12,7 +12,7 @@ for(var i=1; i<=picos*2;i++){
   }
 figura.lineTo(long*Math.cos(Math.PI*2/(picos*2)*i),long*Math.sin(Math.PI*2/(picos*2)*i));
 }
-figura.lineTo(10*Math.cos(Math.PI*2/(picos*2)),long*Math.sin(Math.PI*2/(picos*2)));
+figura.lineTo(10*Math.cos(Math.PI*2/(picos*2)),10*Math.sin(Math.PI*2/(picos*2)));
 var estrella= new THREE.ShapeGeometry(figura);
 var estrellaMalla = new THREE.Mesh(estrella);
 
