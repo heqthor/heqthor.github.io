@@ -1,5 +1,5 @@
 var figura = new THREE.Shape();
-var picos=5;
+var picos=6;
 var long=20;
 
 figura.moveTo(20,0);
