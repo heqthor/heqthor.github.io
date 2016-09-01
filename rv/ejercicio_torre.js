@@ -24,20 +24,13 @@ var torreForma= new THREE.Geometry();
 torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 
 for(var i=0; i<=6; i++){
-  var picoForma = new THREE.CylinderGeometry( 4, 2, 40, 32 );
-  picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),80,13*(Math.cos(Math.PI*2/6*i)));
+var picoForma = new THREE.CylinderGeometry( 4, 2, 30, 32 );
+  picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),60,13*(Math.cos(Math.PI*2/6*i)));
 var picoMalla =new THREE.Mesh(picoForma); 
   torreForma.merge(picoMalla.geometry, picoMalla.matrix);
 }
 
-/*var troncoMalla = new THREE.Mesh(troncoForma);
-var esferaMalla = new THREE.Mesh(esferaForma);
 
-var arbolForma = new THREE.Geometry();
-
-arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
-arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
-*/
 var material = new THREE.MeshNormalMaterial();
 
 var torreMalla = new THREE.Mesh(torreForma,material);
