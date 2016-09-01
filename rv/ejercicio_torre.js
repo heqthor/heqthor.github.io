@@ -20,8 +20,8 @@ var baseForma= new THREE.LatheGeometry(puntos);
 var torreForma= new THREE.Geometry();
 
 for(var i=0; i<=6; i++){
-  var picoForma = new THREE.CylinderGeometry( 5, 4, 5, 32 );
-  picoForma.translate(18*(Math.sin(Math.PI*2/6*i)),60,18*(Math.cos(Math.PI*2/6*i)));
+  var picoForma = new THREE.CylinderGeometry( 6, 4, 10, 32 );
+  picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),60,13*(Math.cos(Math.PI*2/6*i)));
 var picoMalla =new THREE.Mesh(picoForma); 
   torreForma.merge(picoMalla.geometry, picoMalla.matrix);
 }
