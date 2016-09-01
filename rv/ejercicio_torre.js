@@ -24,7 +24,7 @@ var torreForma= new THREE.Geometry();
 torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 
 for(var i=0; i<=6; i++){
-  var picoForma = new THREE.CylinderGeometry( 4, 2, 15, 32 );
+  var picoForma = new THREE.CylinderGeometry( 5, 3, 25, 32 );
   picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),65,13*(Math.cos(Math.PI*2/6*i)));
 var picoMalla =new THREE.Mesh(picoForma); 
   torreForma.merge(picoMalla.geometry, picoMalla.matrix);
@@ -42,7 +42,7 @@ var material = new THREE.MeshNormalMaterial();
 
 var torreMalla = new THREE.Mesh(torreForma,material);
 
-//torreMalla.rotateX(Math.PI/4);
+torreMalla.rotateX(Math.PI/4);
 
 var escena = new THREE.Scene();
 escena.add(torreMalla);
