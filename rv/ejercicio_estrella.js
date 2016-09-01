@@ -1,6 +1,8 @@
-var puntos=[];
+var figura = new THREE.Shape();
 var picos=4;
 var long=20;
+
+figura.moveTo(0,0);
 
 for(var i=0; i<=picos*2-1;i++){
   if(i%2==0){
@@ -8,12 +10,10 @@ for(var i=0; i<=picos*2-1;i++){
   }else{
     long=10;
   }
-  puntos.push(new THREE.Vector2(long*Math.cos(Math.PI*2/(picos*2-1)*i),long*Math.sin(Math.PI*2/(picos*2-1)*i)));
+figura.lineTo(long*Math.cos(Math.PI*2/(picos*2-1)*i),long*Math.sin(Math.PI*2/(picos*2-1)*i));
 }
-var material = new THREE.MeshNormalMaterial();
-var estrella = new THREE.Geometry(puntos);
-
-var estrellaMalla = new THREE.Mesh(estrella,material);
+var estrella= new THREE.ShapeGeometry(figura);
+var estrellaMalla = new THREE.Mesh(estrella);
 
 
 
