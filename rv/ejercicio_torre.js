@@ -24,7 +24,7 @@ var torreForma= new THREE.Geometry();
 torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 
 for(var i=0; i<=6; i++){
-var picoForma = new THREE.CylinderGeometry( 4, 2, 30, 32 );
+var picoForma = new THREE.CylinderGeometry( 4, 2, 10, 32 );
   picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),60,13*(Math.cos(Math.PI*2/6*i)));
 var picoMalla =new THREE.Mesh(picoForma); 
   torreForma.merge(picoMalla.geometry, picoMalla.matrix);
