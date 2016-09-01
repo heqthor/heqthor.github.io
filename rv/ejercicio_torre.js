@@ -36,7 +36,10 @@ arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 */
 var material = new THREE.MeshNormalMaterial();
-var baseMalla = new THREE.Mesh(baseForma, material);
+var baseMalla = new THREE.Mesh(baseForma);
+
+var torreMalla = new THREE.Mesh(torreForma,material);
+
 torreMalla.rotateX(Math.PI/4);
 
 var escena = new THREE.Scene();
