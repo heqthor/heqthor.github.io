@@ -1,5 +1,6 @@
+///Se puede cambiar el número de picos cambiando la variable que se presenta abajo
 var figura = new THREE.Shape();
-var picos=6;
+var picos=10;
 var long=20;
 
 figura.moveTo(20,0);
