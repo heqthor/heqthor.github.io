@@ -17,11 +17,15 @@ puntos.push(new THREE.Vector2(0,60));
 puntos.push(new THREE.Vector2(0,0));
 
 var baseForma= new THREE.LatheGeometry(puntos);
+var baseMalla = new THREE.Mesh(baseForma);
+
 var torreForma= new THREE.Geometry();
 
+torreForma.merge(baseMalla.geometry, baseMalla.matrix);
+
 for(var i=0; i<=6; i++){
-  var picoForma = new THREE.CylinderGeometry( 6, 4, 10, 32 );
-  picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),60,13*(Math.cos(Math.PI*2/6*i)));
+  var picoForma = new THREE.CylinderGeometry( 6, 3, 10, 32 );
+  picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),65,13*(Math.cos(Math.PI*2/6*i)));
 var picoMalla =new THREE.Mesh(picoForma); 
   torreForma.merge(picoMalla.geometry, picoMalla.matrix);
 }
@@ -35,9 +39,6 @@ arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
 arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
 */
 var material = new THREE.MeshNormalMaterial();
-var baseMalla = new THREE.Mesh(baseForma);
-
-torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 
 var torreMalla = new THREE.Mesh(torreForma,material);
 
