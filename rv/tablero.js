@@ -3,8 +3,8 @@ var color=0;
 
 var escena = new THREE.Scene();
 
-for(var i=0;i<=8;i++){
-  for(var j=0;j<=8;j++){
+for(var i=0;i<=7;i++){
+  for(var j=0;j<=7;j++){
     var cuboForma = new THREE.BoxGeometry(10,10,5);
     cuboForma.translate(-35+i*10,35-j*10,0);
     if(color%2==0){
