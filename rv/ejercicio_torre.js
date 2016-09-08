@@ -30,12 +30,12 @@ var picoMalla =new THREE.Mesh(picoForma);
   torreForma.merge(picoMalla.geometry, picoMalla.matrix);
 }
 
-
-var material = new THREE.MeshBasicMaterial({color: 0x888888});
+/*
+var material = new THREE.MeshNormalMaterial();
 var torreMalla = new THREE.Mesh(torreForma,material);
 
 
-/*
+
 var escena = new THREE.Scene();
 escena.add(torreMalla);
 
