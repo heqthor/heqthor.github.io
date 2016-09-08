@@ -18,7 +18,8 @@ for(var i=0;i<=7;i++){
   }
 }
 
-var bordeForma = new THREE.BoxGeometry(100,100,10);
+var bordeForma = new THREE.BoxGeometry(100,100,5);
+bordeForma.translate(0,0,-5);
 var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
 var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
 
