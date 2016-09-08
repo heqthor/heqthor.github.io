@@ -16,7 +16,7 @@ for(var i=0;i<=7;i++){
     escena.add(cuboMalla);
     color=color+1;
   }
-  color=0;
+  color=color+1;
 }
 
 var bordeForma = new THREE.BoxGeometry(100,100,5);
