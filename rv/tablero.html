@@ -14,7 +14,7 @@
   </script>
   <script src="./tablero.js"></script>
   <script src="./ejercicio_torre.js"></script>
-  
+  <script>
   var material = new THREE.MeshBasicMaterial({color: 0x888888});
   var torreMalla = new THREE.Mesh(torreForma,material);
   
@@ -31,6 +31,6 @@ var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
 renderizador.render(escena,camara);
-  
+  </script>
   </body>
 </html>
