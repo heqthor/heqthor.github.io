@@ -31,7 +31,7 @@ var picoMalla =new THREE.Mesh(picoForma);
 }
 
 
-var material = new THREE.MeshNormalMaterial();
+var material = new THREE.MeshBasicMaterial({color: 0x888888});
 var torreMalla = new THREE.Mesh(torreForma,material);
 
 
