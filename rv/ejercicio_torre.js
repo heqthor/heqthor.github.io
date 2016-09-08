@@ -32,11 +32,10 @@ var picoMalla =new THREE.Mesh(picoForma);
 
 
 var material = new THREE.MeshNormalMaterial();
-
 var torreMalla = new THREE.Mesh(torreForma,material);
 
 
-
+/*
 var escena = new THREE.Scene();
 escena.add(torreMalla);
 
@@ -47,3 +46,4 @@ var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
 renderizador.render(escena,camara);
+/*
