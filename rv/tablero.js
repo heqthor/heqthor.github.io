@@ -1,6 +1,8 @@
 var tableroForma = new THREE.Geometry();
 var color=0;
 
+var escena = new THREE.Scene();
+
 for(var i=0;i<=8;i++){
   for(var j=0;j<=8;j++){
     var cuboForma = new THREE.BoxGeometry(10,10,5);
@@ -10,9 +12,8 @@ for(var i=0;i<=8;i++){
     }else{
     var materialCubo = new THREE.MeshBasicMaterial({color: 0xffffff});
     }
-    var materialCubo = new THREE.MeshBasicMaterial({color: 0xffffff});
     var cuboMalla = new THREE.Mesh(cuboForma,materialCubo);
-    tableroForma.merge(cuboMalla.geometry, cuboMalla.matrix);
+    escena.add(cuboMalla);
     color=color+1;
   }
 }
@@ -40,8 +41,7 @@ var torreMalla = new THREE.Mesh(torreForma,material);
 
 */
 
-var escena = new THREE.Scene();
-escena.add(tableroMalla);
+
 
 var camara = new THREE.PerspectiveCamera();
 camara.position.z=200;
