@@ -22,9 +22,8 @@ var bordeForma = new THREE.BoxGeometry(100,100,5);
 bordeForma.translate(0,0,-5);
 var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
 var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
-
+/*
 escena.add(bordeMalla);
-escena.add(torreMalla);
 
 
 var camara = new THREE.PerspectiveCamera();
@@ -36,4 +35,4 @@ camara.lookAt(new THREE.Vector3(0,0,0));
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95,window.innerHeight*.95);
 document.body.appendChild(renderizador.domElement);
-renderizador.render(escena,camara);
+renderizador.render(escena,camara);*/
