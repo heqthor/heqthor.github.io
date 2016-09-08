@@ -16,7 +16,7 @@ for(var i=0;i<=8;i++){
   }
 }
 
-var material = new THREE.MeshMaterial();
+var material = new THREE.Mesh();
 
 var tableroMalla = new THREE.Mesh(tableroForma,material);
 
