@@ -24,6 +24,7 @@ var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
 var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
 
 escena.add(bordeMalla);
+escena.add(torreMalla);
 
 
 var camara = new THREE.PerspectiveCamera();
