@@ -10,6 +10,7 @@ for(var i=0;i<=8;i++){
     }else{
     var materialCubo = new THREE.MeshBasicMaterial({color: 0xffffff});
     }
+    var materialCubo = new THREE.MeshBasicMaterial({color: 0xffffff});
     var cuboMalla = new THREE.Mesh(cuboForma,materialCubo);
     tableroForma.merge(cuboMalla.geometry, cuboMalla.matrix);
     color=color+1;
