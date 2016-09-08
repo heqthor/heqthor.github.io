@@ -15,5 +15,9 @@
   <script src="./tablero.js"></script>
   <script src="./ejercicio_torre.js"></script>
   
+  var material = new THREE.MeshBasicMaterial({color: 0x888888});
+  var torreMalla = new THREE.Mesh(torreForma,material);
+  escena.add(torreMalla);
+  
   </body>
 </html>
