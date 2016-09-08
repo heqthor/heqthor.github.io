@@ -36,7 +36,8 @@ var escena = new THREE.Scene();
 escena.add(tableroMalla);
 
 var camara = new THREE.PerspectiveCamera();
-camara.position.z=300;
+camara.position.y=200;
+camara.rotateX(Math.PI/4);
 
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize( window.innerHeight*.95,window.innerHeight*.95);
