@@ -18,6 +18,12 @@ for(var i=0;i<=8;i++){
   }
 }
 
+var bordeForma = new THREE.BoxGeometry(100,100,10);
+var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
+var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
+
+escena.add(bordeMalla);
+
 
 var camara = new THREE.PerspectiveCamera();
 camara.position.z=200;
