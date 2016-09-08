@@ -5,7 +5,7 @@ for(var i=0;i<=8;i++){
     var cubo = new THREE.BoxGeometry(10,10,5);
     cubo.translate(-35+i*10,35-j*10,0);
     var cuboMalla = new THREE.Mesh(cubo);
-    tableroForma.merge(cuboMalla.geometry,cuboMalla.matrix);
+    tableroForma.merge(cuboMalla.geometry, cuboMalla.matrix);
   }
 }
 
