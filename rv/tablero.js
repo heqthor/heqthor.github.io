@@ -27,7 +27,7 @@ escena.add(bordeMalla);
 
 
 var camara = new THREE.PerspectiveCamera();
-camara.position.x=100;
+camara.position.x=0;
 camara.position.y=-100;
 camara.position.z=100;
 camara.lookAt(new THREE.Vector3(0,0,0));
