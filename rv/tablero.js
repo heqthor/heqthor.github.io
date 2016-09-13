@@ -1,9 +1,9 @@
 var tableroForma = new THREE.Geometry();
 var color=0;
 var escena = new THREE.Scene();
-var [][] cuboForma;
-var [][] materialCubo;
-var [][] cuboMalla;
+var [][] cuboForma = new THREE.BoxGeometry[8][8];
+var [][] materialCubo= new THREE.MeshBasicMaterial[8][8];
+var [][] cuboMalla = new THREE.MeshBasicMaterial[8][8];
 
 for(var i=0;i<=7;i++){
   for(var j=0;j<=7;j++){
