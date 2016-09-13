@@ -3,7 +3,7 @@ var color=0;
 var escena = new THREE.Scene();
 var  cuboForma = [8][8];
 var  materialCubo= [8][8];
-var  cuboMalla = new THREE[8][8];
+var  cuboMalla = [8][8];
 
 for(var i=0;i<=7;i++){
   for(var j=0;j<=7;j++){
