@@ -1,7 +1,7 @@
 var tableroForma = new THREE.Geometry();
 var color=0;
 
-var escena = new THREE.Scene();
+
 for(var i=0;i<=7;i++){
   for(var j=0;j<=7;j++){
     var cuboForma = new THREE.BoxGeometry(10,10,5);
