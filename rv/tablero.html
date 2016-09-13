@@ -14,24 +14,6 @@
   </script>
   <script src="./tablero.js"></script>
   <script>
-  /*
-  var material = new THREE.MeshBasicMaterial({color: 0x888888});
-  var torreMalla = new THREE.Mesh(torreForma,material);
-  */
-  
-  escena.add(bordeMalla);
-
-
-  var camara = new THREE.PerspectiveCamera();
-camara.position.x=0;
-camara.position.y=-100;
-camara.position.z=100;
-camara.lookAt(new THREE.Vector3(0,0,0));
-
-var renderizador = new THREE.WebGLRenderer();
-renderizador.setSize( window.innerHeight*.95,window.innerHeight*.95);
-document.body.appendChild(renderizador.domElement);
-renderizador.render(escena,camara);
-  </script>
+    </script>
   </body>
 </html>
