@@ -2,7 +2,7 @@ var tableroForma = new THREE.Geometry();
 var color=0;
 var escena = new THREE.Scene();
 var  cuboForma = [8][8];
-var [][] materialCubo= new THREE[8][8];
+var  materialCubo= [8][8];
 var  cuboMalla = new THREE[8][8];
 
 for(var i=0;i<=7;i++){
