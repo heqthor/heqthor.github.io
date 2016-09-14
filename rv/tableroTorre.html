@@ -20,6 +20,7 @@ var escena = new THREE.Scene();
   <script src="./ejercicio_torre.js"></script>
   <script>
   var torre = [];
+  var torre4=torreMalla;
   torre.push(torreMalla);
   torre.push(torreMalla);
   torre.push(torreMalla);
@@ -55,14 +56,14 @@ var escena = new THREE.Scene();
   escena.add(torre[2]);
   
   ///torre4
-  torre[3].rotateX(Math.PI/2);
-  torre[3].position.x=32.5;
-  torre[3].position.y=-32.5;
-  torre[3].position.z=5;
-  torre[3].scale.x=.2;
-  torre[3].scale.y=.2;
-  torre[3].scale.z=.2;
-  escena.add(torre[3]);
+  torre4.rotateX(Math.PI/2);
+  torre4.position.x=32.5;
+  torre4.position.y=-32.5;
+  torre4.position.z=5;
+  torre4.scale.x=.2;
+  torre4.scale.y=.2;
+  torre4.scale.z=.2;
+  escena.add(torre4);
   
   var camara = new THREE.PerspectiveCamera();
   camara.position.x=000;
