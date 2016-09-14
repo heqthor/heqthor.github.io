@@ -24,7 +24,6 @@ var escena = new THREE.Scene();
   torre.push(torreMalla);
   torre.push(torreMalla);
   torre.push(torreMalla);
-  torre4.push(torreMalla);
   ///torre1
   torre[0].rotateX(Math.PI/2);
   torre[0].position.x=-32.5;
@@ -35,25 +34,7 @@ var escena = new THREE.Scene();
   torre[0].scale.z=.2;
   escena.add(torre[0]);
   
-  ///torre2
-  torre[1].rotateX(Math.PI/2);
-  torre[1].position.x=-32.5;
-  torre[1].position.y=32.5;
-  torre[1].position.z=5;
-  torre[1].scale.x=.2;
-  torre[1].scale.y=.2;
-  torre[1].scale.z=.2;
-  escena.add(torre[1]);
   
-  ///torre3
-  torre[2].rotateX(Math.PI/2);
-  torre[2].position.x=32.5;
-  torre[2].position.y=32.5;
-  torre[2].position.z=5;
-  torre[2].scale.x=.2;
-  torre[2].scale.y=.2;
-  torre[2].scale.z=.2;
-  escena.add(torre[2]);
   
   ///torre4
   torre4.rotateX(Math.PI/2);
