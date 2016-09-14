@@ -19,11 +19,13 @@ var escena = new THREE.Scene();
   <script src="./tablero.js"></script>
   <script src="./ejercicio_torre.js"></script>
   <script>
-  var torre1 = new torreMalla;
-  torre1.scale.x=10;
-  torre1.scale.y=10;
-  torre1.scale.z=10;
-  escena.add(torre1);
+  var torre = [];
+  torre.push(torreMalla);
+  torre.push(torreMalla);
+  torre[0].scale.x=10;
+  torre[0].scale.y=10;
+  torre[0].scale.z=10;
+  escena.add(torre);
   
   </script>
   <script>
