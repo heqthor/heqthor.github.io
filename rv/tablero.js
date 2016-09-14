@@ -1,6 +1,6 @@
 var tableroForma = new THREE.Geometry();
 var color=0;
-
+// var escena = new THREE.Scene();
 
 for(var i=0;i<8;i++){
   for(var j=0;j<8;j++){
