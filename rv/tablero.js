@@ -1,11 +1,12 @@
 var tableroForma = new THREE.Geometry();
 var color=0;
 var escena = new THREE.Scene();
-var  cuboForma = new THREE[8][8];
+var  cuboForma = new Array(8);
 var  materialCubo= [8][8];
 var  cuboMalla = [8][8];
 
 for(var i=0;i<8;i++){
+  cuboForma[i]=new Array(8);
   for(var j=0;j<8;j++){
     cuboForma[i][j]=  new THREE.BoxGeometry(10,10,5);
     cuboForma[i][j].translate(-35+i*10,35-j*10,0);
