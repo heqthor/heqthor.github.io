@@ -19,20 +19,17 @@ var escena = new THREE.Scene();
   <script src="./tablero.js"></script>
   <script src="./ejercicio_torre.js"></script>
   <script>
-  var torre = [];
+  var torre1 = torreMalla;
   var torre4=torreMalla;
-  torre.push(torreMalla);
-  torre.push(torreMalla);
-  torre.push(torreMalla);
   ///torre1
-  torre[0].rotateX(Math.PI/2);
-  torre[0].position.x=-32.5;
-  torre[0].position.y=-32.5;
-  torre[0].position.z=5;
-  torre[0].scale.x=.2;
-  torre[0].scale.y=.2;
-  torre[0].scale.z=.2;
-  escena.add(torre[0]);
+  torre1.rotateX(Math.PI/2);
+  torre1.position.x=-32.5;
+  torre1.position.y=-32.5;
+  torre1.position.z=5;
+  torre1.scale.x=.2;
+  torre1.scale.y=.2;
+  torre1.scale.z=.2;
+  escena.add(torre1);
   
   
   
