@@ -1,7 +1,7 @@
 var tableroForma = new THREE.Geometry();
 var color=0;
 var escena = new THREE.Scene();
-var  cuboForma = new THREE.BoxGeometry[8][8];
+var  cuboForma = new THREE.BoxGeometry()[8][8];
 var  materialCubo= [8][8];
 var  cuboMalla = [8][8];
 
