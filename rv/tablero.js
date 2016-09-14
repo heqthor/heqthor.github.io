@@ -5,8 +5,8 @@ var  cuboForma = [8][8];
 var  materialCubo= [8][8];
 var  cuboMalla = [8][8];
 
-for(var i=0;i<=7;i++){
-  for(var j=0;j<=7;j++){
+for(var i=0;i<8;i++){
+  for(var j=0;j<8;j++){
     cuboForma[i][j]=  new THREE.BoxGeometry(10,10,5);
     cuboForma[i][j].translate(-35+i*10,35-j*10,0);
     if(color%2==0){
