@@ -19,6 +19,7 @@ for(var i=0;i<8;i++){
     }
     cuboMalla[i][j] = new THREE.Mesh(cuboForma,materialCubo);
     color=color+1;
+escena.add(cuboMalla[i][j]);
   }
   color=color+1;
 }
@@ -28,7 +29,6 @@ bordeForma.translate(0,0,-5);
 var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
 var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
 
-escena.add(cuboMalla[5][6]);
 escena.add(bordeMalla);
 
 
