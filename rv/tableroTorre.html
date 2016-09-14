@@ -22,11 +22,12 @@ var escena = new THREE.Scene();
   var torre = [];
   torre.push(torreMalla);
   torre.push(torreMalla);
-  torre[0].rotateX(Math.PI/2);
-  torre[0].scale.x=0.5;
-  torre[0].scale.y=0.5;
-  torre[0].scale.z=0.5;
-  escena.add(torre[0]);
+  torre.rotateX(Math.PI/2);
+  torre.scale.x=0.5;
+  torre.scale.y=0.5;
+  torre.scale.z=0.5;
+  torre[0].translate(0,5,0);
+  escena.add(torre);
   
   var camara = new THREE.PerspectiveCamera();
   camara.position.x=000;
