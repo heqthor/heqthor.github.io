@@ -1,5 +1,24 @@
 var tableroForma = new THREE.Geometry();
 var color=0;
+
+
+for(var i=0;i<8;i++){
+  for(var j=0;j<8;j++){
+    var cuboForma=  new THREE.BoxGeometry(10,10,5);
+    var cuboForma.translate(-35+i*10,35-j*10,0);
+    if(color%2==0){
+    var materialCubo = new THREE.MeshBasicMaterial({color: 0x888888});
+    }else{
+    var materialCubo = new THREE.MeshBasicMaterial({color: 0xffffff});
+    }
+    var cuboMalla = new THREE.Mesh(cuboForma,materialCubo);
+    color=color+1;
+    escena.add(cuboMalla);
+  }
+  color=color+1;
+}
+
+/*
 var  cuboForma = new Array(8);
 var  materialCubo= new Array(8);
 var  cuboMalla = new Array(8);
@@ -21,6 +40,7 @@ for(var i=0;i<8;i++){
   }
   color=color+1;
 }
+*/
 
 var bordeForma = new THREE.BoxGeometry(100,100,5);
 bordeForma.translate(0,0,-5);
@@ -28,7 +48,6 @@ var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
 var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
 
 escena.add(bordeMalla);
-escena.add(cuboMalla);
 
 
 var camara = new THREE.PerspectiveCamera();
