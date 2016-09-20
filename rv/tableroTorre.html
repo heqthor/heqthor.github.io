@@ -26,7 +26,7 @@ var escena = new THREE.Scene();
   ///torre1
   //var material = new THREE.MeshNormalMaterial();
   //var torreMalla = new THREE.Mesh(torreForma,material);
-  torre1.material=new THREE.MeshLambertMaterial({color: 0xce21c3});
+  torre1.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre1.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre1.opacity=0.5;
   torre1.rotateX(Math.PI/2);
@@ -39,7 +39,7 @@ var escena = new THREE.Scene();
   escena.add(torre1);
   
   ///torre2
-  torre2.material=new THREE.MeshBasicMaterial({color: 0xce21c3});
+  torre2.material=new THREE.MeshBasicMaterial({color: 0xFFFFFF});
   torre2.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre2.rotateX(Math.PI/2);
   torre2.position.x=-35;
@@ -51,7 +51,7 @@ var escena = new THREE.Scene();
   escena.add(torre2);
   
   ///torre3
-  torre3.material=new THREE.MeshBasicMaterial({color: 0xce21c3});
+  torre3.material=new THREE.MeshBasicMaterial({color: 0xFFFFFF});
   torre3.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre3.rotateX(Math.PI/2);
   torre3.position.x=35;
@@ -63,7 +63,7 @@ var escena = new THREE.Scene();
   escena.add(torre3);
   
   ///torre4
-  torre4.material=new THREE.MeshBasicMaterial({color: 0xce21c3});
+  torre4.material=new THREE.MeshBasicMaterial({color: 0xFFFFFF});
   torre4.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre4.rotateX(Math.PI/2);
   torre4.position.x=35;
@@ -83,15 +83,19 @@ var escena = new THREE.Scene();
   luz1.position.z = 60;
   escena.add(luz1);
   
-  var luz2 = new THREE.PointLight(0xFFFFFF);
+  // MAGENTA
+  var luz2 = new THREE.PointLight(0xFF00FF);
   luz1.position.x = 60;
   luz1.position.y = 60;
   luz1.position.z = 60;
+  escena.add(luz2);
   
-  var luz3 = new THREE.PointLight(0xFFFFFF);
+  // AMARILLO
+  var luz3 = new THREE.PointLight(0xFFFF00);
   luz1.position.x = -60;
   luz1.position.y = -60;
   luz1.position.z = 60;
+  escena.add(luz3);
 
 
   
@@ -111,6 +115,8 @@ var escena = new THREE.Scene();
   torre1.castShadow = true;
   cuboMalla.receiveShadow = true;
   luz1.castShadow =true;
+  luz2.castShadow =true;
+  luz3.castShadow =true;
   
   renderizador.render(escena,camara);
 
