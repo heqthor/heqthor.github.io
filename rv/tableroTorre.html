@@ -39,7 +39,7 @@ var escena = new THREE.Scene();
   escena.add(torre1);
   
   ///torre2
-  torre2.material=new THREE.MeshBasicMaterial({color: 0xFFFFFF});
+  torre2.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre2.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre2.rotateX(Math.PI/2);
   torre2.position.x=-35;
@@ -51,7 +51,7 @@ var escena = new THREE.Scene();
   escena.add(torre2);
   
   ///torre3
-  torre3.material=new THREE.MeshBasicMaterial({color: 0xFFFFFF});
+  torre3.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre3.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre3.rotateX(Math.PI/2);
   torre3.position.x=35;
