@@ -63,7 +63,7 @@ var escena = new THREE.Scene();
   escena.add(torre3);
   
   ///torre4
-  torre4.material=new THREE.MeshBasicMaterial({color: 0xFFFFFF});
+  torre4.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre4.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre4.rotateX(Math.PI/2);
   torre4.position.x=35;
