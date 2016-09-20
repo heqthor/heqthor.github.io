@@ -43,7 +43,7 @@ var escena = new THREE.Scene();
   torre2.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre2.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre2.material.opacity=0.75;
-  torre2.material.transparent=false;
+  torre2.material.transparent=true;
   torre2.rotateX(Math.PI/2);
   torre2.position.x=-35;
   torre2.position.y=35;
