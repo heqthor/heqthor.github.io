@@ -26,9 +26,10 @@ var escena = new THREE.Scene();
   ///torre1
   //var material = new THREE.MeshNormalMaterial();
   //var torreMalla = new THREE.Mesh(torreForma,material);
-  torre1.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF, transparent: true});
+  torre1.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre1.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
-  torre1.opacity=0.5;
+  torre1.material.opacity=0.5;
+  torre1.material.transparent=true;
   torre1.rotateX(Math.PI/2);
   torre1.position.x=-35;
   torre1.position.y=-35;
