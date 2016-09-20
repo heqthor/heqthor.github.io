@@ -7,9 +7,9 @@ for(var i=0;i<8;i++){
     var cuboForma=  new THREE.BoxGeometry(10,10,5);
     cuboForma.translate(-35+i*10,35-j*10,0);
     if(color%2==0){
-    var materialCubo = new THREE.MeshBasicMaterial({color: 0x888888});
+    var materialCubo = new THREE.MeshLambertMaterial({color: 0x888888});
     }else{
-    var materialCubo = new THREE.MeshBasicMaterial({color: 0xffffff});
+    var materialCubo = new THREE.MeshLambertMaterial({color: 0xffffff});
     }
     var cuboMalla = new THREE.Mesh(cuboForma,materialCubo);
     color=color+1;
