@@ -26,7 +26,7 @@ var escena = new THREE.Scene();
   ///torre1
   //var material = new THREE.MeshNormalMaterial();
   //var torreMalla = new THREE.Mesh(torreForma,material);
-  torre1.material=new THREE.MeshBasicMaterial({color: 0xce21c3});
+  torre1.material=new THREE.MeshLambertMaterial({color: 0xce21c3});
   torre1.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre1.opacity=0.5;
   torre1.rotateX(Math.PI/2);
@@ -39,6 +39,8 @@ var escena = new THREE.Scene();
   escena.add(torre1);
   
   ///torre2
+  torre2.material=new THREE.MeshBasicMaterial({color: 0xce21c3});
+  torre2.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre2.rotateX(Math.PI/2);
   torre2.position.x=-35;
   torre2.position.y=35;
@@ -49,6 +51,8 @@ var escena = new THREE.Scene();
   escena.add(torre2);
   
   ///torre3
+  torre3.material=new THREE.MeshBasicMaterial({color: 0xce21c3});
+  torre3.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre3.rotateX(Math.PI/2);
   torre3.position.x=35;
   torre3.position.y=35;
@@ -59,6 +63,8 @@ var escena = new THREE.Scene();
   escena.add(torre3);
   
   ///torre4
+  torre4.material=new THREE.MeshBasicMaterial({color: 0xce21c3});
+  torre4.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
   torre4.rotateX(Math.PI/2);
   torre4.position.x=35;
   torre4.position.y=-35;
@@ -67,6 +73,27 @@ var escena = new THREE.Scene();
   torre4.scale.y=.2;
   torre4.scale.z=.2;
   escena.add(torre4);
+  
+  
+  //----LUZ
+  // CYAN
+  var luz1 = new THREE.PointLight(0x00FFFF);
+  luz1.position.x = -60;
+  luz1.position.y = 60;
+  luz1.position.z = 60;
+  
+  var luz2 = new THREE.PointLight(0xFFFFFF);
+  luz1.position.x = 60;
+  luz1.position.y = 60;
+  luz1.position.z = 60;
+  
+  var luz3 = new THREE.PointLight(0xFFFFFF);
+  luz1.position.x = -60;
+  luz1.position.y = -60;
+  luz1.position.z = 60;
+
+
+  
   
   var camara = new THREE.PerspectiveCamera();
   camara.position.x=000;
@@ -77,6 +104,13 @@ var escena = new THREE.Scene();
   var renderizador = new THREE.WebGLRenderer();
   renderizador.setSize( window.innerHeight*.95,window.innerHeight*.95);
   document.body.appendChild(renderizador.domElement);
+  
+  
+  renderizador.shadowMapEnabled = true;
+  torre1.castShadow = true;
+  cuboMalla.receiveShadow = true;
+  luz1.castShadow =true;
+  
   renderizador.render(escena,camara);
 
 
