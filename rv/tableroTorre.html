@@ -28,7 +28,7 @@ var escena = new THREE.Scene();
   //var torreMalla = new THREE.Mesh(torreForma,material);
   torre1.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre1.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
-  torre1.material.opacity=0.5;
+  torre1.material.opacity=1;
   torre1.material.transparent=true;
   torre1.rotateX(Math.PI/2);
   torre1.position.x=-35;
@@ -42,6 +42,8 @@ var escena = new THREE.Scene();
   ///torre2
   torre2.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre2.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
+  torre2.material.opacity=0.75;
+  torre2.material.transparent=false;
   torre2.rotateX(Math.PI/2);
   torre2.position.x=-35;
   torre2.position.y=35;
@@ -54,6 +56,8 @@ var escena = new THREE.Scene();
   ///torre3
   torre3.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre3.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
+  torre3.material.opacity=0.5;
+  torre3.material.transparent=true;
   torre3.rotateX(Math.PI/2);
   torre3.position.x=35;
   torre3.position.y=35;
@@ -66,6 +70,8 @@ var escena = new THREE.Scene();
   ///torre4
   torre4.material=new THREE.MeshLambertMaterial({color: 0xFFFFFF});
   torre4.torreMalla=new THREE.Mesh(torre1.torreForma, torre1.material);
+  torre4.material.opacity=0.25;
+  torre4.material.transparent=true;
   torre4.rotateX(Math.PI/2);
   torre4.position.x=35;
   torre4.position.y=-35;
