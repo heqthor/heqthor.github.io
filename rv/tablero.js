@@ -14,6 +14,7 @@ for(var i=0;i<8;i++){
     var cuboMalla = new THREE.Mesh(cuboForma,materialCubo);
     color=color+1;
     cuboMalla.receiveShadow=true;
+    cuboMalla.castShadow=true;
     escena.add(cuboMalla);
   }
   color=color+1;
