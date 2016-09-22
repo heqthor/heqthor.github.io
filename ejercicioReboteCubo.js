@@ -34,7 +34,7 @@ var loop = function(){
   
 }
 
-var stepX=0.1,stepY=0.3malla,escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
+var stepX=0.1,stepY=0.3,malla,escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
 
 init(1);
 //main();
