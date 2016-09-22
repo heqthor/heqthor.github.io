@@ -21,12 +21,13 @@ var loop = function(){
   renderizador.render(escena,camara);
   malla.rotateY(0.01);
   malla.rotateX(0.01);
+  malla.rotateZ(0.01);
 }
 
 var malla,escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
 
 init(1);
-main();
+//main();
 loop();
 //main(init);
 
