@@ -22,19 +22,19 @@ var loop = function(){
   malla.rotateY(0.01);
   malla.rotateX(0.01);
   malla.rotateZ(0.01);
-  if(Math.abs(malla.position.x)>5){
+  if(Math.abs(malla.position.x)>=5){
     step=-step;
   }
   malla.position.x+=stepX;
   
-  if(Math.abs(malla.position.y)>5){
+  if(Math.abs(malla.position.y)>=5){
     stepY=-stepY;
   }
   malla.position.y+=stepY;
   
 }
 
-var stepX=0.1,stepY=0.3,malla,escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
+var stepX=0.01,stepY=0.03,malla,escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
 
 init(1);
 //main();
