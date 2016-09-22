@@ -22,10 +22,11 @@ var loop = function(){
   malla.rotateY(0.01);
   malla.rotateX(0.01);
   malla.rotateZ(0.01);
-  if(contX>=700)
-    malla.position.x=1;
-  else
-    malla.position.x=-1;
+  if(contX>=700){
+    contX=contX+1;
+    malla.position.x=contX;}
+  else{
+      malla.position.x=-1;}
   
 }
 
