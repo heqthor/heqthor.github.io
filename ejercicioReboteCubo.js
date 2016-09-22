@@ -22,12 +22,12 @@ var loop = function(){
   malla.rotateY(0.01);
   malla.rotateX(0.01);
   malla.rotateZ(0.01);
-  if(Math.abs(malla.position.x)>=5){
+  if(Math.abs(malla.position.x)>=3){
     step=-step;
   }
   malla.position.x+=stepX;
   
-  if(Math.abs(malla.position.y)>=5){
+  if(Math.abs(malla.position.y)>=3){
     stepY=-stepY;
   }
   malla.position.y+=stepY;
