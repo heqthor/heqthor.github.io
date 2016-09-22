@@ -1,5 +1,5 @@
 function init(p){
-  var malla= new THREE.Mesh(new THREE.BoxGeometry(p,p,p), new THREE.MeshNormalMaterial());
+  malla= new THREE.Mesh(new THREE.BoxGeometry(p,p,p), new THREE.MeshNormalMaterial());
   escena = new THREE.Scene();
   escena.add(malla);
   
@@ -12,12 +12,21 @@ function init(p){
 
 
 var main = function(p){
-  p(1);
+  //p(1);
   renderizador.render(escena,camara);
 }
 
-var escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
+var loop = function(){
+  requestAnimationFrame(loop);
+  renderizador.render(escena,camara);
+  malla.rotateY(0.01);
+  malla.rotateX(0.01);
+}
 
+var malla,escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
 
-main(init);
-  
+init(1);
+main();
+loop();
+//main(init);
+
