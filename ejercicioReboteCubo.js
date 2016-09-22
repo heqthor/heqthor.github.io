@@ -23,7 +23,7 @@ var loop = function(){
   malla.rotateX(0.01);
   malla.rotateZ(0.01);
   if(Math.abs(malla.position.x)>=3){
-    step=-step;
+    stepX=-stepX;
   }
   malla.position.x+=stepX;
   
