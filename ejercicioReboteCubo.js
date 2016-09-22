@@ -22,9 +22,14 @@ var loop = function(){
   malla.rotateY(0.01);
   malla.rotateX(0.01);
   malla.rotateZ(0.01);
+  if(contX>=700)
+    malla.position.x=1;
+  else
+    malla.position.x=-1;
+  
 }
 
-var malla,escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
+var contY,contX,malla,escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
 
 init(1);
 //main();
