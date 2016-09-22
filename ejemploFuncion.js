@@ -12,11 +12,12 @@ function init(p){
 
 
 var main = function(p){
+  p(1);
   renderizador.render(escena,camara);
 }
 
 var escena, camara, renderizador;///----No hay var en éstas porque son variables globales y no estaban declaradas
 
-init(1);
-main();
+
+main(init);
   
