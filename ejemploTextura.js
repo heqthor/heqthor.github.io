@@ -1,0 +1,1 @@
+var TEXTURA = new Object();
