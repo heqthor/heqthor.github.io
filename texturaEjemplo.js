@@ -10,7 +10,7 @@ TEXTURA.setup = function(){
   TEXTURA.escena = new THREE.Scene();
   
   var cargador = new THREE.TextureLoader();
-  cargador.load("earth_atmos_2048.jpg", TEXTURA.retrollamada);
+  cargador.load("esfera.jpg", TEXTURA.retrollamada);
   
   TEXTURA.camara = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
   TEXTURA.camara.position.z = 5;
@@ -26,6 +26,7 @@ TEXTURA.loop = function(){
   
   if( TEXTURA.malla !== undefined ){
     TEXTURA.malla.rotateY( 0.01 );
+    TEXTURA.malla.rotateX( 0.01 );
   }
   TEXTURA.renderizador.render(TEXTURA.escena, TEXTURA.camara);
 }
