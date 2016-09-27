@@ -18,13 +18,15 @@ TEXTURA.setup = function(){
   var lienzo = document.getElementById("ejemplo-textura");
   TEXTURA.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
   TEXTURA.renderizador.setSize( 600,600 );
+  
+  TEXTURA.malla.rotateX( 0 );
+  TEXTURA.malla.rotateZ( 1 );
 }
 
 TEXTURA.loop = function(){
   requestAnimationFrame( TEXTURA.loop );
   
   if( TEXTURA.malla !== undefined ){
-    TEXTURA.malla.rotateX( 0.01 );
     TEXTURA.malla.rotateY( 0.01 );
   }
   TEXTURA.renderizador.render(TEXTURA.escena, TEXTURA.camara);
