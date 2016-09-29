@@ -43,9 +43,10 @@ var escena = new THREE.Scene();
   }
   
   TEXTURANEGRO.loop=function(){
+       requestAnimationFrame(TEXTURANEGRO.loop());
     if(TEXTURANEGRO.materialNegro !== undefined){
     }else{
-      requestAnimationFrame(TEXTURANEGRO.loop());
+   
     }
   }
   
