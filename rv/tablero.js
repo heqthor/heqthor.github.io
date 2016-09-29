@@ -10,7 +10,7 @@ for(var i=0;i<8;i++){
     if(color%2==0){
       material = materialNegro;
     }else{
-      //material = materialBlanco;
+      material = materialNegro;
     }
     var cuboMalla = new THREE.Mesh(cuboForma,material);
     color=color+1;
