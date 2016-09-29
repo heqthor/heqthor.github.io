@@ -18,7 +18,7 @@ for(var i=0;i<8;i++){
     }else{
         cargador.load("texturaMarmolBlanco.jpg",TEXTURA.cargar);
     }
-    var cuboMalla = new THREE.Mesh(cuboForma,materialCubo);
+    var cuboMalla = new THREE.Mesh(cuboForma,material);
     color=color+1;
     cuboMalla.receiveShadow=true;
     escena.add(cuboMalla);
