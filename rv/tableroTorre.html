@@ -15,6 +15,24 @@
   <script>
     
 var escena = new THREE.Scene();
+  var TEXTURABLANCO = new Object();
+  var TEXTURANEGRO = new Object();
+  var materialBlanco =  new Object();
+  var semaforoBlanco=0;
+    
+  TEXTURABLANCO.setup= function(){
+    var cargador = new THREE.TextureLoader();
+    cargador.load("texturaBlanco.jpg",TEXTURABLANCO.retrollamada);
+    semaforoBlanco=1;
+  }
+  
+  TEXTURA.retrollamada(textura){
+    materialBlanco = new THREE.MeshLambertMaterial({map: textura});
+  }
+  
+    TEXTURA.setup();
+    
+    
   </script>
   <script src="./tablero.js"></script>
   <script src="./ejercicio_torre.js"></script>
