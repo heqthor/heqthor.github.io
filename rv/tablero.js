@@ -14,9 +14,9 @@ for(var i=0;i<8;i++){
     var cuboForma=  new THREE.BoxGeometry(10,10,5);
     cuboForma.translate(-35+i*10,35-j*10,0);
     if(color%2==0){
-      cargador.loader("texturaMarmolNegro.jpg",TEXTURA.cargar);
+      cargador.load("texturaMarmolNegro.jpg",TEXTURA.cargar);
     }else{
-    var materialCubo = new THREE.MeshLambertMaterial({color: 0xffffff});
+        cargador.load("texturaMarmolBlanco.jpg",TEXTURA.cargar);
     }
     var cuboMalla = new THREE.Mesh(cuboForma,materialCubo);
     color=color+1;
