@@ -123,9 +123,6 @@ var escena = new THREE.Scene();
   escena.add(luz3);
 
 
-  var TABLERO = new Object();
-  
-  TABLERO.setup=function(){
     var camara = new THREE.PerspectiveCamera();
     camara.position.x=000;
     camara.position.y=-100;
@@ -146,9 +143,6 @@ var escena = new THREE.Scene();
     luz1.castShadow =true;
     luz2.castShadow =true;
     luz3.castShadow =true;
-  }
-    
-  TABLERO.setup();
   
   renderizador.render(escena,camara);
 
