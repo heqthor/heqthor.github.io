@@ -35,11 +35,11 @@ var escena = new THREE.Scene();
   TEXTURANEGRO.setup= function(){
     var cargador = new THREE.TextureLoader();
     cargador.load("texturaMarmolNegro.jpg",TEXTURANEGRO.retrollamada);
-    semaforoBlanco=1;
+   
   }
   
   TEXTURANEGRO.retrollamada= function(textura){
-    materialNegro = new THREE.MeshLambertMaterial({map: textura});
+    materialNegro = new THREE.MeshLambertMaterial({map: textura}); semaforoBlanco=1;
   }
   
   TEXTURANEGRO.loop=function(){
@@ -51,7 +51,8 @@ var escena = new THREE.Scene();
   }
   
     TEXTURANEGRO.setup();
-   TEXTURANEGRO.loop(); 
+   //TEXTURANEGRO.loop(); 
+    while(1){};
     
   </script>
   <script src="./tablero.js"></script>
