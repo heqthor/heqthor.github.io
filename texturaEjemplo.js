@@ -17,7 +17,7 @@ TEXTURA.setup = function(){
   
   var lienzo = document.getElementById("ejemplo-textura");
   TEXTURA.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
-  TEXTURA.renderizador.setSize( 600,600 );
+  TEXTURA.renderizador.setSize( window.innerWidth,window.innerHeight );
   
 }
 
