@@ -2,13 +2,19 @@
 var color=0;
 // var escena = new THREE.Scene();
 var cargador = new THREE.TextureLoader();
+var TEXTURA = new Object();
+var material = new Object();
+
+TEXTURA.cargar=function( textura ){
+    material = new THREE.MeshLambertMaterial({map: textura});
+}
 
 for(var i=0;i<8;i++){
   for(var j=0;j<8;j++){
     var cuboForma=  new THREE.BoxGeometry(10,10,5);
     cuboForma.translate(-35+i*10,35-j*10,0);
     if(color%2==0){
-    var materialCubo = new THREE.MeshLambertMaterial({mapa: cargador.loader("texturaMarmolNegro.jpg")});
+      cargador.loader("texturaMarmolNegro.jpg",TEXTURA.cargar);
     }else{
     var materialCubo = new THREE.MeshLambertMaterial({color: 0xffffff});
     }
