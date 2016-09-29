@@ -18,6 +18,7 @@ var escena = new THREE.Scene();
   var TEXTURABLANCO = new Object();
   var TEXTURANEGRO = new Object();
   var materialBlanco =  new Object();
+  var materialNegro =  new Object();
   var semaforoBlanco=0;
     
   TEXTURABLANCO.setup= function(){
@@ -30,7 +31,20 @@ var escena = new THREE.Scene();
     materialBlanco = new THREE.MeshLambertMaterial({map: textura});
   }
   
+  
+  TEXTURANEGRO.setup= function(){
+    var cargador = new THREE.TextureLoader();
+    cargador.load("texturaNegro.jpg",TEXTURANEGRO.retrollamada);
+    semaforoBlanco=1;
+  }
+  
+  TEXTURANEGRO.retrollamada= function(textura){
+    materialNegro = new THREE.MeshLambertMaterial({map: textura});
+  }
+  
     TEXTURABLANCO.setup();
+  
+    TEXTURANEGRO.setup();
     
     
   </script>
