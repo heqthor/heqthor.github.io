@@ -26,7 +26,7 @@ var escena = new THREE.Scene();
     semaforoBlanco=1;
   }
   
-  TEXTURA.retrollamada(textura){
+  TEXTURA.retrollamada= function(textura){
     materialBlanco = new THREE.MeshLambertMaterial({map: textura});
   }
   
