@@ -10,7 +10,7 @@ for(var i=0;i<8;i++){
     if(color%2==0){
       material = new THREE.MeshLambertMaterial({color: 0xffffff});
     }else{
-      material = new THREE.MeshLambertMaterial({color: 0x000000});
+      material = materialBlanco;
     }
     var cuboMalla = new THREE.Mesh(cuboForma,material);
     color=color+1;
