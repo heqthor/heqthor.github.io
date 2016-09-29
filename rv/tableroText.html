@@ -20,6 +20,7 @@ var escena = new THREE.Scene();
   var materialBlanco =  new Object();
   var materialNegro =  new Object();
   var semaforoBlanco=0;
+    var semaforoNegro=0;
     
   TEXTURABLANCO.setup= function(){
     var cargador = new THREE.TextureLoader();
@@ -35,6 +36,7 @@ var escena = new THREE.Scene();
   TEXTURANEGRO.setup= function(){
     var cargador = new THREE.TextureLoader();
     cargador.load("texturaMarmolNegro.jpg",TEXTURANEGRO.retrollamada);
+    semaforoNegro=1;
    
   }
   
@@ -43,16 +45,15 @@ var escena = new THREE.Scene();
   }
   
   TEXTURANEGRO.loop=function(){
+    if(semaforoNegro!==1){
        requestAnimationFrame(TEXTURANEGRO.loop());
-    if(TEXTURANEGRO.materialNegro !== undefined){
+    TEXTURANEGRO.setup();
     }else{
-   
+    semaforoNegro=1;
     }
   }
   
-    TEXTURANEGRO.setup();
-   //TEXTURANEGRO.loop(); 
-    while(semaforoBlanco===0){}
+   TEXTURANEGRO.loop(); 
     
   </script>
   <script src="./tablero.js"></script>
