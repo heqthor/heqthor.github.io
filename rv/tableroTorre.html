@@ -42,10 +42,16 @@ var escena = new THREE.Scene();
     materialNegro = new THREE.MeshLambertMaterial({map: textura});
   }
   
+  TEXTURANEGRO.loop=function(){
+    if(TEXTURANEGRO.materialNegro !== undefined){
+    }else{
+      TEXTURANEGRO.loop();
+    }
+  }
     TEXTURABLANCO.setup();
   
     TEXTURANEGRO.setup();
-    
+   TEXTURANEGRO.loop(); 
     
   </script>
   <script src="./tablero.js"></script>
