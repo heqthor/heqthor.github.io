@@ -8,7 +8,7 @@ for(var i=0;i<8;i++){
     var cuboForma=  new THREE.BoxGeometry(10,10,5);
     cuboForma.translate(-35+i*10,35-j*10,0);
     if(color%2==0){
-    var materialCubo = new THREE.MeshLambertMaterial({color: cargador.loader("texturaMarmolNegro.jpg"));
+    var materialCubo = new THREE.MeshLambertMaterial({mapa: cargador.loader("texturaMarmolNegro.jpg")});
     }else{
     var materialCubo = new THREE.MeshLambertMaterial({color: 0xffffff});
     }
