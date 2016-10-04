@@ -29,7 +29,7 @@ CONSTRUCTOR.setup = function(){
   var lienzo = document.getElementById("ejemplo-constructor");
   CONSTRUCTOR.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
   
-  CONSTRUCTOR.renderizador.render.setSize(600,600);
+  CONSTRUCTOR.renderizador.setSize(600,600);
   
   CONSTRUCTOR.escena = new THREE.Scene();
   CONSTRUCTOR.escena.add(arbol1.malla);
