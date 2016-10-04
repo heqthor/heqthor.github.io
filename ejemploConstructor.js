@@ -6,7 +6,7 @@ function Arbol(){
   var troncoMalla = new THREE.Mesh(troncoForma);
   var esferaMalla = new THREE.Mesh(esferaForma);
   
-  var arbolForma = new THREE.Mesh(troncoForma);
+  var arbolForma = new THREE.Geometry();
   arbolForma.merge(troncoMalla.geometry, troncoMalla.matrix);
   arbolForma.merge(esferaMalla.geometry, esferaMalla.matrix);
   
