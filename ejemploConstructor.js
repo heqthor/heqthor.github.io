@@ -16,7 +16,7 @@ function Arbol(){
 
 var CONSTRUCTOR = new Object();
 
-CONSTRUCTOR.setup = fuction(){
+CONSTRUCTOR.setup = function(){
   var arbol1 = new Arbol();
   var arbol2 = new Arbol();
   
