@@ -32,7 +32,7 @@ PROTOTIPO.setup = function(){
   
   var lienzo = document.getElementById("ejemplo-prototipo");
   
-  PROTOTIPO.renderizador = new THREE.WebGLRenderer();
+  PROTOTIPO.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
   
   PROTOTIPO.renderizador.setSize(600,600);
 }
