@@ -1,0 +1,1 @@
+var PROTOTIPO = new Object();
