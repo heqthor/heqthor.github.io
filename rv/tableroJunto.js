@@ -46,7 +46,6 @@ CONSTRUCTOR.Torre=function(textura){
 
 
 CONSTRUCTOR.Tablero = function (){
-    THREE.Mesh.call(this);
     var color=0;
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
@@ -75,7 +74,6 @@ CONSTRUCTOR.Tablero = function (){
 }
 
 
-CONSTRUCTOR.Tablero.prototype = new THREE.Mesh();
 CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 var torre1 = new CONSTRUCTOR.Torre();
 
