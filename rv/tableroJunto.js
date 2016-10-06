@@ -37,7 +37,9 @@ CONSTRUCTOR.Torre=function(textura){
     
 
     //this.material = new THREE.MeshBasicMaterial({map: textura});
-   
+   this.scale.x=0.2;
+    this.scale.y=0.2;
+    this.scale.z=0.2;
      THREE.Mesh.call(this, torreForma, new THREE.MeshBasicMaterial({map:textura}));
     
 }
