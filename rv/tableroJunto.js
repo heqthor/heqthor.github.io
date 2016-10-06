@@ -113,7 +113,8 @@ CONSTRUCTOR.loop = function(){
 
 CONSTRUCTOR.TexturaSetup= function(){
     var cargador = new THREE.TextureLoader();
-    cargador.load("texturaMarmolBlanco.jpg",CONSTRUCTOR.Torre);
+    cargador.load("texturaMarmolBlanco.jpg",
+                  function(textura){ CONSTRUCTOR.torreBlanca = new CONSTRUCTOR.Torre(textura);});
 }
     
 
