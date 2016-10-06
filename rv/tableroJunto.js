@@ -67,9 +67,8 @@ function Tablero(){
 
 
 var CONSTRUCTOR = new Object();
+var torre1 = new Torre();
 
-
-  var torre1 = new Torre();
 CONSTRUCTOR.setup = function(){
   
   torre1.malla.position.x=-5;
