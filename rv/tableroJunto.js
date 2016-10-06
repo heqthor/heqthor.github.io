@@ -15,7 +15,7 @@ function Torre(){
     puntos.push(new THREE.Vector2(15,50));
     puntos.push(new THREE.Vector2(15,60));
     puntos.push(new THREE.Vector2(0,60));
-    puntos.push(new THREE.Vector2(0,0));
+    //puntos.push(new THREE.Vector2(0,0));
 
     var baseForma= new THREE.LatheGeometry(puntos);
     var baseMalla = new THREE.Mesh(baseForma);
