@@ -1,7 +1,7 @@
 
 var CONSTRUCTOR = new Object();
 
-CONSTRUCTOR.torre=function(){
+CONSTRUCTOR.Torre=function(textura){
     THREE.Mesh.call(this);
     
     var puntos=[];
@@ -38,7 +38,8 @@ CONSTRUCTOR.torre=function(){
     
 
     var material = new THREE.MeshNormalMaterial();
-    this = new THREE.Mesh(torreForma,material);
+    this.geometry = torreForma;
+    
 }
 
 var CONSTRUCTOR.torre.prototype=new THREE.Mesh();
@@ -73,7 +74,7 @@ function Tablero(){
 }
 
 
-var torre1 = new Torre();
+var torre1 = new CONSTRUCTOR.Torre();
 
 CONSTRUCTOR.setup = function(){
   
