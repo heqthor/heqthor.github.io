@@ -73,11 +73,11 @@ CONSTRUCTOR.Tablero = function (){
 
 
 CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
-var torre1 = new CONSTRUCTOR.Torre();
 
 
 CONSTRUCTOR.setup = function(){
   setupDone=true;
+   var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.textura1);
   torre1.position.x=-5;
   
   
@@ -100,7 +100,7 @@ var setupDone=false;
 
 CONSTRUCTOR.loop = function(){
   requestAnimationFrame( CONSTRUCTOR.loop);
-  if(torre1!==undefined && !setupDone){
+  if(CONSTRUCTOR.textura1!==undefined && !setupDone){
       CONSTRUCTOR.setup();
   }
     
@@ -111,7 +111,7 @@ CONSTRUCTOR.loop = function(){
 CONSTRUCTOR.TexturaSetup= function(){
     var cargador = new THREE.TextureLoader();
     cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ CONSTRUCTOR.torreBlanca = new CONSTRUCTOR.Torre(textura);});
+                  function(textura){ CONSTRUCTOR.textura1 = textura;});
 }
     
 
