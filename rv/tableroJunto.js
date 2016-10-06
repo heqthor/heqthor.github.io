@@ -38,7 +38,7 @@ CONSTRUCTOR.Torre=function(textura){
     }
     
 
-    this.material = new THREE.MeshBasicMaterial({map: textura});
+    //this.material = new THREE.MeshBasicMaterial({map: textura});
     this.geometry = torreForma;
     
 }
@@ -98,7 +98,9 @@ CONSTRUCTOR.setup = function(){
   CONSTRUCTOR.escena.add(torre1);
   
 }
+
 var setupDone=false;
+
 CONSTRUCTOR.loop = function(){
   requestAnimationFrame( CONSTRUCTOR.loop);
   if(torre1!==undefined && !setupDone){
@@ -107,7 +109,6 @@ CONSTRUCTOR.loop = function(){
     
   CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
 }
-
 
 CONSTRUCTOR.TexturaSetup= function(){
     var cargador = new THREE.TextureLoader();
