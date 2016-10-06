@@ -36,6 +36,37 @@ function Torre(){
     this.malla = new THREE.Mesh(torreForma,material);
 }
 
+function Tablero(){
+    
+    var color=0;
+    // var escena = new THREE.Scene();
+    for(var i=0;i<8;i++){
+      for(var j=0;j<8;j++){
+        var cuboForma=  new THREE.BoxGeometry(10,10,5);
+        cuboForma.translate(-35+i*10,35-j*10,0);
+        if(color%2==0){
+          var material = new THREE.MeshBasicMaterial('0xffffff');
+        }else{
+          var material = new THREE.MeshBasicMaterial('0x888888');
+        }
+        var cuboMalla = new THREE.Mesh(cuboForma,material);
+        color=color+1;
+        cuboMalla.receiveShadow=true;
+        CONSTRUCTOR.escena.add(cuboMalla);
+      }
+      color=color+1;
+    }
+
+
+    var bordeForma = new THREE.BoxGeometry(100,100,5);
+    bordeForma.translate(0,0,-5);
+    var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
+    var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
+    bordeMalla.castShadow=true;
+    bordeMalla.receiveShadow=true;
+
+    CONSTRUCTOR.escena.add(bordeMalla);
+}
 
 
 var CONSTRUCTOR = new Object();
@@ -56,6 +87,7 @@ CONSTRUCTOR.setup = function(){
   CONSTRUCTOR.renderizador.setSize(600,600);
   
   CONSTRUCTOR.escena = new THREE.Scene();
+  Tablero();
   CONSTRUCTOR.escena.add(torre1.malla);
   
 }
