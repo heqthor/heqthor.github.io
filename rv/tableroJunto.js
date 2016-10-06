@@ -43,7 +43,7 @@ CONSTRUCTOR.Torre=function(textura){
 }
 
 
-CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro){
+CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     var color=0;
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
@@ -65,7 +65,7 @@ CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro){
 
     var bordeForma = new THREE.BoxGeometry(100,100,5);
     bordeForma.translate(0,0,-5);
-    var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
+    var bordeMaterial = new THREE.MeshBasicMaterial({map:texturaMadera});
     var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
     bordeMalla.rotateX(-Math.PI/2);
     CONSTRUCTOR.escena.add(bordeMalla);
@@ -91,7 +91,7 @@ CONSTRUCTOR.setup = function(){
   CONSTRUCTOR.renderizador.setSize(600,600);
   
   CONSTRUCTOR.escena = new THREE.Scene();
-  CONSTRUCTOR.Tablero(CONSTRUCTOR.marmolBlanco,CONSTRUCTOR.marmolNegro);
+  CONSTRUCTOR.Tablero(CONSTRUCTOR.marmolBlanco,CONSTRUCTOR.marmolNegro,CONSTRUCTOR.madera);
   CONSTRUCTOR.escena.add(torre1);
   
 }
@@ -112,9 +112,10 @@ CONSTRUCTOR.TexturaSetup= function(){
                   function(textura){ CONSTRUCTOR.torreBlanca = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
                   function(textura){ CONSTRUCTOR.marmolBlanco = textura;});
-    
     cargador.load("texturaMarmolNegro.jpg",
                   function(textura){ CONSTRUCTOR.marmolNegro = textura;});
+    cargador.load("texturaMadera.jpg",
+                  function(textura){ CONSTRUCTOR.madera = textura;});
     
 }
     
