@@ -1,8 +1,6 @@
 
 var CONSTRUCTOR = new Object();
 
-CONSTRUCTOR.Tablero.prototype = new THREE.Mesh();
-CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
 CONSTRUCTOR.Torre=function(textura){
     THREE.Mesh.call(this);
@@ -76,6 +74,8 @@ CONSTRUCTOR.Tablero = function (){
 }
 
 
+CONSTRUCTOR.Tablero.prototype = new THREE.Mesh();
+CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 var torre1 = new CONSTRUCTOR.Torre();
 
 
