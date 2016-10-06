@@ -43,16 +43,16 @@ CONSTRUCTOR.Torre=function(textura){
 }
 
 
-CONSTRUCTOR.Tablero = function (){
+CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro){
     var color=0;
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
         var cuboForma=  new THREE.BoxGeometry(10,10,5);
         cuboForma.translate(-35+i*10,35-j*10,0);
         if(color%2===0){
-          var material = new THREE.MeshBasicMaterial({color: 0xffffff});
+          var material = new THREE.MeshBasicMaterial({map:texturaNegro});
         }else{
-          var material = new THREE.MeshBasicMaterial({color: 0x888888});
+          var material = new THREE.MeshBasicMaterial({map: texturaBlanco});
         }
         var cuboMalla = new THREE.Mesh(cuboForma,material);
         color=color+1;
@@ -77,7 +77,7 @@ CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
 CONSTRUCTOR.setup = function(){
   setupDone=true;
-   var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.textura1);
+   var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
   torre1.position.x=-5;
   
   
@@ -91,7 +91,7 @@ CONSTRUCTOR.setup = function(){
   CONSTRUCTOR.renderizador.setSize(600,600);
   
   CONSTRUCTOR.escena = new THREE.Scene();
-  CONSTRUCTOR.Tablero();
+  CONSTRUCTOR.Tablero(CONSTRUCTOR.marmolBlanco,CONSTRUCTOR.marmolNegro);
   CONSTRUCTOR.escena.add(torre1);
   
 }
@@ -100,7 +100,7 @@ var setupDone=false;
 
 CONSTRUCTOR.loop = function(){
   requestAnimationFrame( CONSTRUCTOR.loop);
-  if(CONSTRUCTOR.textura1!==undefined && !setupDone){
+  if(CONSTRUCTOR.torreBlanca!==undefined && CONSTRUCTOR.marmolBlanco!==undefined && CONSTRUCTOR.marmolNegro!==undefined && !setupDone){
       CONSTRUCTOR.setup();
   }
    CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
@@ -108,8 +108,14 @@ CONSTRUCTOR.loop = function(){
 
 CONSTRUCTOR.TexturaSetup= function(){
     var cargador = new THREE.TextureLoader();
+    cargador.load("texturaMarmolBlanco.jpg",
+                  function(textura){ CONSTRUCTOR.torreBlanca = textura;});
+    cargador.load("texturaMarmolBlanco.jpg",
+                  function(textura){ CONSTRUCTOR.marmolBlanco = textura;});
+    
     cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ CONSTRUCTOR.textura1 = textura;});
+                  function(textura){ CONSTRUCTOR.marmolNegro = textura;});
+    
 }
     
 
