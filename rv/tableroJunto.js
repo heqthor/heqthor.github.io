@@ -43,14 +43,13 @@ function Tablero(){
       for(var j=0;j<8;j++){
         var cuboForma=  new THREE.BoxGeometry(10,10,5);
         cuboForma.translate(-35+i*10,35-j*10,0);
-        if(color%2==0){
-          var material = new THREE.MeshBasicMaterial('0xffffff');
+        if(color%2===0){
+          var material = new THREE.MeshBasicMaterial({color: 0xffffff});
         }else{
-          var material = new THREE.MeshBasicMaterial('0x000000');
+          var material = new THREE.MeshBasicMaterial({color: 0x888888});
         }
         var cuboMalla = new THREE.Mesh(cuboForma,material);
         color=color+1;
-        cuboMalla.receiveShadow=true;
         CONSTRUCTOR.escena.add(cuboMalla);
       }
       color=color+1;
@@ -61,8 +60,6 @@ function Tablero(){
     bordeForma.translate(0,0,-5);
     var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
     var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
-    bordeMalla.castShadow=true;
-    bordeMalla.receiveShadow=true;
 
     CONSTRUCTOR.escena.add(bordeMalla);
 }
