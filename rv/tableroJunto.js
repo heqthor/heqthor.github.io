@@ -1,6 +1,9 @@
 
 var CONSTRUCTOR = new Object();
 
+CONSTRUCTOR.Tablero.prototype = new THREE.Mesh();
+CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
+
 CONSTRUCTOR.Torre=function(textura){
     THREE.Mesh.call(this);
     
@@ -37,15 +40,14 @@ CONSTRUCTOR.Torre=function(textura){
     }
     
 
-    var material = new THREE.MeshNormalMaterial();
+    this.material = new THREE.MeshBasicMaterial({map: textura});
     this.geometry = torreForma;
     
 }
 
-CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
-function Tablero(){
-    
+CONSTRUCTOR.Tablero = function (){
+    THREE.Mesh.call(this);
     var color=0;
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
@@ -76,8 +78,9 @@ function Tablero(){
 
 var torre1 = new CONSTRUCTOR.Torre();
 
+
 CONSTRUCTOR.setup = function(){
-  
+  setupDone=true;
   torre1.position.x=-5;
   
   
@@ -91,16 +94,26 @@ CONSTRUCTOR.setup = function(){
   CONSTRUCTOR.renderizador.setSize(600,600);
   
   CONSTRUCTOR.escena = new THREE.Scene();
-  Tablero();
+  CONSTRUCTOR.Tablero();
   CONSTRUCTOR.escena.add(torre1);
   
 }
-
+var setupDone=false;
 CONSTRUCTOR.loop = function(){
   requestAnimationFrame( CONSTRUCTOR.loop);
-  torre1.rotateY(0.01);
+  if(torre1!==undefined && !setupDone){
+      CONSTRUCTOR.setup();
+  }
+    
   CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
 }
 
-CONSTRUCTOR.setup();
+
+CONSTRUCTOR.TexturaSetup= function(){
+    var cargador = new THREE.TextureLoader();
+    cargador.load("texturaMarmolBlanco.jpg",CONSTRUCTOR.Torre);
+}
+    
+
+CONSTRUCTOR.TexturaSetup();
 CONSTRUCTOR.loop();
