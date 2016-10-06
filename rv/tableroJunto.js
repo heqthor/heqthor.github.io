@@ -48,7 +48,7 @@ CONSTRUCTOR.setup = function(){
   
   
   CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
-  CONSTRUCTOR.camara.position.z = 20;
+  CONSTRUCTOR.camara.position.z = 200;
   
   var lienzo = document.getElementById("tablero");
   CONSTRUCTOR.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
