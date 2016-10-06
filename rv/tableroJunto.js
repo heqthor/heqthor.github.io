@@ -1,7 +1,7 @@
 
 var CONSTRUCTOR = new Object();
 
-var CONSTRUCTOR.torre=function(){
+CONSTRUCTOR.torre=function(){
     THREE.Mesh.call(this);
     
     var puntos=[];
