@@ -33,7 +33,7 @@ function Torre(){
 
 
     var material = new THREE.MeshNormalMaterial();
-    this.torre = new THREE.Mesh(torreForma,material);
+    this.malla = new THREE.Mesh(torreForma,material);
 }
 
 
@@ -44,7 +44,7 @@ var CONSTRUCTOR = new Object();
 CONSTRUCTOR.setup = function(){
   var torre1 = new Torre();
   
-  torre1.position.x=-5;
+  torre1.malla.position.x=-5;
   
   
   CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
