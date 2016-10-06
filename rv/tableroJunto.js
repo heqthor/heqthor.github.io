@@ -1,4 +1,9 @@
-function Torre(){
+
+var CONSTRUCTOR = new Object();
+
+var CONSTRUCTOR.torre=function(){
+    THREE.Mesh.call(this);
+    
     var puntos=[];
 
     puntos.push(new THREE.Vector2(0,0));
@@ -30,11 +35,13 @@ function Torre(){
     var picoMalla =new THREE.Mesh(picoForma); 
       torreForma.merge(picoMalla.geometry, picoMalla.matrix);
     }
-
+    
 
     var material = new THREE.MeshNormalMaterial();
-    this.malla = new THREE.Mesh(torreForma,material);
+    this = new THREE.Mesh(torreForma,material);
 }
+
+var CONSTRUCTOR.torre.prototype=new THREE.Mesh();
 
 function Tablero(){
     
@@ -66,12 +73,11 @@ function Tablero(){
 }
 
 
-var CONSTRUCTOR = new Object();
 var torre1 = new Torre();
 
 CONSTRUCTOR.setup = function(){
   
-  torre1.malla.position.x=-5;
+  torre1.position.x=-5;
   
   
   CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
