@@ -69,8 +69,8 @@ function Tablero(){
 var CONSTRUCTOR = new Object();
 
 
-CONSTRUCTOR.setup = function(){
   var torre1 = new Torre();
+CONSTRUCTOR.setup = function(){
   
   torre1.malla.position.x=-5;
   
@@ -92,7 +92,7 @@ CONSTRUCTOR.setup = function(){
 
 CONSTRUCTOR.loop = function(){
   requestAnimationFrame( CONSTRUCTOR.loop);
-  CONSTRUCTOR.setup.torre1.rotateY(0.01);
+  torre1.malla.rotateY(0.01);
   CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
 }
 
