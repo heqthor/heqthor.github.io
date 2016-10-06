@@ -3,8 +3,6 @@ var CONSTRUCTOR = new Object();
 
 
 CONSTRUCTOR.Torre=function(textura){
-   
-    
     var puntos=[];
 
     puntos.push(new THREE.Vector2(0,0));
@@ -39,7 +37,7 @@ CONSTRUCTOR.Torre=function(textura){
     
 
     //this.material = new THREE.MeshBasicMaterial({map: textura});
-    this.geometry = torreForma;
+   
      THREE.Mesh.call(this, torreForma, new THREE.MeshBasicMaterial({map:textura}));
     
 }
@@ -106,6 +104,7 @@ CONSTRUCTOR.loop = function(){
       CONSTRUCTOR.setup();
   }
     
+     torre1.rotateY(0.01);
   CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
 }
 
