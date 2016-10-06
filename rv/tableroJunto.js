@@ -42,7 +42,7 @@ CONSTRUCTOR.Torre=function(textura){
     
 }
 
-var CONSTRUCTOR.torre.prototype=new THREE.Mesh();
+CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
 function Tablero(){
     
