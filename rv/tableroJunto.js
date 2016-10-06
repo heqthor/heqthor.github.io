@@ -3,7 +3,7 @@ var CONSTRUCTOR = new Object();
 
 
 CONSTRUCTOR.Torre=function(textura){
-    THREE.Mesh.call(this);
+   
     
     var puntos=[];
 
@@ -40,6 +40,7 @@ CONSTRUCTOR.Torre=function(textura){
 
     //this.material = new THREE.MeshBasicMaterial({map: textura});
     this.geometry = torreForma;
+     THREE.Mesh.call(this, torreForma, new THREE.MeshBasicMaterial({map:textura}));
     
 }
 
