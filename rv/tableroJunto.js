@@ -44,7 +44,7 @@ var CONSTRUCTOR = new Object();
 CONSTRUCTOR.setup = function(){
   var torre1 = new Torre();
   
-  torre1.malla.position.x=-5;
+  torre1.position.x=-5;
   
   
   CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
