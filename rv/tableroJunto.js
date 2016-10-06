@@ -92,13 +92,13 @@ CONSTRUCTOR.setup = function(){
   
   CONSTRUCTOR.escena = new THREE.Scene();
   Tablero();
-  CONSTRUCTOR.escena.add(torre1.malla);
+  CONSTRUCTOR.escena.add(torre1);
   
 }
 
 CONSTRUCTOR.loop = function(){
   requestAnimationFrame( CONSTRUCTOR.loop);
-  torre1.malla.rotateY(0.01);
+  torre1.rotateY(0.01);
   CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
 }
 
