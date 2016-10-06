@@ -92,7 +92,7 @@ CONSTRUCTOR.setup = function(){
 
 CONSTRUCTOR.loop = function(){
   requestAnimationFrame( CONSTRUCTOR.loop);
-  
+  CONSTRUCTOR.setup.torre1.rotatey(0.01);
   CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
 }
 
