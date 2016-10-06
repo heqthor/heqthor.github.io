@@ -50,6 +50,7 @@ function Tablero(){
         }
         var cuboMalla = new THREE.Mesh(cuboForma,material);
         color=color+1;
+        cuboMalla.rotateX(Math.PI/4);
         CONSTRUCTOR.escena.add(cuboMalla);
       }
       color=color+1;
@@ -60,7 +61,7 @@ function Tablero(){
     bordeForma.translate(0,0,-5);
     var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x6b4c1f});
     var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
-
+    bordeMalla.rotateX(Math.PI/4);
     CONSTRUCTOR.escena.add(bordeMalla);
 }
 
