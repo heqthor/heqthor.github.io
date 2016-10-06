@@ -103,9 +103,7 @@ CONSTRUCTOR.loop = function(){
   if(CONSTRUCTOR.textura1!==undefined && !setupDone){
       CONSTRUCTOR.setup();
   }
-    
-     torre1.rotateY(0.01);
-  CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
+   CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
 }
 
 CONSTRUCTOR.TexturaSetup= function(){
