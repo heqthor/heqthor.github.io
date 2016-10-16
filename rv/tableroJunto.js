@@ -1,5 +1,4 @@
 var CONSTRUCTOR = new Object();
-CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
 
 CONSTRUCTOR.Torre=function(textura){
@@ -69,7 +68,7 @@ CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     bordeMalla.receiveShadow=true;
     CONSTRUCTOR.escena.add(bordeMalla);
 }
-
+CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
 CONSTRUCTOR.setup = function(){
     setupDone=true;
