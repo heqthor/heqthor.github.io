@@ -1,5 +1,8 @@
 
 var CONSTRUCTOR = new Object();
+CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
+
+
 
 
 CONSTRUCTOR.Torre=function(textura){
@@ -35,12 +38,9 @@ CONSTRUCTOR.Torre=function(textura){
       torreForma.merge(picoMalla.geometry, picoMalla.matrix);
     }
     
-
-    //this.material = new THREE.MeshBasicMaterial({map: textura});
     THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
     this.castShadow=true;
     this.receiveShadow=true;
-    
 }
 
 
@@ -64,7 +64,6 @@ CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
       color=color+1;
     }
 
-
     var bordeForma = new THREE.BoxGeometry(100,100,5);
     bordeForma.translate(0,0,-5);
     var bordeMaterial = new THREE.MeshLambertMaterial({map:texturaMadera});
@@ -73,9 +72,6 @@ CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     bordeMalla.receiveShadow=true;
     CONSTRUCTOR.escena.add(bordeMalla);
 }
-
-
-CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
 
 CONSTRUCTOR.setup = function(){
@@ -117,6 +113,7 @@ CONSTRUCTOR.setup = function(){
     torre4.scale.y=0.2;
     torre4.scale.z=0.2;
 
+    //--------------- CAMARA ---------------
     CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
     CONSTRUCTOR.camara.position.y = 200;
     CONSTRUCTOR.camara.position.x = 200;
@@ -127,6 +124,7 @@ CONSTRUCTOR.setup = function(){
 
     CONSTRUCTOR.renderizador.setSize(600,600);
 
+    //------------ ESCENA
     CONSTRUCTOR.escena = new THREE.Scene();
     CONSTRUCTOR.Tablero(CONSTRUCTOR.marmolBlanco,CONSTRUCTOR.marmolNegro,CONSTRUCTOR.madera);
     CONSTRUCTOR.escena.add(torre1);
