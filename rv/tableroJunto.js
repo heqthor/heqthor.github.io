@@ -38,8 +38,9 @@ CONSTRUCTOR.Torre=function(textura){
     this.castShadow=true;
     this.receiveShadow=true;
 }
+CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
-//------------ TABLERO
+//------------ TABLERO------
 CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     var color=0;
     for(var i=0;i<8;i++){
@@ -68,9 +69,8 @@ CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     bordeMalla.receiveShadow=true;
     CONSTRUCTOR.escena.add(bordeMalla);
 }
-CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
-
+//------------ FUNCION CAMBIO VENTANA-----
 CONSTRUCTOR.listener = function(){
   CONSTRUCTOR.camara.aspect = window.innerWidth / window.innerHeight;
   CONSTRUCTOR.camara.updateProjectionMatrix();
@@ -85,7 +85,7 @@ CONSTRUCTOR.setup = function(){
     
     setupDone=true;
     
-    var luz=new THREE.PointLight(0xCC88CC);
+    var luz=new THREE.PointLight(0xCCCCCC);
     luz.position.y=50;
     luz.position.z=100;
     
