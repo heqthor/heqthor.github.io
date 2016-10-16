@@ -88,14 +88,14 @@ CONSTRUCTOR.setup = function(){
 
     var torre3 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
     torre3.position.x=30;
-    torre1.position.y=-30;
+    torre3.position.y=-30;
     torre3.scale.x=0.2;
     torre3.scale.y=0.2;
     torre3.scale.z=0.2;
 
     var torre4 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
     torre4.position.x=30;
-    torre1.position.y=30;
+    torre4.position.y=30;
     torre4.scale.x=0.2;
     torre4.scale.y=0.2;
     torre4.scale.z=0.2;
