@@ -77,20 +77,20 @@ CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 CONSTRUCTOR.setup = function(){
     setupDone=true;
     var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
-    torre1.position.x=0;
-    torre1.position.y=-10;
-    torre1.position.z=0;
     torre1.scale.x=0.2;
     torre1.scale.y=0.2;
     torre1.scale.z=0.2;
+    torre1.position.x=0;
+    torre1.position.y=-10;
+    torre1.position.z=0;
   
     var torre2 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
-    torre2.position.x=0;
-    torre2.position.y=0;
-    torre2.position.z=-10;
     torre2.scale.x=0.2;
     torre2.scale.y=0.2;
     torre2.scale.z=0.2;
+    torre2.position.x=0;
+    torre2.position.y=0;
+    torre2.position.z=-10;
 
     var torre3 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
     torre3.position.x=30;
