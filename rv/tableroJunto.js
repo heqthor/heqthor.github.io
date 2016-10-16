@@ -131,6 +131,7 @@ CONSTRUCTOR.setup = function(){
     CONSTRUCTOR.escena.add(torre2);
     CONSTRUCTOR.escena.add(torre3);
     CONSTRUCTOR.escena.add(torre4);
+    CONSTRUCTOR.escena.add(luz);
     CONSTRUCTOR.renderizador.shadowMapEnabled = true;
     luz.castShadow =true;
   
