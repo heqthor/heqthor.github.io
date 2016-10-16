@@ -39,7 +39,7 @@ CONSTRUCTOR.Torre=function(textura){
     this.receiveShadow=true;
 }
 
-
+//------------ TABLERO
 CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     var color=0;
     for(var i=0;i<8;i++){
@@ -77,6 +77,7 @@ CONSTRUCTOR.listener = function(){
   CONSTRUCTOR.renderizador.setSize( window.innerWidth, window.innerHeight );
 }
 
+//---------- SET UP--------
 CONSTRUCTOR.setup = function(){
     var tipo_evento = 'resize';
     var cambioVentana = false;
@@ -129,7 +130,7 @@ CONSTRUCTOR.setup = function(){
     var lienzo = document.getElementById("tablero");
     CONSTRUCTOR.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
 
-    CONSTRUCTOR.renderizador.setSize(600,600);
+    CONSTRUCTOR.renderizador.setSize(window.innerWidth,window.innerHeight);
 
     //------------ ESCENA
     CONSTRUCTOR.escena = new THREE.Scene();
