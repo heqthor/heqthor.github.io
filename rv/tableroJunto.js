@@ -81,9 +81,9 @@ CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 CONSTRUCTOR.setup = function(){
     setupDone=true;
     
-    var luz=new THREE.PointLight(0xFFFFFF);
+    var luz=new THREE.PointLight(0xCC00CC);
     luz.position.y=50;
-    luz.position.z=50;
+    luz.position.z=100;
     
     var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
     torre1.position.x=-35;
