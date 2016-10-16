@@ -81,7 +81,28 @@ CONSTRUCTOR.setup = function(){
    torre1.scale.y=0.2;
    torre1.scale.z=0.2;
   torre1.position.x=-5;
+  torre1.position.y=-5;
   
+     var torre2 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
+   torre2.scale.x=0.2;
+   torre2.scale.y=0.2;
+   torre2.scale.z=0.2;
+  torre2.position.x=-5;
+  torre1.position.y=5;
+  
+    var torre3 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
+   torre3.scale.x=0.2;
+   torre3.scale.y=0.2;
+   torre3.scale.z=0.2;
+  torre3.position.x=5;
+  torre1.position.y=-5;
+  
+   var torre4 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
+   torre4.scale.x=0.2;
+   torre4.scale.y=0.2;
+   torre4.scale.z=0.2;
+  torre4.position.x=5;
+  torre1.position.y=5;
   
   CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
   CONSTRUCTOR.camara.position.z = 200;
@@ -110,6 +131,8 @@ CONSTRUCTOR.loop = function(){
 
 CONSTRUCTOR.TexturaSetup= function(){
     var cargador = new THREE.TextureLoader();
+    cargador.load("texturaMarmolNegro.jpg",
+                  function(textura){ CONSTRUCTOR.torreNegra = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
                   function(textura){ CONSTRUCTOR.torreBlanca = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
