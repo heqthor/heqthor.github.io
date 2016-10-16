@@ -86,8 +86,8 @@ CONSTRUCTOR.setup = function(){
   
     var torre2 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
     torre2.position.x=0;
-    torre1.position.z=0;
-    torre1.position.z=0;
+    torre2.position.z=0;
+    torre2.position.z=0;
     torre2.scale.x=0.2;
     torre2.scale.y=0.2;
     torre2.scale.z=0.2;
