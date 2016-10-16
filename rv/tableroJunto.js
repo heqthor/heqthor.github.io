@@ -1,9 +1,9 @@
 var CONSTRUCTOR = new Object();
 
 
-CONSTRUCTOR.Torre=function(textura){
+CONSTRUCTOR.Torre=function(textura){    
     var puntos=[];
-
+    
     puntos.push(new THREE.Vector2(0,0));
     puntos.push(new THREE.Vector2(20,0));
     puntos.push(new THREE.Vector2(20,10));
@@ -70,7 +70,18 @@ CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
 }
 CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
+
+CONSTRUCTOR.listener = function(){
+  CONSTRUCTOR.camara.aspect = window.innerWidth / window.innerHeight;
+  CONSTRUCTOR.camara.updateProjectionMatrix();
+  CONSTRUCTOR.renderizador.setSize( window.innerWidth, window.innerHeight );
+}
+
 CONSTRUCTOR.setup = function(){
+    var tipo_evento = 'resize';
+    var cambioVentana = false;
+    window.addEventListener( tipo_evento, CONSTRUCTOR.listener, cambioVentana);
+    
     setupDone=true;
     
     var luz=new THREE.PointLight(0xCC88CC);
