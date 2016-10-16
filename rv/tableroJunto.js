@@ -77,38 +77,40 @@ CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 CONSTRUCTOR.setup = function(){
     setupDone=true;
     var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
-    torre1.position.x=30;
-    torre1.position.y=0;
-    torre1.position.z=0;
+    torre1.position.x=-35;
+    torre1.position.y=2.5;
+    torre1.position.z=-35;
     torre1.scale.x=0.2;
     torre1.scale.y=0.2;
     torre1.scale.z=0.2;
   
     var torre2 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
-    torre2.position.x=-30;
+    torre2.position.x=-35;
     torre2.position.y=2.5;
-    torre2.position.z=0;
+    torre2.position.z=35;
     torre2.scale.x=0.2;
     torre2.scale.y=0.2;
     torre2.scale.z=0.2;
 
-    var torre3 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
-    torre3.position.x=30;
-    torre3.position.y=-30;
+    var torre3 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
+    torre3.position.x=35;
+    torre3.position.y=2.5;
+    torre3.position.z=-35;
     torre3.scale.x=0.2;
     torre3.scale.y=0.2;
     torre3.scale.z=0.2;
 
     var torre4 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
-    torre4.position.x=30;
-    torre4.position.y=30;
+    torre4.position.x=35;
+    torre4.position.y=2.5;
+    torre4.position.z=35;
     torre4.scale.x=0.2;
     torre4.scale.y=0.2;
     torre4.scale.z=0.2;
 
     CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
-    //CONSTRUCTOR.camara.position.y = 200;
-    //CONSTRUCTOR.camara.position.x = 200;
+    CONSTRUCTOR.camara.position.y = 200;
+    CONSTRUCTOR.camara.position.x = 200;
     CONSTRUCTOR.camara.position.z = 200;
     CONSTRUCTOR.camara.lookAt(new THREE.Vector3(0,0,0));
     var lienzo = document.getElementById("tablero");
