@@ -105,8 +105,9 @@ CONSTRUCTOR.setup = function(){
     torre4.scale.z=0.2;
 
     CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
-    CONSTRUCTOR.camara.position.y = 200;
-    CONSTRUCTOR.camara.position.x = 200;
+    //CONSTRUCTOR.camara.position.y = 200;
+    //CONSTRUCTOR.camara.position.x = 200;
+    CONSTRUCTOR.camara.position.z = 200;
     CONSTRUCTOR.camara.lookAt(new THREE.Vector3(0,0,0));
     var lienzo = document.getElementById("tablero");
     CONSTRUCTOR.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
