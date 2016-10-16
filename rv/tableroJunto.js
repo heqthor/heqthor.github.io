@@ -37,7 +37,9 @@ CONSTRUCTOR.Torre=function(textura){
     
 
     //this.material = new THREE.MeshBasicMaterial({map: textura});
-     THREE.Mesh.call(this, torreForma, new THREE.MeshBasicMaterial({map:textura}));
+    THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
+    this.castShadow=true;
+    this.receiveShadow=true;
     
 }
 
@@ -76,6 +78,11 @@ CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
 CONSTRUCTOR.setup = function(){
     setupDone=true;
+    
+    var luz=new THREE.PointLight(0xFFFFFF);
+    luz.position.y=50;
+    luz.position.z=50;
+    
     var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
     torre1.position.x=-35;
     torre1.position.y=2.5;
@@ -124,6 +131,8 @@ CONSTRUCTOR.setup = function(){
     CONSTRUCTOR.escena.add(torre2);
     CONSTRUCTOR.escena.add(torre3);
     CONSTRUCTOR.escena.add(torre4);
+    CONSTRUCTOR.renderizador.shadowMapEnabled = true;
+    luz.castShadow =true;
   
 }
 
