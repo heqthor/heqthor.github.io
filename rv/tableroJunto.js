@@ -67,7 +67,6 @@ CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     var bordeMaterial = new THREE.MeshBasicMaterial({map:texturaMadera});
     var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
     bordeMalla.rotateX(-Math.PI/2);
-    bordeMalla.rotateY(-Math.PI/2);
     CONSTRUCTOR.escena.add(bordeMalla);
 }
 
