@@ -122,8 +122,8 @@ CONSTRUCTOR.setup = function(){
     CONSTRUCTOR.Tablero(CONSTRUCTOR.marmolBlanco,CONSTRUCTOR.marmolNegro,CONSTRUCTOR.madera);
     CONSTRUCTOR.escena.add(torre1);
     CONSTRUCTOR.escena.add(torre2);
-    //CONSTRUCTOR.escena.add(torre3);
-    //CONSTRUCTOR.escena.add(torre4);
+    CONSTRUCTOR.escena.add(torre3);
+    CONSTRUCTOR.escena.add(torre4);
   
 }
 
