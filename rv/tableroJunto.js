@@ -78,14 +78,14 @@ CONSTRUCTOR.setup = function(){
     setupDone=true;
     var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
     torre1.position.x=-30;
-    torre1.position.z=-30;
+    torre1.position.y=-30;
     torre1.scale.x=0.2;
     torre1.scale.y=0.2;
     torre1.scale.z=0.2;
   
     var torre2 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
     torre2.position.x=-30;
-    torre1.position.z=30;
+    torre1.position.y=30;
     torre2.scale.x=0.2;
     torre2.scale.y=0.2;
     torre2.scale.z=0.2;
@@ -118,8 +118,8 @@ CONSTRUCTOR.setup = function(){
     CONSTRUCTOR.Tablero(CONSTRUCTOR.marmolBlanco,CONSTRUCTOR.marmolNegro,CONSTRUCTOR.madera);
     CONSTRUCTOR.escena.add(torre1);
     CONSTRUCTOR.escena.add(torre2);
-    CONSTRUCTOR.escena.add(torre3);
-    CONSTRUCTOR.escena.add(torre4);
+    //CONSTRUCTOR.escena.add(torre3);
+    //CONSTRUCTOR.escena.add(torre4);
   
 }
 
