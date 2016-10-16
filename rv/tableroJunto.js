@@ -1,8 +1,5 @@
-
 var CONSTRUCTOR = new Object();
 CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
-
-
 
 
 CONSTRUCTOR.Torre=function(textura){
