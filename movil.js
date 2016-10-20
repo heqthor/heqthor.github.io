@@ -28,24 +28,19 @@ function setup(){
 
 }
 function loop(){
-  if(Math.abs(angulo)<=30)inclinacion=-inclinacion;
-  angulo=angulo+inclinacion;
-  pieza.piernaIzq.rotateZ(0.01);
-  pieza.piernaDer.rotateZ(-0.01);
   
   requestAnimationFrame(loop);
+  
+  if(Math.abs(angulo)<=30)inclinacion=-inclinacion;
+  angulo=angulo+inclinacion;
+  pieza.piernaIzq.rotateZ(inclinacion);
+  pieza.piernaDer.rotateZ(-inclinacion);
+  
   renderizador.render(escena,camara);
  //caminar();
 }
 
 function caminar(){
-  var movX=0.01;
-  var angulo=0.01;
-  var inclinacion=0.01;
-  if(Math.abs(angulo)<=30){inclinacion=-inclinacion;}
-  angulo=angulo+inclinacion;
-  pieza.piernaIzq.rotateZ(inclinacion);
-  pieza.piernaDer.rotateZ(-inclinacion);
 }
   
 
