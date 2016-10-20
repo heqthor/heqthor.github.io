@@ -28,13 +28,11 @@ function setup(){
 
 }
 function loop(){
- caminar();
   
   
   requestAnimationFrame(loop);
-  pieza.piernaIzq.rotateZ(inclinacion);
-  pieza.piernaDer.rotateZ(-inclinacion);
   renderizador.render(escena,camara);
+ caminar();
 }
 
 function caminar(){
