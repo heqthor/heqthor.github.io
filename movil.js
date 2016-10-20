@@ -35,6 +35,12 @@ function loop(){
   angulo=angulo+inclinacion;
   pieza.piernaIzq.rotateZ(inclinacion);
   pieza.piernaDer.rotateZ(-inclinacion);
+  pieza.position.x=posX;
+  movX=movX+posX;
+  if(Math.abs(movX)>=15){
+    posX=-posX;
+    pieza.rotateY(Math.PI);
+  }
   
   renderizador.render(escena,camara);
 }
@@ -43,5 +49,7 @@ function loop(){
   
 var inclinacion=0.1;
 var angulo=0;
+var posX=0.1;
+var movX=0;
 setup();
 loop();
