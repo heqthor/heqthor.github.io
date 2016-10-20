@@ -35,7 +35,7 @@ function loop(){
   angulo=angulo+inclinacion;
   pieza.piernaIzq.rotateZ(inclinacion);
   pieza.piernaDer.rotateZ(-inclinacion);
-  pieza.position.x=posX;
+  pieza.position.x=movX;
   movX=movX+posX;
   if(Math.abs(movX)>=15){
     posX=-posX;
