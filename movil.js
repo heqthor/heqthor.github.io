@@ -14,7 +14,7 @@ function Pieza(){
 Pieza.prototype = new THREE.Object3D;
 
 function setup(){
-  var pieza = new Pieza();
+  pieza = new Pieza();
   escena = new THREE.Scene();
   escena.add(pieza);
   
