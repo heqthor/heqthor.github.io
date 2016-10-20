@@ -20,8 +20,6 @@ function setup(){
   
   camara = new THREE.PerspectiveCamera();
   camara.position.z=50;
-  camara.position.y=50;
-  camara.lookAt(0, 0, 0);
   renderizador = new THREE.WebGLRenderer();
   renderizador.setSize(500,500);
   document.body.appendChild ( renderizador.domElement ); 
