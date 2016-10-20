@@ -31,3 +31,6 @@ function loop(){
   pieza.rotateY(0.01);
   renderizador.render(escena,camara);
 }
+
+setup();
+loop();
