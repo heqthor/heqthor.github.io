@@ -29,7 +29,7 @@ function loop(){
   
   requestAnimationFrame(loop);
   
-  if(Math.abs(angulo)<=30){
+  if(Math.abs(angulo)>=30){
     inclinacion=-inclinacion;
   }
   angulo=angulo+inclinacion;
