@@ -20,6 +20,8 @@ function setup(){
   
   camara = new THREE.PerspectiveCamera();
   camara.position.z=50;
+  camara.position.y=50;
+  camara.lookAt(0, 0, 0);
   renderizador = new THREE.WebGLRenderer();
   renderizador.setSize(500,500);
   document.body.appendChild ( renderizador.domElement ); 
@@ -28,10 +30,20 @@ function setup(){
 
 function loop(){
   requestAnimationFrame(loop);
-  pieza.rotateY(0.01);
-  pieza.piernaIzq.rotateZ(0.01);
+  caminar();
   renderizador.render(escena,camara);
 }
+
+function caminar(){
+  var movX=0.01;
+  var angulo=0.01;
+  var inclinacion=0.01;
+  if(abs(angulo)<=30)inclinacion=-inclinacion;
+  angulo=angulo+inclinacion;
+  pieza.piernaIzq.rotateZ(inclinacion);
+  pieza.piernaDer.rotateZ(-inclinacion);
+}
+  
 
 setup();
 loop();
