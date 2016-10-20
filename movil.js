@@ -6,7 +6,7 @@ function Pieza(){
   this.add(this.piernaIzq,this.piernaDer,cuerpo);
   this.piernaIzq.position.z=-2;
   this.piernaIzq.position.y=-2.5;
-  this.piernaDer.position.z=-2;
+  this.piernaDer.position.z=2;
   this.piernaDer.position.y=-2.5;
   cuerpo.position.z=2.5;
 }
@@ -19,9 +19,9 @@ function setup(){
   escena.add(pieza);
   
   camara = new THREE.PerspectiveCamera();
-  camara.position.z=50;
+  camara.position.z=0;
   renderizador = new THREE.WebGLRenderer();
-  renderizador.setSize(600,600);
+  renderizador.setSize(500,500);
   document.body.appendChild ( renderizador.domElement ); 
 
 }
