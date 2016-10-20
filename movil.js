@@ -14,6 +14,20 @@ function Pieza(){
 Pieza.prototype = new THREE.Object3D;
 
 function setup(){
-  var pieza = new Pieza();
+  pieza = new Pieza();
+  escena = new THREE.Scene();
+  escena.add(pieza);
   
+  camara = new THREE.PerspectiveCamera();
+  camara.position.z=5*p;
+  renderizador = new THREE.WebGLRenderer();
+  renderizador.setSize(700,700);
+  document.body.appendChild ( renderizador.domElement ); 
+
+}
+
+function loop(){
+  requestAnimationFrame(loop);
+  pieza.rotateY(0.01);
+  renderizador.render(escena,camara);
 }
