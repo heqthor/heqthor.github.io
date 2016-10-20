@@ -28,11 +28,14 @@ function setup(){
 
 }
 function loop(){
-  
+  if(Math.abs(angulo)<=30)inclinacion=-inclinacion;
+  angulo=angulo+inclinacion;
+  pieza.piernaIzq.rotateZ(inclinacion);
+  pieza.piernaDer.rotateZ(-inclinacion);
   
   requestAnimationFrame(loop);
   renderizador.render(escena,camara);
- caminar();
+ //caminar();
 }
 
 function caminar(){
@@ -46,5 +49,8 @@ function caminar(){
 }
   
 
+  
+var inclinacion=0.01;
+var angulo=0;
 setup();
 loop();
