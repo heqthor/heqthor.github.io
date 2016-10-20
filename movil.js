@@ -19,9 +19,9 @@ function setup(){
   escena.add(pieza);
   
   camara = new THREE.PerspectiveCamera();
-  camara.position.z=20;
+  camara.position.z=50;
   renderizador = new THREE.WebGLRenderer();
-  renderizador.setSize(700,700);
+  renderizador.setSize(600,600);
   document.body.appendChild ( renderizador.domElement ); 
 
 }
