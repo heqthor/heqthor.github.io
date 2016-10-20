@@ -30,8 +30,8 @@ function setup(){
 function loop(){
   if(Math.abs(angulo)<=30)inclinacion=-inclinacion;
   angulo=angulo+inclinacion;
-  pieza.piernaIzq.rotateZ(inclinacion);
-  pieza.piernaDer.rotateZ(-inclinacion);
+  pieza.piernaIzq.rotateZ(0.01);
+  pieza.piernaDer.rotateZ(-0.01);
   
   requestAnimationFrame(loop);
   renderizador.render(escena,camara);
