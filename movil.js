@@ -27,13 +27,9 @@ function setup(){
   document.body.appendChild ( renderizador.domElement ); 
 
 }
-
 function loop(){
-  //caminar();
-  var angulo=0;
-  var inclinacion=0.01;
-  if(Math.abs(angulo)>=30){inclinacion=-inclinacion;}
-  angulo=angulo+inclinacion;
+ caminar();
+  
   
   requestAnimationFrame(loop);
   pieza.piernaIzq.rotateZ(inclinacion);
