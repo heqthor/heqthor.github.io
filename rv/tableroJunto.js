@@ -267,11 +267,12 @@ CONSTRUCTOR.setup = function(){
     CONSTRUCTOR.escena.add(torre2);
     CONSTRUCTOR.escena.add(torre3);
     CONSTRUCTOR.escena.add(torre4);
-    for(var i=0;i<=1;i++){
+    /*for(var i=0;i<=1;i++){
         for(var j=0;j<=12;j++){
             CONSTRUCTOR.escena.add(peones[i][j]);
         }
-    }
+    }*/
+    CONSTRUCTOR.escena.add(peones[1][1]);
     //CONSTRUCTOR.escena.add(peon1);
     //CONSTRUCTOR.escena.add(peon2);
     CONSTRUCTOR.escena.add(rey1);
