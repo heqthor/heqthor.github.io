@@ -272,7 +272,7 @@ CONSTRUCTOR.setup = function(){
             CONSTRUCTOR.escena.add(peones[i][j]);
         }
     }*/
-    CONSTRUCTOR.escena.add(peones[1][1]);
+   // CONSTRUCTOR.escena.add(peones[1][1]);
     //CONSTRUCTOR.escena.add(peon1);
     //CONSTRUCTOR.escena.add(peon2);
     CONSTRUCTOR.escena.add(rey1);
