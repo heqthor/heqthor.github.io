@@ -257,9 +257,8 @@ CONSTRUCTOR.setup = function(){
     CONSTRUCTOR.camara.position.z = 100;
     CONSTRUCTOR.camara.lookAt(new THREE.Vector3(0,0,0));
     
-    //var lienzo = document.getElementById("tablero");
+    var lienzo = document.getElementById("tablero");
     CONSTRUCTOR.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
-    document.body.appendChild(CONSTRUCTOR.renderizador.domElement);
     CONSTRUCTOR.renderizador.setSize(window.innerWidth,window.innerHeight);
 
     //------------ ESCENA
