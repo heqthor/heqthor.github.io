@@ -221,7 +221,7 @@ CONSTRUCTOR.setup = function(){
     peon2.scale.x=0.2;
     peon2.scale.y=0.2;
     peon2.scale.z=0.2;*/
-    var peones=[][];
+    var peones=[];
     for(var i=0; i<=2;i++){
         for(var j=0; j<=12;j++){
             if(i===0)
