@@ -223,6 +223,7 @@ CONSTRUCTOR.setup = function(){
     peon2.scale.z=0.2;*/
     var peones=[];
     for(var i=0; i<=1;i++){
+        peones[i]={};
         for(var j=0; j<=12;j++){
             if(i===0)
                 peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreBlanca);
