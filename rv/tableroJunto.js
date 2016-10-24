@@ -19,7 +19,6 @@ CONSTRUCTOR.Torre=function(textura){
     puntos.push(new THREE.Vector2(15,60));
     puntos.push(new THREE.Vector2(0,60));
     //puntos.push(new THREE.Vector2(0,0));
-
     var baseForma= new THREE.LatheGeometry(puntos);
     var baseMalla = new THREE.Mesh(baseForma);
 
@@ -40,6 +39,91 @@ CONSTRUCTOR.Torre=function(textura){
 }
 CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
+
+//------------PEON----------
+CONSTRUCTOR.Peon=function(textura){    
+    var puntospeon=[];
+    
+    puntospeon.push( new THREE.Vector2(0,0));
+    puntospeon.push( new THREE.Vector2(20,0));
+    puntospeon.push( new THREE.Vector2(20,10));
+    puntospeon.push( new THREE.Vector2(15,10));
+    puntospeon.push( new THREE.Vector2(15,15));
+    puntospeon.push( new THREE.Vector2(10,15));
+    puntospeon.push( new THREE.Vector2(5,25));
+    puntospeon.push( new THREE.Vector2(5,35));
+    puntospeon.push( new THREE.Vector2(15,35));
+    puntospeon.push( new THREE.Vector2(0,40));
+
+    var basePeonForma= new THREE.LatheGeometry(puntospeon);
+    var basePeonMalla = new THREE.Mesh(basePeonForma);
+
+    var peonForma= new THREE.Geometry();
+
+    peonForma.merge(basePeonMalla.geometry, basePeonMalla.matrix);
+
+    var puntaPeonForma = new THREE.SphereGeometry(10);
+    puntaPeonForma.translate(0,45,0);
+    var puntaPeonMalla =new THREE.Mesh(puntaPeonForma); 
+    peonForma.merge(puntaPeonMalla.geometry, puntaPeonMalla.matrix);
+        
+    THREE.Mesh.call(this, peonForma, new THREE.MeshLambertMaterial({map:textura}));
+    this.castShadow=true;
+    this.receiveShadow=true;
+    
+}
+
+CONSTRUCTOR.Peon.prototype=new THREE.Mesh();
+
+
+//------------REY-----------
+CONSTRUCTOR.Rey=function(textura){    
+    var puntosrey=[];
+    
+    puntosrey.push( new THREE.Vector2(0,0));
+    puntosrey.push( new THREE.Vector2(20,0));
+    puntosrey.push( new THREE.Vector2(20,10));
+    puntosrey.push( new THREE.Vector2(15,10));
+    puntosrey.push( new THREE.Vector2(15,15));
+    puntosrey.push( new THREE.Vector2(10,15));
+    puntosrey.push( new THREE.Vector2(5,60));
+    puntosrey.push( new THREE.Vector2(20,60));
+    puntosrey.push( new THREE.Vector2(20,65));
+    puntosrey.push( new THREE.Vector2(10,65));
+    puntosrey.push( new THREE.Vector2(10,70));
+    puntosrey.push( new THREE.Vector2(15,70));
+    puntosrey.push( new THREE.Vector2(15,80));
+    puntosrey.push( new THREE.Vector2(10,80));
+    puntosrey.push( new THREE.Vector2(20,100));
+    puntosrey.push( new THREE.Vector2(0,100));
+    
+    var baseRey= new THREE.LatheGeometry(puntosrey);
+    var baseReyMalla= new THREE.Mesh( baseRey);
+    
+    var reyForma= new THREE.Geometry();
+
+    reyForma.merge(baseReyMalla.geometry, baseReyMalla.matrix);
+    
+    var vertical= new THREE.BoxGeometry(10,20,10);
+    vertical.translate(0,110,0);
+    var verticalMalla= new THREE.Mesh(vertical);
+    reyForma.merge(verticalMalla.geometry, verticalMalla.matrix);
+    
+    var horizontal= new THREE.BoxGeometry(20,10,10);
+    horizontal.translate(0,110,0);
+    var horizontalMalla= new THREE.Mesh(horizontal);
+    reyForma.merge(horizontalMalla.geometry, horizontalMalla.matrix);
+    
+    THREE.Mesh.call(this, reyForma, new THREE.MeshLambertMaterial({map:textura}));
+    this.castShadow=true;
+    this.receiveShadow=true;
+    
+}
+
+CONSTRUCTOR.Rey.prototype=new THREE.Mesh();
+
+
+
 //------------ TABLERO------
 CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     var color=0;
@@ -55,6 +139,7 @@ CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
         var cuboMalla = new THREE.Mesh(cuboForma,material);
         color=color+1;
         cuboMalla.rotateX(-Math.PI/2);
+        cuboMalla.rotateZ(-Math.PI/2);
           cuboMalla.receiveShadow=true;
         CONSTRUCTOR.escena.add(cuboMalla);
       }
@@ -120,12 +205,55 @@ CONSTRUCTOR.setup = function(){
     torre4.scale.x=0.2;
     torre4.scale.y=0.2;
     torre4.scale.z=0.2;
+    /*
+    var peon1= new CONSTRUCTOR.Peon(CONSTRUCTOR.torreBlanca);
+    peon1.position.x=-35;
+    peon1.position.y=2.5;
+    peon1.position.z=-25;
+    peon1.scale.x=0.2;
+    peon1.scale.y=0.2;
+    peon1.scale.z=0.2;
+    
+    var peon2= new CONSTRUCTOR.Peon(CONSTRUCTOR.torreNegra);
+    peon2.position.x=-35;
+    peon2.position.y=2.5;
+    peon2.position.z=25;
+    peon2.scale.x=0.2;
+    peon2.scale.y=0.2;
+    peon2.scale.z=0.2;*/
+    var peones=[][];
+    for(var i=0; i<=2;i++){
+        for(var j=0; j<=12;j++){
+            if(i===0)
+                peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreBlanca);
+            else
+                peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreNegra);
+            peones[i][j].position.x=-35+5*j;
+            peones[i][j].position.y=-35+35*i;
+        }
+    }
+    
+    var rey1= new CONSTRUCTOR.Rey(CONSTRUCTOR.torreBlanca);
+    rey1.position.x=-5;
+    rey1.position.y=2.5;
+    rey1.position.z=-35;
+    rey1.scale.x=0.2;
+    rey1.scale.y=0.2;
+    rey1.scale.z=0.2;
+    
+    var rey2= new CONSTRUCTOR.Rey(CONSTRUCTOR.torreNegra);
+    rey2.position.x=-5;
+    rey2.position.y=2.5;
+    rey2.position.z=35;
+    rey2.scale.x=0.2;
+    rey2.scale.y=0.2;
+    rey2.scale.z=0.2;
 
     //--------------- CAMARA ---------------
     CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
-    CONSTRUCTOR.camara.position.y = 200;
-    CONSTRUCTOR.camara.position.x = 200;
-    CONSTRUCTOR.camara.position.z = 200;
+    CONSTRUCTOR.camara.position.y = 100;
+    CONSTRUCTOR.camara.position.x = 100;
+    CONSTRUCTOR.camara.position.z = 100;
     CONSTRUCTOR.camara.lookAt(new THREE.Vector3(0,0,0));
     var lienzo = document.getElementById("tablero");
     CONSTRUCTOR.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
@@ -139,6 +267,10 @@ CONSTRUCTOR.setup = function(){
     CONSTRUCTOR.escena.add(torre2);
     CONSTRUCTOR.escena.add(torre3);
     CONSTRUCTOR.escena.add(torre4);
+    CONSTRUCTOR.escena.add(peon1);
+    CONSTRUCTOR.escena.add(peon2);
+    CONSTRUCTOR.escena.add(rey1);
+    CONSTRUCTOR.escena.add(rey2);
     CONSTRUCTOR.escena.add(luz);
     CONSTRUCTOR.renderizador.shadowMapEnabled = true;
     luz.castShadow =true;
@@ -165,7 +297,7 @@ CONSTRUCTOR.TexturaSetup= function(){
                   function(textura){ CONSTRUCTOR.marmolBlanco = textura;});
     cargador.load("texturaMarmolNegro.jpg",
                   function(textura){ CONSTRUCTOR.marmolNegro = textura;});
-    cargador.load("texturaMadera.jpg",
+    cargador.load("texturaMadera.JPG",
                   function(textura){ CONSTRUCTOR.madera = textura;});
     
 }
