@@ -229,8 +229,9 @@ CONSTRUCTOR.setup = function(){
                 peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreBlanca);
             else
                 peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreNegra);
-            peones[i][j].position.x=-50+10*j;
-            peones[i][j].position.z=-40+80*i;
+            peones[i][j].position.x=-35+10*j;
+            peones[i][j].position.z=-35+70*i;
+            peones[i][j].position.y=25;
             peones[i][j].scale.x=0.2;
             peones[i][j].scale.y=0.2;
             peones[i][j].scale.z=0.2;
