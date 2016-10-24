@@ -18,7 +18,7 @@ CONSTRUCTOR.Torre=function(textura){
     puntos.push(new THREE.Vector2(15,50));
     puntos.push(new THREE.Vector2(15,60));
     puntos.push(new THREE.Vector2(0,60));
-    //puntos.push(new THREE.Vector2(0,0));
+    
     var baseForma= new THREE.LatheGeometry(puntos);
     var baseMalla = new THREE.Mesh(baseForma);
 
@@ -255,9 +255,10 @@ CONSTRUCTOR.setup = function(){
     CONSTRUCTOR.camara.position.x = 100;
     CONSTRUCTOR.camara.position.z = 100;
     CONSTRUCTOR.camara.lookAt(new THREE.Vector3(0,0,0));
-    var lienzo = document.getElementById("tablero");
+    
+    //var lienzo = document.getElementById("tablero");
     CONSTRUCTOR.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
-
+    document.body.appendChild(CONSTRUCTOR.renderizador.domElement);
     CONSTRUCTOR.renderizador.setSize(window.innerWidth,window.innerHeight);
 
     //------------ ESCENA
