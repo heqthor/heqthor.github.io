@@ -303,7 +303,7 @@ CONSTRUCTOR.TexturaSetup= function(){
                   function(textura){ CONSTRUCTOR.marmolBlanco = textura;});
     cargador.load("texturaMarmolNegro.jpg",
                   function(textura){ CONSTRUCTOR.marmolNegro = textura;});
-    cargador.load("texturaMadera.JPG",
+    cargador.load("texturaMadera.jpg",
                   function(textura){ CONSTRUCTOR.madera = textura;});
     
 }
