@@ -222,15 +222,15 @@ CONSTRUCTOR.setup = function(){
     peon2.scale.y=0.2;
     peon2.scale.z=0.2;*/
     var peones=[];
-    for(var i=0; i<=1;i++){
+    for(var i=0; i<=2;i++){
         peones[i]={};
         for(var j=0; j<=12;j++){
             if(i===0)
                 peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreBlanca);
             else
                 peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreNegra);
-            peones[i][j].position.x=-35+5*j;
-            peones[i][j].position.y=-35+35*i;
+            peones[i][j].position.x=-50+10*j;
+            peones[i][j].position.y=-50+100*i;
             peones[i][j].scale.x=0.2;
             peones[i][j].scale.y=0.2;
             peones[i][j].scale.z=0.2;
