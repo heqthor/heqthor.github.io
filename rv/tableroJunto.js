@@ -205,22 +205,7 @@ CONSTRUCTOR.setup = function(){
     torre4.scale.x=0.2;
     torre4.scale.y=0.2;
     torre4.scale.z=0.2;
-    /*
-    var peon1= new CONSTRUCTOR.Peon(CONSTRUCTOR.torreBlanca);
-    peon1.position.x=-35;
-    peon1.position.y=2.5;
-    peon1.position.z=-25;
-    peon1.scale.x=0.2;
-    peon1.scale.y=0.2;
-    peon1.scale.z=0.2;
     
-    var peon2= new CONSTRUCTOR.Peon(CONSTRUCTOR.torreNegra);
-    peon2.position.x=-35;
-    peon2.position.y=2.5;
-    peon2.position.z=25;
-    peon2.scale.x=0.2;
-    peon2.scale.y=0.2;
-    peon2.scale.z=0.2;*/
     var peones=[];
     for(var i=0; i<=2;i++){
         peones[i]={};
@@ -230,7 +215,7 @@ CONSTRUCTOR.setup = function(){
             else
                 peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreNegra);
             peones[i][j].position.x=-35+10*j;
-            peones[i][j].position.z=-35+70*i;
+            peones[i][j].position.z=-25+50*i;
             peones[i][j].position.y=2.5;
             peones[i][j].scale.x=0.2;
             peones[i][j].scale.y=0.2;
@@ -277,9 +262,6 @@ CONSTRUCTOR.setup = function(){
             CONSTRUCTOR.escena.add(peones[i][j]);
         }
     }
-   // CONSTRUCTOR.escena.add(peones[1][1]);
-    //CONSTRUCTOR.escena.add(peon1);
-    //CONSTRUCTOR.escena.add(peon2);
     CONSTRUCTOR.escena.add(rey1);
     CONSTRUCTOR.escena.add(rey2);
     CONSTRUCTOR.escena.add(luz);
