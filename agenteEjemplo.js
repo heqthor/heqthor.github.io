@@ -94,7 +94,7 @@ function setup(){
   entorno.add( new Pared(10,7,-1) );
   entorno.add( new Pared(10,-7,-1) );
   entorno.add( new Pelota(0.5) );
-  entorno.add(new Pelota(1,1,-2) );
+  entorno.add(new Pelota(1,0,-2) );
   entorno.add(camara);
   
   renderer= new THREE.WebGLRenderer();
