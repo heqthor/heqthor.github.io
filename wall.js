@@ -135,6 +135,8 @@ Environment.prototype.setMap = function( map ){
   }
 };
 
+var environment, camera, renderer;
+
 function setup(){
   var mapa = new Array();
   mapa[0] = "xxxxxxxxxxxxxxxxxxxxxxxxx";
@@ -186,7 +188,6 @@ function loop(){
   renderer.render(environment,camera);
 }
 
-var environment, camera, renderer;
 
 
 
