@@ -155,12 +155,12 @@ function setup(){
   mapa[15]= "x                       x";
   mapa[16]= "x                       x";
   mapa[17]= "xr       r      r x     x";
-  mapa[18]= "x      r         x xx x x";
+  mapa[18]= "x      r         xxxx x x";
   mapa[19]= "xxxxxxxxxxxxxxx  xxxxxxxx";
   mapa[20]= "xrrrrrrrrr              x";
-  mapa[21]= "xrrrrrrrrrrrrrrrrrrrrr  x";
-  mapa[22]= "x                       x";
-  mapa[23]= "x                       x";
+  mapa[21]= "xrrrrrrrrrrrrrrrrrrrrrrrx";
+  mapa[22]= "xrrrrrrrrrrrrrrrrrrrrrrrx";
+  mapa[23]= "xrrrrrrrrrrrrrrrrrrrrrrrx";
   mapa[24]= "xxxxxxxxxxxxxxxxxxxxxxxxx";
   
   environment = new Environment();
