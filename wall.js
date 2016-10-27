@@ -51,7 +51,7 @@ function Robot(size, x,y){
   this.sensor = new Sensor();
   this.actuator = new THREE.Mesh(
     new THREE.BoxGeometry( size, size, size),
-    new THREE.MeshBasicMaterial());
+    new THREE.MeshBasicMaterial({color: "cccccc"}));
   this.actuator.commands=[];
   this.add(this.actuator);
 }
@@ -138,16 +138,16 @@ var environment, camera, renderer;
 function setup(){
   var mapa = new Array();
   mapa[0] = "xxxxxxxxxxxxxxxxxxxxxxxxx";
-  mapa[1] = "xr                      x";
-  mapa[2] = "x     r       x        rx";
-  mapa[3] = "x             x         x";
-  mapa[4] = "x    r        x         x";
+  mapa[1] = "xrrrrrrrrrrrrrrrrrrrrrrrx";
+  mapa[2] = "x     r       xrrrrrrrrrx";
+  mapa[3] = "x             xrrrrrrrrrx";
+  mapa[4] = "x    r        xrrrrrrrrrx";
   mapa[5] = "xxxxxxxxx r xxxxxxxxxxxxx";
   mapa[6] = "x    r      r     xx    x";
   mapa[7] = "x r               x     x";
   mapa[8] = "xxxxxxxxxxxxxxx  xxxxxxxx";
-  mapa[9] = "xx                     xx";
-  mapa[10]= "x           r          xx";
+  mapa[9] = "xxrrrrrrrrrrrrrrrrrrrrrxx";
+  mapa[10]= "x rrrrrrrrrrrrrrrrrrrrrxx";
   mapa[11]= "x    r               r  x";
   mapa[12]= "x   r          x x  x   x";
   mapa[13]= "xx     x   x xxx  xx   xx";
