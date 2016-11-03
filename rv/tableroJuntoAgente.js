@@ -223,7 +223,7 @@ CONSTRUCTOR.setup = function(){
         }
     }
     
-    var rey1= new Agent.Rey(CONSTRUCTOR.torreBlanca);
+    var rey1= new Rey(CONSTRUCTOR.torreBlanca);
     rey1.position.x=-5;
     rey1.position.y=2.5;
     rey1.position.z=-35;
