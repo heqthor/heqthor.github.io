@@ -1,7 +1,7 @@
 var CONSTRUCTOR = new Object();
 
 
-CONSTRUCTOR.Torre=function(textura){    
+Torre=function(textura){    
     var puntos=[];
     
     puntos.push(new THREE.Vector2(0,0));
@@ -37,7 +37,7 @@ CONSTRUCTOR.Torre=function(textura){
     this.castShadow=true;
     this.receiveShadow=true;
 }
-CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
+Torre.prototype=new Agent();
 
 
 //------------PEON----------
