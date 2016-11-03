@@ -280,21 +280,21 @@ CONSTRUCTOR.loop = function(){
    CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
 }
 
-CONSTRUCTOR.TexturaSetup= function(){
+TexturaSetup= function(){
     var cargador = new THREE.TextureLoader();
     cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ CONSTRUCTOR.torreNegra = textura;});
+                  function(textura){ torreNegra = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
-                  function(textura){ CONSTRUCTOR.torreBlanca = textura;});
+                  function(textura){ torreBlanca = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
-                  function(textura){ CONSTRUCTOR.marmolBlanco = textura;});
+                  function(textura){ marmolBlanco = textura;});
     cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ CONSTRUCTOR.marmolNegro = textura;});
+                  function(textura){ marmolNegro = textura;});
     cargador.load("texturaMadera.jpg",
-                  function(textura){ CONSTRUCTOR.madera = textura;});
+                  function(textura){ madera = textura;});
     
 }
     
 
-CONSTRUCTOR.TexturaSetup();
+TexturaSetup();
 CONSTRUCTOR.loop();
