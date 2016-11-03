@@ -41,7 +41,7 @@ Torre.prototype=new Agent();
 
 
 //------------PEON----------
-CONSTRUCTOR.Peon=function(textura){    
+var Peon=function(textura){    
     var puntospeon=[];
     
     puntospeon.push( new THREE.Vector2(0,0));
@@ -72,12 +72,11 @@ CONSTRUCTOR.Peon=function(textura){
     this.receiveShadow=true;
     
 }
-
-CONSTRUCTOR.Peon.prototype=new THREE.Mesh();
+Peon.prototype=new Agent();
 
 
 //------------REY-----------
-CONSTRUCTOR.Rey=function(textura){    
+var Rey=function(textura){    
     var puntosrey=[];
     
     puntosrey.push( new THREE.Vector2(0,0));
@@ -120,12 +119,12 @@ CONSTRUCTOR.Rey=function(textura){
     
 }
 
-CONSTRUCTOR.Rey.prototype=new THREE.Mesh();
+Rey.prototype=new Agent();
 
 
 
 //------------ TABLERO------
-CONSTRUCTOR.Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
+var Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     var color=0;
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
@@ -174,7 +173,7 @@ CONSTRUCTOR.setup = function(){
     luz.position.y=50;
     luz.position.z=100;
     
-    var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
+    var torre1 = new Torre(torreBlanca);
     torre1.position.x=-35;
     torre1.position.y=2.5;
     torre1.position.z=-35;
@@ -182,7 +181,7 @@ CONSTRUCTOR.setup = function(){
     torre1.scale.y=0.2;
     torre1.scale.z=0.2;
   
-    var torre2 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
+    var torre2 = new Torre(torreNegra);
     torre2.position.x=-35;
     torre2.position.y=2.5;
     torre2.position.z=35;
@@ -190,7 +189,7 @@ CONSTRUCTOR.setup = function(){
     torre2.scale.y=0.2;
     torre2.scale.z=0.2;
 
-    var torre3 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
+    var torre3 = new Torre(CONSTRUCTOR.torreBlanca);
     torre3.position.x=35;
     torre3.position.y=2.5;
     torre3.position.z=-35;
@@ -198,7 +197,7 @@ CONSTRUCTOR.setup = function(){
     torre3.scale.y=0.2;
     torre3.scale.z=0.2;
 
-    var torre4 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
+    var torre4 = new Torre(CONSTRUCTOR.torreNegra);
     torre4.position.x=35;
     torre4.position.y=2.5;
     torre4.position.z=35;
@@ -211,9 +210,9 @@ CONSTRUCTOR.setup = function(){
         peones[i]={};
         for(var j=0; j<=7;j++){
             if(i===0)
-                peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreBlanca);
+                peones[i][j]=new Peon(torreBlanca);
             else
-                peones[i][j]=new CONSTRUCTOR.Peon(CONSTRUCTOR.torreNegra);
+                peones[i][j]=new Peon(torreNegra);
             peones[i][j].position.x=-35+10*j;
             peones[i][j].position.z=-25+50*i;
             peones[i][j].position.y=2.5;
@@ -223,7 +222,7 @@ CONSTRUCTOR.setup = function(){
         }
     }
     
-    var rey1= new CONSTRUCTOR.Rey(CONSTRUCTOR.torreBlanca);
+    var rey1= new Rey(torreBlanca);
     rey1.position.x=-5;
     rey1.position.y=2.5;
     rey1.position.z=-35;
@@ -231,7 +230,7 @@ CONSTRUCTOR.setup = function(){
     rey1.scale.y=0.2;
     rey1.scale.z=0.2;
     
-    var rey2= new CONSTRUCTOR.Rey(CONSTRUCTOR.torreNegra);
+    var rey2= new Rey(torreNegra);
     rey2.position.x=-5;
     rey2.position.y=2.5;
     rey2.position.z=35;
@@ -283,15 +282,15 @@ CONSTRUCTOR.loop = function(){
 var TexturaSetup= function(){
     var cargador = new THREE.TextureLoader();
     cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ torreNegra = textura;});
+                  function(textura){ var torreNegra = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
-                  function(textura){ torreBlanca = textura;});
+                  function(textura){ var torreBlanca = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
-                  function(textura){ marmolBlanco = textura;});
+                  function(textura){ var marmolBlanco = textura;});
     cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ marmolNegro = textura;});
+                  function(textura){ var marmolNegro = textura;});
     cargador.load("texturaMadera.jpg",
-                  function(textura){ madera = textura;});
+                  function(textura){ var madera = textura;});
     
 }
     
