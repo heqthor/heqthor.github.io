@@ -114,8 +114,8 @@ function Rey(textura){
     horizontal.translate(0,110,0);
     var horizontalMalla= new THREE.Mesh(horizontal);
     reyForma.merge(horizontalMalla.geometry, horizontalMalla.matrix);
-    
-    THREE.Mesh.call(this, reyForma, new THREE.MeshLambertMaterial({map:textura}));
+      this.add(new THREE.Mesh( new THREE.BoxGeometry( size, size, size ), new THREE.MeshNormalMaterial()));
+    //this.add(new THREE.Mesh(his, reyForma, new THREE.MeshLambertMaterial({map:textura}));
     this.castShadow=true;
     this.receiveShadow=true;
     
