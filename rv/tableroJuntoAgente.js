@@ -1,7 +1,7 @@
 var CONSTRUCTOR = new Object();
 
 
-CONSTRUCTOR.Torre=function(textura){    
+Torre=function(textura){    
     var puntos=[];
     
     puntos.push(new THREE.Vector2(0,0));
@@ -37,7 +37,7 @@ CONSTRUCTOR.Torre=function(textura){
     this.castShadow=true;
     this.receiveShadow=true;
 }
-CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
+Torre.prototype=new THREE.Mesh();
 
 
 //------------PEON----------
@@ -174,7 +174,7 @@ CONSTRUCTOR.setup = function(){
     luz.position.y=50;
     luz.position.z=100;
     
-    var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
+    var torre1 = new Torre(CONSTRUCTOR.torreBlanca);
     torre1.position.x=-35;
     torre1.position.y=2.5;
     torre1.position.z=-35;
@@ -182,7 +182,7 @@ CONSTRUCTOR.setup = function(){
     torre1.scale.y=0.2;
     torre1.scale.z=0.2;
   
-    var torre2 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
+    var torre2 = new Torre(CONSTRUCTOR.torreNegra);
     torre2.position.x=-35;
     torre2.position.y=2.5;
     torre2.position.z=35;
@@ -190,7 +190,7 @@ CONSTRUCTOR.setup = function(){
     torre2.scale.y=0.2;
     torre2.scale.z=0.2;
 
-    var torre3 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
+    var torre3 = new Torre(CONSTRUCTOR.torreBlanca);
     torre3.position.x=35;
     torre3.position.y=2.5;
     torre3.position.z=-35;
@@ -198,7 +198,7 @@ CONSTRUCTOR.setup = function(){
     torre3.scale.y=0.2;
     torre3.scale.z=0.2;
 
-    var torre4 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
+    var torre4 = new Torre(CONSTRUCTOR.torreNegra);
     torre4.position.x=35;
     torre4.position.y=2.5;
     torre4.position.z=35;
