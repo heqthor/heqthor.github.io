@@ -77,7 +77,8 @@ CONSTRUCTOR.Peon.prototype=new THREE.Mesh();
 
 
 //------------REY-----------
-CONSTRUCTOR.Rey=function(textura){    
+function Rey(textura){    
+    Agent.call(this);
     var puntosrey=[];
     
     puntosrey.push( new THREE.Vector2(0,0));
@@ -119,8 +120,7 @@ CONSTRUCTOR.Rey=function(textura){
     this.receiveShadow=true;
     
 }
-
-CONSTRUCTOR.Rey.prototype=new THREE.Mesh();
+Rey.prototype=new Agent();
 
 
 
