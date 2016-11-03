@@ -189,7 +189,7 @@ CONSTRUCTOR.setup = function(){
     torre2.scale.y=0.2;
     torre2.scale.z=0.2;
 
-    var torre3 = new Torre(CONSTRUCTOR.torreBlanca);
+    var torre3 = new Torre(torreBlanca);
     torre3.position.x=35;
     torre3.position.y=2.5;
     torre3.position.z=-35;
@@ -197,7 +197,7 @@ CONSTRUCTOR.setup = function(){
     torre3.scale.y=0.2;
     torre3.scale.z=0.2;
 
-    var torre4 = new Torre(CONSTRUCTOR.torreNegra);
+    var torre4 = new Torre(torreNegra);
     torre4.position.x=35;
     torre4.position.y=2.5;
     torre4.position.z=35;
