@@ -1,7 +1,7 @@
 var CONSTRUCTOR = new Object();
 
 
-Torre=function(textura){    
+var Torre=function(textura){    
     var puntos=[];
     
     puntos.push(new THREE.Vector2(0,0));
@@ -280,7 +280,7 @@ CONSTRUCTOR.loop = function(){
    CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
 }
 
-TexturaSetup= function(){
+var TexturaSetup= function(){
     var cargador = new THREE.TextureLoader();
     cargador.load("texturaMarmolNegro.jpg",
                   function(textura){ torreNegra = textura;});
