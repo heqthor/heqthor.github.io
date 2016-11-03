@@ -77,7 +77,7 @@ CONSTRUCTOR.Peon.prototype=new THREE.Mesh();
 
 
 //------------REY-----------
-function Rey(textura){    
+Rey=function(textura){    
     Agent.call(this);
     var puntosrey=[];
     
@@ -262,7 +262,7 @@ CONSTRUCTOR.setup = function(){
             CONSTRUCTOR.escena.add(peones[i][j]);
         }
     }
-    //CONSTRUCTOR.escena.add(rey1);
+    CONSTRUCTOR.escena.add(rey1);
     //CONSTRUCTOR.escena.add(rey2);
     CONSTRUCTOR.escena.add(luz);
     CONSTRUCTOR.renderizador.shadowMapEnabled = true;
