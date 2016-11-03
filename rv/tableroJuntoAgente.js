@@ -1,7 +1,7 @@
 var CONSTRUCTOR = new Object();
 
 
-Torre=function(textura){    
+CONSTRUCTOR.Torre=function(textura){    
     var puntos=[];
     
     puntos.push(new THREE.Vector2(0,0));
@@ -37,7 +37,7 @@ Torre=function(textura){
     this.castShadow=true;
     this.receiveShadow=true;
 }
-Torre.prototype=new THREE.Mesh();
+CONSTRUCTOR.Torre.prototype=new THREE.Mesh();
 
 
 //------------PEON----------
@@ -77,8 +77,7 @@ CONSTRUCTOR.Peon.prototype=new THREE.Mesh();
 
 
 //------------REY-----------
-Rey=function(textura){    
-    Agent.call(this);
+CONSTRUCTOR.Rey=function(textura){    
     var puntosrey=[];
     
     puntosrey.push( new THREE.Vector2(0,0));
@@ -114,13 +113,14 @@ Rey=function(textura){
     horizontal.translate(0,110,0);
     var horizontalMalla= new THREE.Mesh(horizontal);
     reyForma.merge(horizontalMalla.geometry, horizontalMalla.matrix);
-      this.add(new THREE.Mesh( new THREE.BoxGeometry( 1,1,1 ), new THREE.MeshNormalMaterial()));
-    //this.add(new THREE.Mesh(his, reyForma, new THREE.MeshLambertMaterial({map:textura}));
+    
+    THREE.Mesh.call(this, reyForma, new THREE.MeshLambertMaterial({map:textura}));
     this.castShadow=true;
     this.receiveShadow=true;
     
 }
-Rey.prototype=new Agent();
+
+CONSTRUCTOR.Rey.prototype=new THREE.Mesh();
 
 
 
@@ -174,7 +174,7 @@ CONSTRUCTOR.setup = function(){
     luz.position.y=50;
     luz.position.z=100;
     
-    var torre1 = new Torre(CONSTRUCTOR.torreBlanca);
+    var torre1 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
     torre1.position.x=-35;
     torre1.position.y=2.5;
     torre1.position.z=-35;
@@ -182,7 +182,7 @@ CONSTRUCTOR.setup = function(){
     torre1.scale.y=0.2;
     torre1.scale.z=0.2;
   
-    var torre2 = new Torre(CONSTRUCTOR.torreNegra);
+    var torre2 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
     torre2.position.x=-35;
     torre2.position.y=2.5;
     torre2.position.z=35;
@@ -190,7 +190,7 @@ CONSTRUCTOR.setup = function(){
     torre2.scale.y=0.2;
     torre2.scale.z=0.2;
 
-    var torre3 = new Torre(CONSTRUCTOR.torreBlanca);
+    var torre3 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreBlanca);
     torre3.position.x=35;
     torre3.position.y=2.5;
     torre3.position.z=-35;
@@ -198,7 +198,7 @@ CONSTRUCTOR.setup = function(){
     torre3.scale.y=0.2;
     torre3.scale.z=0.2;
 
-    var torre4 = new Torre(CONSTRUCTOR.torreNegra);
+    var torre4 = new CONSTRUCTOR.Torre(CONSTRUCTOR.torreNegra);
     torre4.position.x=35;
     torre4.position.y=2.5;
     torre4.position.z=35;
@@ -223,22 +223,22 @@ CONSTRUCTOR.setup = function(){
         }
     }
     
-    var rey1= new Rey(CONSTRUCTOR.torreBlanca);
+    var rey1= new CONSTRUCTOR.Rey(CONSTRUCTOR.torreBlanca);
     rey1.position.x=-5;
     rey1.position.y=2.5;
     rey1.position.z=-35;
     rey1.scale.x=0.2;
     rey1.scale.y=0.2;
     rey1.scale.z=0.2;
-    /*
-    var rey2= new Agent.CONSTRUCTOR.Rey(CONSTRUCTOR.torreNegra);
+    
+    var rey2= new CONSTRUCTOR.Rey(CONSTRUCTOR.torreNegra);
     rey2.position.x=-5;
     rey2.position.y=2.5;
     rey2.position.z=35;
     rey2.scale.x=0.2;
     rey2.scale.y=0.2;
     rey2.scale.z=0.2;
-*/
+
     //--------------- CAMARA ---------------
     CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
     CONSTRUCTOR.camara.position.y = 100;
@@ -263,7 +263,7 @@ CONSTRUCTOR.setup = function(){
         }
     }
     CONSTRUCTOR.escena.add(rey1);
-    //CONSTRUCTOR.escena.add(rey2);
+    CONSTRUCTOR.escena.add(rey2);
     CONSTRUCTOR.escena.add(luz);
     CONSTRUCTOR.renderizador.shadowMapEnabled = true;
     luz.castShadow =true;
