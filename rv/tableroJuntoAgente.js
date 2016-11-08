@@ -174,7 +174,10 @@ function setup(){
     luz.position.y=50;
     luz.position.z=100;
     
-    var torre = new Torre(TEXTURAS.torreNegra);
+    var torreN1 = new Torre(TEXTURAS.torreNegra);
+    torreN1.scale.x=0.2;
+    torreN1.scale.y=0.2;
+    torreN1.scale.z=0.2;
     
     escena.add(torre);
     escena.add(luz);
