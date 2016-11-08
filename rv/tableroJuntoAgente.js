@@ -146,7 +146,7 @@ Rey.prototype=new Agent();
 
 
 //------------ TABLERO------
-function Tablero ( TEXTURAS.texturaBlanco, TEXTURAS.texturaNegro,TEXTURAS.texturaMadera){
+function Tablero (texturaBlanco, texturaNegro,texturaMadera){
     var color=0;
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
@@ -208,7 +208,7 @@ function setup(){
     
     escena.add(torreN1);
     escena.add(luz);
-    Tablero();
+    Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
     
     renderizador.setSize( window.innerHeight*.95 , window.innerHeight*0.95 );
     document.body.appendChild( renderizador.domElement );
