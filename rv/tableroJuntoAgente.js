@@ -178,6 +178,8 @@ function setup(){
     
     escena.add(torre);
     escena.add(luz);
+    
+    var renderizador= new THREE.WebGLRenderer();
   
 }
 
