@@ -179,7 +179,7 @@ function setup(){
     torreN1.scale.y=0.2;
     torreN1.scale.z=0.2;
     
-    escena.add(torre);
+    escena.add(torreN1);
     escena.add(luz);
     
     renderizador.setSize( window.innerHeight*.95 , window.innerHeight*0.95 );
