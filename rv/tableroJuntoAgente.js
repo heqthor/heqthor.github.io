@@ -187,6 +187,7 @@ function setup(){
 }
 
 var setupDone=false;
+var escena, camara, renderizador;
 
 function loop(){
   requestAnimationFrame(loop);
