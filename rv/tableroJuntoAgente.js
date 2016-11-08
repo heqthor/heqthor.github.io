@@ -1,6 +1,3 @@
-var CONSTRUCTOR = new Object();
-
-
 var Torre=function(textura){    
     var puntos=[];
     
@@ -140,7 +137,7 @@ var Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
         cuboMalla.rotateX(-Math.PI/2);
         cuboMalla.rotateZ(-Math.PI/2);
           cuboMalla.receiveShadow=true;
-        CONSTRUCTOR.escena.add(cuboMalla);
+        escena.add(cuboMalla);
       }
       color=color+1;
     }
@@ -151,21 +148,25 @@ var Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
     var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
     bordeMalla.rotateX(-Math.PI/2);
     bordeMalla.receiveShadow=true;
-    CONSTRUCTOR.escena.add(bordeMalla);
+    escena.add(bordeMalla);
 }
 
 //------------ FUNCION CAMBIO VENTANA-----
-CONSTRUCTOR.listener = function(){
-  CONSTRUCTOR.camara.aspect = window.innerWidth / window.innerHeight;
-  CONSTRUCTOR.camara.updateProjectionMatrix();
-  CONSTRUCTOR.renderizador.setSize( window.innerWidth, window.innerHeight );
+function listener(){
+  camara.aspect = window.innerWidth / window.innerHeight;
+  camara.updateProjectionMatrix();
+  renderizador.setSize( window.innerWidth, window.innerHeight );
 }
 
 //---------- SET UP--------
-CONSTRUCTOR.setup = function(){
+function setup(){
     var tipo_evento = 'resize';
     var cambioVentana = false;
-    window.addEventListener( tipo_evento, CONSTRUCTOR.listener, cambioVentana);
+    window.addEventListener( tipo_evento, listener, cambioVentana);
+    
+    escena=new Environment();
+    camara = new THREE.PerspectiveCamera();
+    camara.position.z = 30;
     
     setupDone=true;
     
@@ -173,110 +174,21 @@ CONSTRUCTOR.setup = function(){
     luz.position.y=50;
     luz.position.z=100;
     
-    var torre1 = new Torre(torreBlanca);
-    torre1.position.x=-35;
-    torre1.position.y=2.5;
-    torre1.position.z=-35;
-    torre1.scale.x=0.2;
-    torre1.scale.y=0.2;
-    torre1.scale.z=0.2;
-  
-    var torre2 = new Torre(torreNegra);
-    torre2.position.x=-35;
-    torre2.position.y=2.5;
-    torre2.position.z=35;
-    torre2.scale.x=0.2;
-    torre2.scale.y=0.2;
-    torre2.scale.z=0.2;
-
-    var torre3 = new Torre(torreBlanca);
-    torre3.position.x=35;
-    torre3.position.y=2.5;
-    torre3.position.z=-35;
-    torre3.scale.x=0.2;
-    torre3.scale.y=0.2;
-    torre3.scale.z=0.2;
-
-    var torre4 = new Torre(torreNegra);
-    torre4.position.x=35;
-    torre4.position.y=2.5;
-    torre4.position.z=35;
-    torre4.scale.x=0.2;
-    torre4.scale.y=0.2;
-    torre4.scale.z=0.2;
+    var torre = new Agent.Torre(torreNegra);
     
-    var peones=[];
-    for(var i=0; i<=2;i++){
-        peones[i]={};
-        for(var j=0; j<=7;j++){
-            if(i===0)
-                peones[i][j]=new Peon(torreBlanca);
-            else
-                peones[i][j]=new Peon(torreNegra);
-            peones[i][j].position.x=-35+10*j;
-            peones[i][j].position.z=-25+50*i;
-            peones[i][j].position.y=2.5;
-            peones[i][j].scale.x=0.2;
-            peones[i][j].scale.y=0.2;
-            peones[i][j].scale.z=0.2;
-        }
-    }
-    
-    var rey1= new Rey(torreBlanca);
-    rey1.position.x=-5;
-    rey1.position.y=2.5;
-    rey1.position.z=-35;
-    rey1.scale.x=0.2;
-    rey1.scale.y=0.2;
-    rey1.scale.z=0.2;
-    
-    var rey2= new Rey(torreNegra);
-    rey2.position.x=-5;
-    rey2.position.y=2.5;
-    rey2.position.z=35;
-    rey2.scale.x=0.2;
-    rey2.scale.y=0.2;
-    rey2.scale.z=0.2;
-
-    //--------------- CAMARA ---------------
-    CONSTRUCTOR.camara = new THREE.PerspectiveCamera();
-    CONSTRUCTOR.camara.position.y = 100;
-    CONSTRUCTOR.camara.position.x = 100;
-    CONSTRUCTOR.camara.position.z = 100;
-    CONSTRUCTOR.camara.lookAt(new THREE.Vector3(0,0,0));
-    
-    var lienzo = document.getElementById("tablero");
-    CONSTRUCTOR.renderizador = new THREE.WebGLRenderer({canvas: lienzo, antialias: true});
-    CONSTRUCTOR.renderizador.setSize(window.innerWidth,window.innerHeight);
-
-    //------------ ESCENA
-    CONSTRUCTOR.escena = new THREE.Scene();
-    CONSTRUCTOR.Tablero(CONSTRUCTOR.marmolBlanco,CONSTRUCTOR.marmolNegro,CONSTRUCTOR.madera);
-    CONSTRUCTOR.escena.add(torre1);
-    CONSTRUCTOR.escena.add(torre2);
-    CONSTRUCTOR.escena.add(torre3);
-    CONSTRUCTOR.escena.add(torre4);
-    for(var i=0;i<=1;i++){
-        for(var j=0;j<=12;j++){
-            CONSTRUCTOR.escena.add(peones[i][j]);
-        }
-    }
-    CONSTRUCTOR.escena.add(rey1);
-    CONSTRUCTOR.escena.add(rey2);
-    CONSTRUCTOR.escena.add(luz);
-    CONSTRUCTOR.renderizador.shadowMapEnabled = true;
-    luz.castShadow =true;
+    escena.add(torre);
+    escena.add(luz);
   
 }
 
 var setupDone=false;
 
-CONSTRUCTOR.loop = function(){
-  requestAnimationFrame( CONSTRUCTOR.loop);
+function loop(){
+  requestAnimationFrame(loop);
   if(madera!==undefined && torreBlanca!==undefined && marmolBlanco!==undefined && marmolNegro!==undefined && !setupDone){
-      CONSTRUCTOR.setup();
+      setup();
   }
-   CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena, CONSTRUCTOR.camara);
+   renderizador.render(escena, camara);
 }
 
 var TexturaSetup= function(){
@@ -296,4 +208,4 @@ var TexturaSetup= function(){
     
 
 TexturaSetup();
-CONSTRUCTOR.loop();
+loop();
