@@ -191,7 +191,7 @@ function loop(){
    renderizador.render(escena, camara);
 }
 
-var TexturaSetup= function(){
+function TexturaSetup(){
     var cargador = new THREE.TextureLoader();
     cargador.load("texturaMarmolNegro.jpg",
                   function(textura){ var torreNegra = textura;});
