@@ -35,6 +35,11 @@ function Torre(textura){
     this.add(new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map:textura})));
     this.castShadow=true;
     this.receiveShadow=true;
+    
+    this.step = 0.1;
+    this.colision = 0;
+    this.radius = 4;
+    this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
 }
 Torre.prototype=new Agent();
 
