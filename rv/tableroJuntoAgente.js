@@ -165,8 +165,6 @@ function setup(){
     var cambioVentana = false;
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
-    escena=new Environment();
-    camara = new THREE.PerspectiveCamera();
     camara.position.z = 30;
     
     setupDone=true;
@@ -180,14 +178,12 @@ function setup(){
     escena.add(torre);
     escena.add(luz);
     
-    renderizador= new THREE.WebGLRenderer();
     renderizador.setSize( window.innerHeight*.95 , window.innerHeight*0.95 );
     document.body.appendChild( renderizador.domElement );
   
 }
 
 var setupDone=false;
-var escena, camara, renderizador;
 
 function loop(){
   requestAnimationFrame(loop);
@@ -213,5 +209,8 @@ function TexturaSetup(){
 }
     
 var TEXTURAS= new THREE.Object3D();
+var escena = new Environment();
+var camara = new THREE.PerspectiveCamera();
+var renderizador = new THREE.WebGLRenderer();
 TexturaSetup();
 loop();
