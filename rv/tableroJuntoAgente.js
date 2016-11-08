@@ -187,7 +187,7 @@ function setup(){
     camara.position.x = 100;    
     camara.position.y = 100;
     camara.position.z = 100;
-    camara.lookAt(0,0,0);
+    camara.lookAt(new THREE.Vector3(0,0,0));
     
     setupDone=true;
     
@@ -215,7 +215,10 @@ function loop(){
   if(TEXTURAS.madera!==undefined && TEXTURAS.torreBlanca!==undefined && TEXTURAS.marmolBlanco!==undefined && TEXTURAS.marmolNegro!==undefined && !setupDone){
       setup();
   }
-   renderizador.render(escena, camara);
+    escena.sense();
+    escena.plan();
+    escena.act();
+    renderizador.render(escena, camara);
 }
 
 function TexturaSetup(){
