@@ -146,7 +146,7 @@ Rey.prototype=new Agent();
 
 
 //------------ TABLERO------
-var Tablero = function (texturaBlanco, texturaNegro,texturaMadera){
+function Tablero (texturaBlanco, texturaNegro,texturaMadera){
     var color=0;
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
@@ -200,6 +200,7 @@ function setup(){
     luz.position.y=50;
     luz.position.z=100;
     
+    
     var torreN1 = new Torre(TEXTURAS.torreNegra);
     torreN1.scale.x=0.2;
     torreN1.scale.y=0.2;
@@ -207,6 +208,7 @@ function setup(){
     
     escena.add(torreN1);
     escena.add(luz);
+    Tablero();
     
     renderizador.setSize( window.innerHeight*.95 , window.innerHeight*0.95 );
     document.body.appendChild( renderizador.domElement );
