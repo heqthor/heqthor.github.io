@@ -31,7 +31,8 @@ function Torre(textura){
       torreForma.merge(picoMalla.geometry, picoMalla.matrix);
     }
     
-    THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
+    //THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
+    this.add(new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map:textura}));
     this.castShadow=true;
     this.receiveShadow=true;
 }
