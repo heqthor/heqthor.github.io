@@ -175,7 +175,7 @@ function setup(){
     luz.position.y=50;
     luz.position.z=100;
     
-    var torre = new Agent.Torre(TEXTURAS.torreNegra);
+    var torre = new Torre(TEXTURAS.torreNegra);
     
     escena.add(torre);
     escena.add(luz);
