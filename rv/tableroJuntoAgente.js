@@ -32,7 +32,7 @@ function Torre(textura){
     }
     
     //THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
-    this.add(new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map:textura}));
+    this.add(new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map:textura})));
     this.castShadow=true;
     this.receiveShadow=true;
 }
