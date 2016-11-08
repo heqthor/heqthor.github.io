@@ -185,7 +185,7 @@ var setupDone=false;
 
 function loop(){
   requestAnimationFrame(loop);
-  if(madera!==undefined && torreBlanca!==undefined && marmolBlanco!==undefined && marmolNegro!==undefined && !setupDone){
+  if(TEXTURAS.madera!==undefined && torreBlanca!==undefined && marmolBlanco!==undefined && marmolNegro!==undefined && !setupDone){
       setup();
   }
    renderizador.render(escena, camara);
