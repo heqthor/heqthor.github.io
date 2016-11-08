@@ -146,7 +146,7 @@ Rey.prototype=new Agent();
 
 
 //------------ TABLERO------
-function Tablero (texturaBlanco, texturaNegro,texturaMadera){
+function Tablero ( TEXTURAS.texturaBlanco, TEXTURAS.texturaNegro,TEXTURAS.texturaMadera){
     var color=0;
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
