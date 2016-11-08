@@ -38,6 +38,24 @@ function Torre(textura){
 }
 Torre.prototype=new Agent();
 
+Torre.prototype.sense=function(environment){
+  this.sensor.set( this.position, new THREE.Vector3(1,0,0) );
+  var obstacle1 = this.sensor.intersectObjects(environment.children,true);
+  
+  this.sensor.set( this.position, new THREE.Vector3(-1,0,0) );
+  var obstacle2 = this.sensor.intersectObjects(environment.children,true);
+  
+  if((obstacle1.length > 0 && (obstacle1[0].distance <= this.radius) ) || (obstacle2.length > 0 && (obstacle2[0].distance <= this.radius) ) )
+    this.colision = 1;
+  else
+    this.colision = 0;
+};
+
+Torre.prototype.act = function(environment){
+  if(this.colision === 1)
+    this.step = -this.step;
+  this.position.x += this.step;
+};
 
 //------------PEON----------
 var Peon=function(textura){    
@@ -166,7 +184,7 @@ function setup(){
     var cambioVentana = false;
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
-    camara.position.z = 30;
+    camara.position.z = 100;
     
     setupDone=true;
     
