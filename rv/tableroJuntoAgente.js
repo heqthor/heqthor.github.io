@@ -185,7 +185,7 @@ var setupDone=false;
 
 function loop(){
   requestAnimationFrame(loop);
-  if(TEXTURAS.madera!==undefined && torreBlanca!==undefined && marmolBlanco!==undefined && marmolNegro!==undefined && !setupDone){
+  if(TEXTURAS.madera!==undefined && TEXTURAS.torreBlanca!==undefined && TEXTURAS.marmolBlanco!==undefined && TEXTURAS.marmolNegro!==undefined && !setupDone){
       setup();
   }
    renderizador.render(escena, camara);
@@ -194,13 +194,13 @@ function loop(){
 function TexturaSetup(){
     var cargador = new THREE.TextureLoader();
     cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ var torreNegra = textura;});
+                  function(textura){ TEXTURAS.torreNegra = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
-                  function(textura){ var torreBlanca = textura;});
+                  function(textura){ TEXTURAS.torreBlanca = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
-                  function(textura){ var marmolBlanco = textura;});
+                  function(textura){ TEXTURAS.marmolBlanco = textura;});
     cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ var marmolNegro = textura;});
+                  function(textura){ TEXTURAS.marmolNegro = textura;});
     cargador.load("texturaMadera.jpg",
                   function(textura){ TEXTURAS.madera = textura;});
     
