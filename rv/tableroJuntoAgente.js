@@ -184,7 +184,10 @@ function setup(){
     var cambioVentana = false;
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
+    camara.position.x = 100;    
+    camara.position.y = 100;
     camara.position.z = 100;
+    camara.lookAt(0,0,0);
     
     setupDone=true;
     
