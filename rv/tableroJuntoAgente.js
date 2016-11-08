@@ -1,4 +1,5 @@
-var Torre=function(textura){    
+function Torre(textura){ 
+    Agent.call(this);
     var puntos=[];
     
     puntos.push(new THREE.Vector2(0,0));
