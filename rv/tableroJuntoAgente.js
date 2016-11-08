@@ -202,10 +202,10 @@ function TexturaSetup(){
     cargador.load("texturaMarmolNegro.jpg",
                   function(textura){ var marmolNegro = textura;});
     cargador.load("texturaMadera.jpg",
-                  function(textura){ var madera = textura;});
+                  function(textura){ TEXTURAS.madera = textura;});
     
 }
     
-
+var TEXTURAS= new THREE.Object3D();
 TexturaSetup();
 loop();
