@@ -205,7 +205,7 @@ function setup(){
     torreN1.scale.x=0.2;
     torreN1.scale.y=0.2;
     torreN1.scale.z=0.2;
-    torreN1.position.y=25;
+    torreN1.position.y=5;
     
     escena.add(torreN1);
     escena.add(luz);
