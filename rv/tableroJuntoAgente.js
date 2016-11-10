@@ -217,7 +217,7 @@ function setup(){
     torreN2.position.x=-35;
     torreN2.position.z=35;
     
-    var torreB1 = new Torre(TEXTURAS.torreNegra);
+    var torreB1 = new Torre(TEXTURAS.torreBlanca);
     torreB1.scale.x=0.2;
     torreB1.scale.y=0.2;
     torreB1.scale.z=0.2;
@@ -225,7 +225,7 @@ function setup(){
     torreB1.position.x=-35;
     torreB1.position.z=-35;
     
-    var torreB2 = new Torre(TEXTURAS.torreNegra);
+    var torreB2 = new Torre(TEXTURAS.torreBlanca);
     torreB2.scale.x=0.2;
     torreB2.scale.y=0.2;
     torreB2.scale.z=0.2;
