@@ -43,24 +43,7 @@ function Torre(textura){
 }
 Torre.prototype=new Agent();
 
-Torre.prototype.sense=function(environment){
-  this.sensor.set( this.position, new THREE.Vector3(1,0,0) );
-  var obstacle1 = this.sensor.intersectObjects(environment.children,true);
-  
-  this.sensor.set( this.position, new THREE.Vector3(-1,0,0) );
-  var obstacle2 = this.sensor.intersectObjects(environment.children,true);
-  
-  if((obstacle1.length > 0 && (obstacle1[0].distance <= this.radius) ) || (obstacle2.length > 0 && (obstacle2[0].distance <= this.radius) ) )
-    this.colision = 1;
-  else
-    this.colision = 0;
-};
 
-Torre.prototype.act = function(environment){
-  if(this.colision === 1)
-    this.step = -this.step;
-  this.position.x += this.step;
-};
 
 //------------PEON----------
 var Peon=function(textura){    
@@ -272,10 +255,122 @@ function TexturaSetup(){
                   function(textura){ TEXTURAS.madera = textura;});
     
 }
+
+var xGoal=0;
+var zGoal=0;
+var m=0;
+var banderaEvento=0;
+//------------- EVENTOS TECLADO-----------
+var keyUp = function(event){
+    if(banderaEvento==0){
+        switch(event.keyCode){
+            case 97: //a
+            case 65: //A
+                xGoal=-35;
+                break;
+            case 98: //b
+            case 66: //B
+                xGoal=-25;
+                break;
+            case 99:
+            case 67:
+                xGoal=-15;
+                break;
+            case 100:
+            case 68:
+                xGoal=-5;
+                break;
+            case 101:
+            case 69:
+                xGoal=5;
+                break;
+            case 102: //f
+            case 70: //F
+                xGoal=15;
+                break;
+            case 103:
+            case 71:
+                xGoal=25;
+                break;
+            case 104: //h
+            case 72: //H
+                xGoal=35;
+                break;
+        }
+        banderaEvento=1;
+    }else if(banderaEvento==1){
+        switch(event.keyCode){
+            case 49: //1
+                zGoal=-35
+                break;
+            case 50: //2
+                zGoal=-25
+                break;
+            case 51: //3
+                zGoal=-15
+                break;
+            case 52: //4
+                zGoal=-5
+                break;
+            case 53: //5
+                zGoal=5
+                break;
+            case 54: //6
+                zGoal=15
+                break;
+            case 55: //7
+                zGoal=25
+                break;
+            case 56: //8
+                zGoal=35
+                break;
+        }
+        banderaEvento=2;
+    }
+}
     
+var keyDown = function(event){
+    if(banderaEvento==2){
+        banderaEvento=3;
+    }
+}
+document.addEventListener( 'keydown', keyDown, false );
+document.addEventListener( 'keyup', keyUp, false );
+
+function movement(pieza){
+    var m=((zGoal-pieza.position.z)/(xGoal-pieza.position.x));
+    var b=zGoal-m*xGoal;
+    if((pieza.position.x!==xGoal || pieza.position.z!==zGoal) && banderaEvento==3){
+        if(pieza.position.x!==xGoal){
+            if(pieza.position.x<xGoal)
+                pieza.position.x+=0.01;
+            else
+                pieza.position.x-=0.01;
+            pieza.position.z=m*pieza.position.x+b;
+        }
+        else if(pieza.position.z!==xGoal){
+            if(pieza.position.z<xGoal)
+                pieza.position.z+=0.01;
+            else
+                pieza.position.z-=0.01;
+            pieza.position.x=(pieza.position.z-b)/m;
+        }
+        else if(pieza.position.x!==xGoal && pieza.position.z!==zGoal)
+            banderaEvent=0;
+    }
+}
+
 var TEXTURAS= new THREE.Object3D();
 var escena = new Environment();
 var camara = new THREE.PerspectiveCamera();
 var renderizador = new THREE.WebGLRenderer();
 TexturaSetup();
 loop();
+
+
+
+
+
+
+
+
