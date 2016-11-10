@@ -234,6 +234,9 @@ function setup(){
     torreB2.position.z=-35;
     
     escena.add(torreN1);
+    escena.add(torreN2);
+    escena.add(torreB1);
+    escena.add(torreB2);
     escena.add(luz);
     Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
     
