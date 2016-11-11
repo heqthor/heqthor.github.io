@@ -344,9 +344,9 @@ function movement(pieza){
     if((pieza.position.x!==xGoal || pieza.position.z!==zGoal) && banderaEvento==3){
         if(pieza.position.x!==xGoal){
             if(pieza.position.x<xGoal)
-                pieza.position.x+=0.01;
+                pieza.position.x+=0.1;
             else
-                pieza.position.x-=0.01;
+                pieza.position.x-=0.1;
             pieza.position.z=m*pieza.position.x+b;
         }
         else if(pieza.position.z!==xGoal){
