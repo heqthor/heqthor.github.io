@@ -166,6 +166,7 @@ function listener(){
   renderizador.setSize( window.innerWidth, window.innerHeight );
 }
 
+    var torreN1 = new Torre(TEXTURAS.torreNegra);
 //---------- SET UP--------
 function setup(){
     var tipo_evento = 'resize';
@@ -184,7 +185,6 @@ function setup(){
     luz.position.z=100;
     
     
-    var torreN1 = new Torre(TEXTURAS.torreNegra);
     torreN1.scale.x=0.2;
     torreN1.scale.y=0.2;
     torreN1.scale.z=0.2;
@@ -235,6 +235,7 @@ function loop(){
   if(TEXTURAS.madera!==undefined && TEXTURAS.torreBlanca!==undefined && TEXTURAS.marmolBlanco!==undefined && TEXTURAS.marmolNegro!==undefined && !setupDone){
       setup();
   }
+    movement(torreN1);
     escena.sense();
     escena.plan();
     escena.act();
