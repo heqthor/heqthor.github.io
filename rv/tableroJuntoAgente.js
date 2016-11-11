@@ -351,9 +351,9 @@ function movement(pieza){
         }
         else if(pieza.position.z!==xGoal){
             if(pieza.position.z<xGoal)
-                pieza.position.z+=0.01;
+                pieza.position.z+=0.1;
             else
-                pieza.position.z-=0.01;
+                pieza.position.z-=0.1;
             pieza.position.x=(pieza.position.z-b)/m;
         }
         else if(pieza.position.x!==xGoal && pieza.position.z!==zGoal)
