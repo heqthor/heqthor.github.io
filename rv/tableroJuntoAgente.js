@@ -260,20 +260,20 @@ var zGoal=0;
 var m=0;
 var banderaEvento=0;
 //------------- EVENTOS TECLADO-----------
-var keyUp = function(event){
+var keyDown = function(event){
     switch(event.keyCode){
         case 97: //a
         case 65: //A
-            xGoal=-1;
+            xGoal=-0.1;
             break;
         case 83: //s
-            zGoal=-1;
+            zGoal=0.1;
             break;
         case 68:
-            xGoal=1;
+            xGoal=0.1;
             break;
         case 87:
-            zGoal=1;
+            zGoal=-0.1;
             break;
                         }
     /*if(banderaEvento==0){
@@ -344,7 +344,7 @@ var keyUp = function(event){
     }*/
 }
     
-var keyDown = function(event){
+var keyUp = function(event){
     xGoal=0;
     zGoal=0;
     /*if(banderaEvento==2){
