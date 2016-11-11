@@ -264,7 +264,7 @@ var banderaEvento=0;
 //------------- EVENTOS TECLADO-----------
 var keyUp = function(event){
     if(banderaEvento==0){
-        console.log(banderaEvento,"Tecla: ",event.charCode);
+        console.log(banderaEvento,"Tecla: ",event.which);
         switch(event.keyCode){
             case 97: //a
             case 65: //A
@@ -299,7 +299,7 @@ var keyUp = function(event){
                 xGoal=35;
                 break;
         }
-        banderaEvento=1;
+        banderaEvento=2;
     }else if(banderaEvento==1){
         switch(event.keyCode){
             case 49: //1
@@ -327,13 +327,15 @@ var keyUp = function(event){
                 zGoal=35
                 break;
         }
-        banderaEvento=2;
+        banderaEvento=3;
     }
 }
     
 var keyDown = function(event){
     if(banderaEvento==2){
-        banderaEvento=3;
+        banderaEvento=1;
+    }else if(banderaEvento==3){
+        banderaEvento=0;
     }
 }
 document.addEventListener( 'keydown', keyDown, false );
@@ -342,7 +344,7 @@ document.addEventListener( 'keyup', keyUp, false );
 function movement(pieza){
     var m=((zGoal-pieza.position.z)/(xGoal-pieza.position.x));
     var b=zGoal-m*xGoal;
-    if((pieza.position.x!==xGoal || pieza.position.z!==zGoal) && banderaEvento==3){
+    if((pieza.position.x!==xGoal || pieza.position.z!==zGoal) && banderaEvento==0){
         if(pieza.position.x!==xGoal){
             if(pieza.position.x<xGoal)
                 pieza.position.x+=0.1;
