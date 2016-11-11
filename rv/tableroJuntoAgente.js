@@ -255,13 +255,27 @@ function TexturaSetup(){
     
 }
 
-var xGoal;
-var zGoal;
+var xGoal=0;
+var zGoal=0;
 var m=0;
 var banderaEvento=0;
 //------------- EVENTOS TECLADO-----------
 var keyUp = function(event){
-    if(banderaEvento==0){
+    switch(event.keyCode){
+        case 97: //a
+        case 65: //A
+            xGoal=-1;
+            break;
+        case 83: //s
+            zGoal=-1;
+            break;
+        case 68:
+            xGoal=1;
+            break;
+        case 87:
+            zGoal=1;
+            break;
+    /*if(banderaEvento==0){
         console.log(banderaEvento,"Tecla: ",event.which);
         switch(event.keyCode){
             case 97: //a
@@ -326,21 +340,25 @@ var keyUp = function(event){
                 break;
         }
         banderaEvento=3;
-    }
+    }*/
 }
     
 var keyDown = function(event){
-    if(banderaEvento==2){
+    xGoal=0;
+    zGoal=0;
+    /*if(banderaEvento==2){
         banderaEvento=1;
     }else if(banderaEvento==3){
         banderaEvento=0;
-    }
+    }*/
 }
 document.addEventListener( 'keydown', keyDown, false );
 document.addEventListener( 'keyup', keyUp, false );
 
 function movement(pieza){
-    var m=((zGoal-pieza.position.z)/(xGoal-pieza.position.x));
+    pieza.position.x+=xGoal;
+    pieza.position.z+=zGoal;
+    /*var m=((zGoal-pieza.position.z)/(xGoal-pieza.position.x));
     var b=zGoal-m*xGoal;
     if((pieza.position.x!==xGoal || pieza.position.z!==zGoal) && banderaEvento==0){
         if(pieza.position.x!==xGoal){
@@ -359,7 +377,7 @@ function movement(pieza){
         }
         else if(pieza.position.x!==xGoal && pieza.position.z!==zGoal)
             banderaEvent=0;
-    }
+    }*/
 }
 
 var TEXTURAS= new THREE.Object3D();
