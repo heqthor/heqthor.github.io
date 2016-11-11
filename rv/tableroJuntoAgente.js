@@ -134,7 +134,7 @@ function Tablero (texturaBlanco, texturaNegro,texturaMadera){
     for(var i=0;i<8;i++){
       for(var j=0;j<8;j++){
         var cuboForma=  new THREE.BoxGeometry(10,5,10);
-        cuboForma.translate(-40+i*10,0,40-j*10);
+        cuboForma.translate(-30+i*10,0,30-j*10);
         if(color%2!==0){
           var material = new THREE.MeshLambertMaterial({map:texturaNegro});
         }else{
