@@ -135,14 +135,13 @@ function Tablero (texturaBlanco, texturaNegro,texturaMadera){
       for(var j=0;j<8;j++){
         var cuboForma=  new THREE.BoxGeometry(10,5,10);
         cuboForma.translate(-35+i*10,0,35-j*10);
-        if(color%2===0){
+        if(color%2!==0){
           var material = new THREE.MeshLambertMaterial({map:texturaNegro});
         }else{
           var material = new THREE.MeshLambertMaterial({map: texturaBlanco});
         }
         var cuboMalla = new THREE.Mesh(cuboForma,material);
         color=color+1;
-        cuboMalla.rotateY(Math.PI/2);
           cuboMalla.receiveShadow=true;
         escena.add(cuboMalla);
       }
@@ -256,8 +255,8 @@ function TexturaSetup(){
     
 }
 
-var xGoal=0;
-var zGoal=0;
+var xGoal;
+var zGoal;
 var m=0;
 var banderaEvento=0;
 //------------- EVENTOS TECLADO-----------
