@@ -275,6 +275,7 @@ var keyUp = function(event){
         case 87:
             zGoal=1;
             break;
+                        }
     /*if(banderaEvento==0){
         console.log(banderaEvento,"Tecla: ",event.which);
         switch(event.keyCode){
