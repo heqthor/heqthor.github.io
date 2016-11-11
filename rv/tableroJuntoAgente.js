@@ -144,6 +144,7 @@ function Tablero (texturaBlanco, texturaNegro,texturaMadera){
         color=color+1;
         cuboMalla.rotateX(-Math.PI/2);
         cuboMalla.rotateZ(-Math.PI/2);
+          cuboMalla.rotateY(Math.PI/2);
           cuboMalla.receiveShadow=true;
         escena.add(cuboMalla);
       }
@@ -155,6 +156,7 @@ function Tablero (texturaBlanco, texturaNegro,texturaMadera){
     var bordeMaterial = new THREE.MeshLambertMaterial({map:texturaMadera});
     var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
     bordeMalla.rotateX(-Math.PI/2);
+    bordeMalla.rotateY(-Math.PI/2);
     bordeMalla.receiveShadow=true;
     escena.add(bordeMalla);
 }
