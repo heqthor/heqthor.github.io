@@ -142,6 +142,7 @@ function Tablero (texturaBlanco, texturaNegro,texturaMadera){
         }
         var cuboMalla = new THREE.Mesh(cuboForma,material);
         color=color+1;
+        cuboMalla.rotateY(Math.PI/2);
           cuboMalla.receiveShadow=true;
         escena.add(cuboMalla);
       }
