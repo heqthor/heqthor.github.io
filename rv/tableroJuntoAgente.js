@@ -264,6 +264,7 @@ var banderaEvento=0;
 //------------- EVENTOS TECLADO-----------
 var keyUp = function(event){
     if(banderaEvento==0){
+        console.log(banderaEvento,"Tecla: ",event.charCode);
         switch(event.keyCode){
             case 97: //a
             case 65: //A
