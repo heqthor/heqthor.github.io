@@ -380,8 +380,9 @@ function movement(pieza){
                 pieza.position.x=(pieza.position.z-b)/m;
             }else
                 banderaEvento=0;
-                pieza.position.x=pieza.position.x.toFixed(2);
-                pieza.position.z=pieza.position.z.toFixed(2);
+            pieza.position.x=pieza.position.x.toFixed(2);
+            pieza.position.z=pieza.position.z.toFixed(2);
+    renderizador.render(escena, camara);
             console.log(pieza.position.x,",",pieza.position.z);
         }
     }
