@@ -372,12 +372,12 @@ function movement(pieza){
             else
                 pieza.position.x-=0.1;
             pieza.position.z=m*pieza.position.x+b;
-        }
-        else if(pieza.position.z!==zGoal){
+        }else if(pieza.position.z!==zGoal){
             if(pieza.position.z<zGoal)
                 pieza.position.z+=0.1;
             else
                 pieza.position.z-=0.1;
+            
             if(xGoal-pieza.position.x==0)
                 pieza.position.x+=0.1;
             else
@@ -387,9 +387,7 @@ function movement(pieza){
         pieza.position.x=pieza.position.x.toFixed(2);
         pieza.position.z=pieza.position.z.toFixed(2);
         console.log(pieza.position.x,",",pieza.position.z);
-        }
     }
-    
 }
 
 var TEXTURAS= new THREE.Object3D();
