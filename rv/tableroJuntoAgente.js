@@ -363,7 +363,7 @@ function movement(pieza){
     var m=((zGoal-pieza.position.z)/(xGoal-pieza.position.x));
     var b=zGoal-m*xGoal;
     var posX,posZ;
-    if(pieza.position.x==xGoal || pieza.position.z==zGoal){ 
+    if(pieza.position.x!==xGoal || pieza.position.z!==zGoal){ 
         while(banderaEvento==0){
             if(pieza.position.x!==xGoal){
                 if(pieza.position.x<xGoal)
