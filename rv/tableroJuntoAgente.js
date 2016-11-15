@@ -371,8 +371,8 @@ function movement(pieza){
                 pieza.position.x-=0.1;
             pieza.position.z=m*pieza.position.x+b;
         }
-        else if(pieza.position.z!==xGoal){
-            if(pieza.position.z<xGoal)
+        else if(pieza.position.z!==zGoal){
+            if(pieza.position.z<zGoal)
                 pieza.position.z+=0.1;
             else
                 pieza.position.z-=0.1;
