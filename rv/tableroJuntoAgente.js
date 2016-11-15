@@ -235,7 +235,6 @@ function loop(){
       setup();
   }
     
-    movement(torreN1);
     escena.sense();
     escena.plan();
     escena.act();
@@ -352,6 +351,7 @@ var keyUp = function(event){
         banderaEvento=1;
     }else if(banderaEvento==3){
         banderaEvento=0;
+        movement(torreN1);
     }
 }
 document.addEventListener( 'keydown', keyDown, false );
