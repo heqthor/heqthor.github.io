@@ -378,15 +378,11 @@ function movement(pieza){
             else
                 pieza.position.z-=0.1;
             
-            if(xGoal-pieza.position.x==0)
-                pieza.position.x+=0.1;
-            else
+            if(xGoal-pieza.position.x!==0)
                 pieza.position.x=(pieza.position.z-b)/m;
         }else
             banderaEvento=0;
-        pieza.position.x=pieza.position.x.toFixed(2);
-        pieza.position.z=pieza.position.z.toFixed(2);
-        console.log(pieza.position.x,",",pieza.position.z);
+        console.log(pieza.position.x,',',pieza.position.z);
     }
 }
 
