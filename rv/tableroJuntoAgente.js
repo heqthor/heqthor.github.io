@@ -223,7 +223,8 @@ function setup(){
     
     renderizador.setSize( window.innerHeight*.95 , window.innerHeight*0.95 );
     document.body.appendChild( renderizador.domElement );
-  
+    xGoal=torreN1.position.x;
+    zGoal=torreN1.position.z;
 }
 
 var setupDone=false;
@@ -233,6 +234,7 @@ function loop(){
   if(TEXTURAS.madera!==undefined && TEXTURAS.torreBlanca!==undefined && TEXTURAS.marmolBlanco!==undefined && TEXTURAS.marmolNegro!==undefined && !setupDone){
       setup();
   }
+    
     movement(torreN1);
     escena.sense();
     escena.plan();
@@ -255,8 +257,8 @@ function TexturaSetup(){
     
 }
 
-var xGoal;
-var zGoal;
+var xGoal=0;
+var zGoal=0;
 var m;
 var banderaEvento=0;
 //------------- EVENTOS TECLADO-----------
