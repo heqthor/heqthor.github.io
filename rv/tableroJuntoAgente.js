@@ -363,26 +363,28 @@ function movement(pieza){
     var m=((zGoal-pieza.position.z)/(xGoal-pieza.position.x));
     var b=zGoal-m*xGoal;
     var posX,posZ;
-    while(pieza.position.x==xGoal && pieza.position.z==zGoal && banderaEvento==0){
-        if(pieza.position.x!==xGoal){
-            if(pieza.position.x<xGoal)
-                pieza.position.x+=0.1;
-            else
-                pieza.position.x-=0.1;
-            pieza.position.z=m*pieza.position.x+b;
+    if(pieza.position.x==xGoal || pieza.position.z==zGoal){ 
+        while(banderaEvento==0){
+            if(pieza.position.x!==xGoal){
+                if(pieza.position.x<xGoal)
+                    pieza.position.x+=0.1;
+                else
+                    pieza.position.x-=0.1;
+                pieza.position.z=m*pieza.position.x+b;
+            }
+            else if(pieza.position.z!==zGoal){
+                if(pieza.position.z<zGoal)
+                    pieza.position.z+=0.1;
+                else
+                    pieza.position.z-=0.1;
+                pieza.position.x=(pieza.position.z-b)/m;
+            }else
+                banderaEvento=0;
+                pieza.position.x=pieza.position.x.toFixed(2);
+                pieza.position.z=pieza.position.z.toFixed(2);
+            console.log(pieza.position.x,",",pieza.position.z);
         }
-        else if(pieza.position.z!==zGoal){
-            if(pieza.position.z<zGoal)
-                pieza.position.z+=0.1;
-            else
-                pieza.position.z-=0.1;
-            pieza.position.x=(pieza.position.z-b)/m;
-        }
-            pieza.position.x=pieza.position.x.toFixed(2);
-            pieza.position.z=pieza.position.z.toFixed(2);
-        console.log(pieza.position.x,",",pieza.position.z);
     }
-    banderaEvent=0;
     
 }
 
