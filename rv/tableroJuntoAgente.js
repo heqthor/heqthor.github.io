@@ -279,7 +279,6 @@ var keyDown = function(event){
             break;
                         }*/
     if(banderaEvento==0){
-        console.log(banderaEvento,"Tecla: ",event.which);
         switch(event.keyCode){
             case 97: //a
             case 65: //A
@@ -378,9 +377,11 @@ function movement(pieza){
                 pieza.position.z-=0.1;
             pieza.position.x=(pieza.position.z-b)/m;
         }
-        else if(pieza.position.x!==xGoal && pieza.position.z!==zGoal)
-            banderaEvent=0;
+        console.log(pieza.position.x,",",pieza.position.z);
     }
+    else if(pieza.position.x===xGoal && pieza.position.z===zGoal)
+        banderaEvent=0;
+    
 }
 
 var TEXTURAS= new THREE.Object3D();
