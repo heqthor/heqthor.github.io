@@ -362,7 +362,8 @@ function movement(pieza){
     pieza.position.z+=zGoal;*/
     var m=((zGoal-pieza.position.z)/(xGoal-pieza.position.x));
     var b=zGoal-m*xGoal;
-    if((pieza.position.x!==xGoal || pieza.position.z!==zGoal) && banderaEvento==0){
+    var posX,posZ;
+    while(pieza.position.x==xGoal && pieza.position.z==zGoal && banderaEvento==0){
         if(pieza.position.x!==xGoal){
             if(pieza.position.x<xGoal)
                 pieza.position.x+=0.1;
@@ -381,8 +382,7 @@ function movement(pieza){
             pieza.position.z=pieza.position.z.toFixed(2);
         console.log(pieza.position.x,",",pieza.position.z);
     }
-    else if(pieza.position.x===xGoal && pieza.position.z===zGoal)
-        banderaEvent=0;
+    banderaEvent=0;
     
 }
 
