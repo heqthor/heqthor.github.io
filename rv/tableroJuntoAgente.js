@@ -410,7 +410,7 @@ function onMouseMove( event ) {
 
 	for ( var i = 0; i < intersects.length; i++ ) {
 
-		intersects[ i ].object.material.color.set( 0xff0000 );
+		intersects[ i ].mesh.material.color.set( 0xff0000 );
 	
 	}
 	console.log('wubba lubba dub dub');		
@@ -427,7 +427,7 @@ function renderi() {
 
 }
 
-window.addEventListener( 'mousemove', onMouseMove, false );
+window.addEventListener( 'mouseup', onMouseMove, false );
 
 var TEXTURAS= new THREE.Object3D();
 var escena = new Environment();
