@@ -410,7 +410,7 @@ function renderi() {
 	//raycaster.setFromCamera( mouse, camara );	
 
 	// calculate objects intersecting the picking ray
-	var intersects = raycaster.intersectObjects( scene.children );
+	var intersects = raycaster.intersectObjects( escena.children );
 
 	for ( var i = 0; i < intersects.length; i++ ) {
 
