@@ -390,14 +390,6 @@ function movement(pieza){
     }
 }
 
-var TEXTURAS= new THREE.Object3D();
-var escena = new Environment();
-var camara = new THREE.PerspectiveCamera();
-var renderizador = new THREE.WebGLRenderer();
-TexturaSetup();
-loop();
-
-
 //-----------------------------------------------------------------------------------------------------------------RAY
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
@@ -430,7 +422,17 @@ function renderi() {
 
 }
 
-window.addEventListener( 'click', onMouseMove, false );
+document.addEventListener( 'click', onMouseMove, false );
+
+var TEXTURAS= new THREE.Object3D();
+var escena = new Environment();
+var camara = new THREE.PerspectiveCamera();
+var renderizador = new THREE.WebGLRenderer();
+TexturaSetup();
+loop();
+
+
+
 
 
 
