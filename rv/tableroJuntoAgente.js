@@ -168,6 +168,10 @@ var torreN1;
 function setup(){
     var tipo_evento = 'resize';
     var cambioVentana = false;
+	var cubito=new THREE.Mesh(new THREE.BoxGeometry(10,10,10),new THREE.MeshBasicMaterial());
+	cubito.position.y=5;
+	escena.add(cubito);
+	
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
     camara.position.x = 100;    
