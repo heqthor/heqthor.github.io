@@ -406,11 +406,11 @@ function onMouseMove( event ) {
 	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 	raycaster.setFromCamera( mouse, camara );	
-	var intersects = raycaster.intersectObjects( escena.children );
+	var intersects = raycaster.intersectObjects( escena.children,true );
 
 	for ( var i = 0; i < intersects.length; i++ ) {
 
-		intersects[ i ].mesh.material.color.set( 0xff0000 );
+		intersects[ i ].object.material.color.set( 0xff0000 );
 	
 	}
 	console.log('wubba lubba dub dub');		
