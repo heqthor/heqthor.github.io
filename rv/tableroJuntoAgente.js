@@ -418,7 +418,6 @@ function renderi() {
 	
 	}
 	
-	renderer.render( scene, camera );
 
 }
 
