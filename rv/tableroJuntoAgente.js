@@ -234,7 +234,6 @@ function loop(){
   if(TEXTURAS.madera!==undefined && TEXTURAS.torreBlanca!==undefined && TEXTURAS.marmolBlanco!==undefined && TEXTURAS.marmolNegro!==undefined && !setupDone){
       setup();
   }
-    document.write("tihbhj");
     escena.sense();
     escena.plan();
     escena.act();
