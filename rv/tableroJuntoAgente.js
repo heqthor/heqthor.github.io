@@ -425,7 +425,7 @@ function renderi() {
 
 }
 
-document.addEventListener( 'mousemove', onMouseMove, false );
+window.addEventListener( 'mousemove', onMouseMove, false );
 
 var TEXTURAS= new THREE.Object3D();
 var escena = new Environment();
