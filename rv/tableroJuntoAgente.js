@@ -237,7 +237,11 @@ function loop(){
     escena.sense();
     escena.plan();
     escena.act();
-    movement(torreN1);
+    if(xGoal!==xBef && zGoal!==zBef){
+        movement(torreN1);
+        xBef=xGoal;
+        zBef=zGoal;
+    }
     renderizador.render(escena, camara);
 }
 
@@ -258,7 +262,7 @@ function TexturaSetup(){
 
 var xGoal=0;
 var zGoal=0;
-var m;
+var m,xBef,zBef;
 var banderaEvento=0;
 //------------- EVENTOS TECLADO-----------
 var keyDown = function(event){
