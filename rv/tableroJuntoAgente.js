@@ -411,18 +411,17 @@ function renderi() {
 
 	// calculate objects intersecting the picking ray
 	var intersects = raycaster.intersectObjects( escena.children );
-/*
+
 	for ( var i = 0; i < intersects.length; i++ ) {
 
 		intersects[ i ].object.material.color.set( 0xff0000 );
 	
-	}*/
-	intersects.object.material.color.set( 0xff0000 );
+	}
 	console.log('wubba lubba dub dub');
 
 }
 
-document.addEventListener( 'click', onMouseMove, false );
+document.addEventListener( 'mouseup', onMouseMove, false );
 
 var TEXTURAS= new THREE.Object3D();
 var escena = new Environment();
