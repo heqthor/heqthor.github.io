@@ -404,7 +404,16 @@ function onMouseMove( event ) {
 	// (-1 to +1) for both components
 
 	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;		
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+	
+	var intersects = raycaster.intersectObjects( escena.children );
+
+	for ( var i = 0; i < intersects.length; i++ ) {
+
+		intersects[ i ].object.material.color.set( 0xff0000 );
+	
+	}
+	console.log('wubba lubba dub dub');		
 
 }
 
@@ -414,14 +423,7 @@ function renderi() {
 	//raycaster.setFromCamera( mouse, camara );	
 
 	// calculate objects intersecting the picking ray
-	var intersects = raycaster.intersectObjects( escena.children );
-
-	for ( var i = 0; i < intersects.length; i++ ) {
-
-		intersects[ i ].object.material.color.set( 0xff0000 );
 	
-	}
-	console.log('wubba lubba dub dub');
 
 }
 
