@@ -405,7 +405,7 @@ function onMouseMove( event ) {
 
 	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-	
+	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children );
 
 	for ( var i = 0; i < intersects.length; i++ ) {
@@ -420,7 +420,7 @@ function onMouseMove( event ) {
 function renderi() {
 
 	// update the picking ray with the camera and mouse position	
-	//raycaster.setFromCamera( mouse, camara );	
+	
 
 	// calculate objects intersecting the picking ray
 	
