@@ -417,7 +417,7 @@ function onMouseClick( event ) {
 	console.log('wubba lubba dub dub');		
 
 }
-
+ 
 
 window.addEventListener( 'mousedown', onMouseClick, false );
 
