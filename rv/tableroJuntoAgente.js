@@ -408,15 +408,16 @@ function onMouseClick( event ) {
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 
-	/*for ( var i = 0; i < intersects.length; i++ ) {
+	for ( var i = 0; i < intersects.length; i++ ) {
 
 		intersects[ i ].object.material.color.set( 0xff0000 );
+		console.log(intersects[i].object);
 	
-	}*/
-	if(intersects[1].object.position.z>5){
+	}
+	/*if(intersects[1].object.position.z>5){
 		intersects[1].object.material.color.set(0xff00ff);
 		console.log(intersects[1].object.position.z);
-	}
+	}*/
 	console.log('wubba lubba dub dub');		
 
 }
