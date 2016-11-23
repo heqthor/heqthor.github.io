@@ -43,6 +43,12 @@ function Torre(textura){
 }
 Torre.prototype=new Agent();
 
+function Torre.prototype.plan(pieza){
+	var tablero=[7];
+	tablero[0]=[7];
+	console.log(tablero);
+}
+
 
 
 //------------PEON----------
@@ -413,15 +419,16 @@ function onMouseClick( event ) {
 	for ( var i = 0; i < intersects.length; i++ ) {
 		if(intersects[i].object.parent===Torre)
 			intersects[ i ].object.material.color.set( 0xff0000 );
-		console.log(intersects[i].object);
 	
 	}
 	/*if(intersects[1].object.position.z>5){
 		intersects[1].object.material.color.set(0xff00ff);
 		console.log(intersects[1].object.position.z);
 	}*/
-	console.log('wubba lubba dub dub');		
-
+	
+	console.log('wubba lubba dub dub');	
+	console.log( intersects[0].object);
+	Torre.prototype.plan(intersects[0].object);
 }
  
 
