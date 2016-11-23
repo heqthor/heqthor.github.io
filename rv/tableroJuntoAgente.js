@@ -246,7 +246,6 @@ function loop(){
         xBef=xGoal;
         zBef=zGoal;
     }
-    renderi();
     renderizador.render(escena, camara);
 }
 
