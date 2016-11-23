@@ -44,9 +44,20 @@ function Torre(textura){
 Torre.prototype=new Agent();
 
 function Torreplan(pieza){
-	var tablero=[7];
-	tablero[0]=[7];
+	var lugarOcupado=new THREE.Raycaster(new Vector3(0,0,0), new THREE.Vector3(1,0,0));
+	var tablero=new Array(8);
+	for(var i=0;i<=8;i++){
+		tablero[i]=new Array(8);
+		for(var j=0;j<=8;j++){
+			lugarOcupado.set(new Vector3(-35+5*j,5,-35+5*i),
+					 new Vector3(0,1,0));
+			tablero[i][j]=lugarOcupado;
+		}
+	}
+	
 	console.log(tablero);
+	
+	
 }
 
 
