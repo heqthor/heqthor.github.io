@@ -415,7 +415,6 @@ function onMouseClick( event ) {
 	
 	}
 	
-	return intersect[1];
 	console.log('wubba lubba dub dub');		
 
 }
