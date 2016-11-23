@@ -396,7 +396,7 @@ function movement(pieza){
 
 //-----------------------------------------------------------------------------------------------------------------RAY
 var raycaster = new THREE.Raycaster();
-var mouse = new THREE.Vector3();
+var mouse = new THREE.Vector2();
 
 function onMouseClick( event ) {
 
@@ -405,7 +405,7 @@ function onMouseClick( event ) {
 
 	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;	
-	mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
+	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 
