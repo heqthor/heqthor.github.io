@@ -49,7 +49,7 @@ function Torreplan(pieza){
 	for(var i=0;i<=7;i++){
 		tablero[i]=new Array(8);
 		for(var j=0;j<=7;j++){
-			lugarOcupado.set(new THREE.Vector3(-35+5*j,5,-35+5*i),
+			lugarOcupado.set(new THREE.Vector3(-35+10*j,500,-35+10*i),
 					 new THREE.Vector3(0,1,0));
 			tablero[i][j]=lugarOcupado.intersectObjects(escena.children,true);
 		}
