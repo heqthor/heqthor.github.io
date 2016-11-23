@@ -402,8 +402,8 @@ function onMouseClick( event ) {
 	// calculate mouse position in normalized device coordinates
 	// (-1 to +1) for both components
 
-	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;	
+	mouse.x = ( event.clientX / window.innerWidth ) *1 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) *1 + 1;	
 	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
