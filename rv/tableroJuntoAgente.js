@@ -225,7 +225,7 @@ function setup(){
     escena.add(luz);
     Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
     
-    renderizador.setSize( window.innerHeight*.95 , window.innerHeight*0.95 );
+    renderizador.setSize( window.innerWidth , window.innerHeight );
     document.body.appendChild( renderizador.domElement );
     xGoal=torreN1.position.x;
     zGoal=torreN1.position.z;
@@ -408,12 +408,13 @@ function onMouseClick( event ) {
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 
-	for ( var i = 0; i < intersects.length; i++ ) {
+	/*for ( var i = 0; i < intersects.length; i++ ) {
 
 		intersects[ i ].object.material.color.set( 0xff0000 );
 	
-	}
+	}*/
 	
+	intersects[1].object.material.color.set(0xff00ff);
 	console.log('wubba lubba dub dub');		
 
 }
