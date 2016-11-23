@@ -413,8 +413,10 @@ function onMouseClick( event ) {
 		intersects[ i ].object.material.color.set( 0xff0000 );
 	
 	}*/
-	if(intersects[1].object.position.z>5)
+	if(intersects[1].object.position.z>5){
 		intersects[1].object.material.color.set(0xff00ff);
+		console.log(intersects[1].object.position.z);
+	}
 	console.log('wubba lubba dub dub');		
 
 }
