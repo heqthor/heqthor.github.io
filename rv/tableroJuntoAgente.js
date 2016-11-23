@@ -396,15 +396,16 @@ function movement(pieza){
 
 //-----------------------------------------------------------------------------------------------------------------RAY
 var raycaster = new THREE.Raycaster();
-var mouse = new THREE.Vector2();
+var mouse = new THREE.Vector3();
 
-function onMouseMove( event ) {
+function onMouseClick( event ) {
 
 	// calculate mouse position in normalized device coordinates
 	// (-1 to +1) for both components
 
 	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;	
+	mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 
@@ -413,21 +414,14 @@ function onMouseMove( event ) {
 		intersects[ i ].object.material.color.set( 0xff0000 );
 	
 	}
+	
+	return intersect[1];
 	console.log('wubba lubba dub dub');		
 
 }
 
-function renderi() {
 
-	// update the picking ray with the camera and mouse position	
-	
-
-	// calculate objects intersecting the picking ray
-	
-
-}
-
-window.addEventListener( 'mousedown', onMouseMove, false );
+window.addEventListener( 'mousedown', onMouseClick, false );
 
 var TEXTURAS= new THREE.Object3D();
 var escena = new Environment();
