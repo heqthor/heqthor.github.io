@@ -193,6 +193,8 @@ function setup(){
     torreN1.position.y=5;
     torreN1.position.x=37.5;
     torreN1.position.z=37.5;
+    torreN1.castShadow=true;
+    torreN1.receiveShadow=true;
     
     var torreN2 = new Torre(TEXTURAS.torreNegra);
     torreN2.scale.x=0.2;
@@ -409,8 +411,8 @@ function onMouseClick( event ) {
 	var intersects = raycaster.intersectObjects( escena.children,true );
 
 	for ( var i = 0; i < intersects.length; i++ ) {
-
-		intersects[ i ].object.material.color.set( 0xff0000 );
+		if(intersects[i].object.parent==)Torre)
+			intersects[ i ].object.material.color.set( 0xff0000 );
 		console.log(intersects[i].object);
 	
 	}
