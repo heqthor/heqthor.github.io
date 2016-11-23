@@ -46,12 +46,12 @@ Torre.prototype=new Agent();
 function Torreplan(pieza){
 	var lugarOcupado=new THREE.Raycaster(new THREE.Vector3(0,0,0), new THREE.Vector3(1,0,0));
 	var tablero=new Array(8);
-	for(var i=0;i<=8;i++){
+	for(var i=0;i<=7;i++){
 		tablero[i]=new Array(8);
-		for(var j=0;j<=8;j++){
+		for(var j=0;j<=7;j++){
 			lugarOcupado.set(new THREE.Vector3(-35+5*j,5,-35+5*i),
 					 new THREE.Vector3(0,1,0));
-			tablero[i][j]=lugarOcupado.intersectObjects(Agent.children,true);
+			tablero[i][j]=lugarOcupado.intersectObjects(escena.children,true);
 		}
 	}
 	
