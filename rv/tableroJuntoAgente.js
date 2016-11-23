@@ -43,7 +43,7 @@ function Torre(textura){
 }
 Torre.prototype=new Agent();
 
-function Torre.prototype.plan(pieza){
+function Torreplan(pieza){
 	var tablero=[7];
 	tablero[0]=[7];
 	console.log(tablero);
@@ -428,7 +428,7 @@ function onMouseClick( event ) {
 	
 	console.log('wubba lubba dub dub');	
 	console.log( intersects[0].object);
-	Torre.prototype.plan(intersects[0].object);
+	Torreplan(intersects[0].object);
 }
  
 
