@@ -51,7 +51,7 @@ function Torreplan(pieza){
 		for(var j=0;j<=8;j++){
 			lugarOcupado.set(new THREE.Vector3(-35+5*j,5,-35+5*i),
 					 new THREE.Vector3(0,1,0));
-			tablero[i][j]=lugarOcupado;
+			tablero[i][j]=lugarOcupado.intersectObjects(Agente.children,true);
 		}
 	}
 	
