@@ -428,14 +428,11 @@ function onMouseClick( event ) {
 	var intersects = raycaster.intersectObjects( escena.children,true );
 
 	for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[i].object.parent===Torre)
+		if(intersects[i].object.parent==Torre)
 			intersects[ i ].object.material.color.set( 0xff0000 );
 	
 	}
-	/*if(intersects[1].object.position.z>5){
-		intersects[1].object.material.color.set(0xff00ff);
-		console.log(intersects[1].object.position.z);
-	}*/
+	
 	
 	console.log('wubba lubba dub dub');	
 	console.log( intersects[0].object);
