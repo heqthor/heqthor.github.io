@@ -54,7 +54,6 @@ function Torreplan(pieza){
 			tablero[i][j]=lugarOcupado.intersectObjects(escena.children,true);
 		}
 	}
-	while(movimiento=1){}
 	console.log(tablero);
 	
 	movimiento=1;
@@ -282,7 +281,7 @@ function TexturaSetup(){
                   function(textura){ TEXTURAS.madera = textura;});
     
 }
-
+var piezaTocada=new THREE.Object3D;
 var xGoal=0;
 var zGoal=0;
 var m,xBef,zBef;
@@ -428,16 +427,18 @@ function onMouseClick( event ) {
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[i].object.parent instanceof Torre)
+		if(intersects[i].object.parent instanceof Torre){
 			intersects[ i ].object.material.color.set( 0xff0000 );
-		else
+			piezaTocada=intersects[i].object;
+		}
+		else{
 			if(movimiento==1){
 				intersects[ i ].object.material.color.set( 0x00ff00 );
 				console.log(mouse.x,mouse.y);
 				movimiento=0;
-				//TorreMueve(mouse.x,mouse.y);
+				Mueve(mouse.x,mouse.y,piezaTocada);
 			}
-		
+		}
 	
 	}
 	
@@ -449,6 +450,26 @@ function onMouseClick( event ) {
  
 
 window.addEventListener( 'mousedown', onMouseClick, false );
+
+function Mueve(x,y,pieza){
+	var m=0;
+	while(pieza.position.x!==x && pieza.position.z!==y){
+		if(pieza.position.x!==x){
+			m=(pieza.position.z-y)/(pieza.position.x-x);
+			if(pieza.position.x>x)
+				pieza.position.x-=0.1;
+			else
+				pieza.position.x+=0.1;
+			pieza.position.z=m*pieza.position.x;
+		}else{
+			if(pieza.position.z>z)
+				pieza.position.z-=0.1;
+			else
+				pieza.position.z+=0.1;
+		}
+	}
+}
+	
 
 var TEXTURAS= new THREE.Object3D();
 var escena = new Environment();
