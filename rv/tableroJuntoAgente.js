@@ -428,7 +428,7 @@ function onMouseClick( event ) {
 	var intersects = raycaster.intersectObjects( escena.children,true );
 
 	for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[i].object.parent==Torre)
+		if(intersects[i].object.uuid===Torre.uuid)
 			intersects[ i ].object.material.color.set( 0xff0000 );
 	
 	}
