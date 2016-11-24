@@ -430,6 +430,8 @@ function onMouseClick( event ) {
 	for ( var i = 0; i < intersects.length; i++ ) {
 		if(intersects[i].object.uuid===Torre.uuid)
 			intersects[ i ].object.material.color.set( 0xff0000 );
+		else
+			intersects[ i ].object.material.color.set( 0x00ff00 );
 	
 	}
 	
