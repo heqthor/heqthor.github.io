@@ -451,17 +451,17 @@ function Mueve(x,y,pieza){
 	var m=0;
 	
 	//while(pieza.position.x!==x.toFixed(1) && pieza.position.z!==y.toFixed(1)){
-		if(pieza.position.x!==x){
+		if(abs(pieza.position.x-x)>0.00001){
 			m=(pieza.position.z-y)/(pieza.position.x-x);
-			if(pieza.position.x>x)
-				pieza.position.x-=0.1;
-			else
-				pieza.position.x+=0.1;
+			if(abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)>=0)
+				pieza.position.x-=0.01;
+			if(abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)>=0)
+				pieza.position.x+=0.01;
 			pieza.position.z=m*pieza.position.x;
 		}else{
-			if(pieza.position.z>z)
+			if(abs(pieza.position.z-y)>0.1 && (pieza.position.z-y)>=0)
 				pieza.position.z-=0.1;
-			else
+			else if(abs(pieza.position.z-y)>0.1 && (pieza.position.z-y)>=0)
 				pieza.position.z+=0.1;
 		}
 		console.log(pieza.position.x,pieza.position.z);
