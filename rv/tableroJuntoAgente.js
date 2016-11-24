@@ -259,11 +259,6 @@ function loop(){
     escena.sense();
     escena.plan();
     escena.act();
-    if(xGoal!==xBef && zGoal!==zBef){
-        movement(torreN1);
-        xBef=xGoal;
-        zBef=zGoal;
-    }
     renderizador.render(escena, camara);
 }
 
@@ -430,6 +425,7 @@ function onMouseClick( event ) {
 		if(intersects[i].object.parent instanceof Torre){
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
+			console.log(piezaTocada);
 		}
 		else{
 			if(movimiento==1){
@@ -467,6 +463,7 @@ function Mueve(x,y,pieza){
 			else
 				pieza.position.z+=0.1;
 		}
+		console.log(pieza.position.x,pieza.position.z);
 	}
 }
 	
