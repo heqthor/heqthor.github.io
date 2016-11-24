@@ -42,7 +42,7 @@ function Torre(textura){
     this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
 }
 Torre.prototype=new Agent();
-
+var movimiento=0;
 function Torreplan(pieza){
 	var lugarOcupado=new THREE.Raycaster(new THREE.Vector3(0,0,0), new THREE.Vector3(1,0,0));
 	var tablero=new Array(8);
@@ -54,10 +54,10 @@ function Torreplan(pieza){
 			tablero[i][j]=lugarOcupado.intersectObjects(escena.children,true);
 		}
 	}
-	
+	while(movimiento=1){}
 	console.log(tablero);
 	
-	
+	movimiento=1;
 }
 
 
@@ -426,12 +426,18 @@ function onMouseClick( event ) {
 	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
-
+	
 	for ( var i = 0; i < intersects.length; i++ ) {
 		if(intersects[i].object.parent instanceof Torre)
 			intersects[ i ].object.material.color.set( 0xff0000 );
 		else
-			intersects[ i ].object.material.color.set( 0x00ff00 );
+			if(movimiento==1){
+				intersects[ i ].object.material.color.set( 0x00ff00 );
+				console.log(mouse.x,mouse.y);
+				movimiento=0;
+				//TorreMueve(mouse.x,mouse.y);
+			}
+		
 	
 	}
 	
