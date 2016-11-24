@@ -449,7 +449,8 @@ window.addEventListener( 'mousedown', onMouseClick, false );
 
 function Mueve(x,y,pieza){
 	var m=0;
-	while(pieza.position.x!==x.toFixed(1) && pieza.position.z!==y.toFixed(1)){
+	
+	//while(pieza.position.x!==x.toFixed(1) && pieza.position.z!==y.toFixed(1)){
 		if(pieza.position.x!==x){
 			m=(pieza.position.z-y)/(pieza.position.x-x);
 			if(pieza.position.x>x)
@@ -464,7 +465,7 @@ function Mueve(x,y,pieza){
 				pieza.position.z+=0.1;
 		}
 		console.log(pieza.position.x,pieza.position.z);
-	}
+	//}
 }
 	
 
