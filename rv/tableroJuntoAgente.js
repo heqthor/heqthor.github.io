@@ -418,12 +418,12 @@ function onMouseClick( event ) {
 	mouse.x = ( event.clientX / window.innerWidth ) *2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) *2 + 1;	
 	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
-	//raycaster.setFromCamera( mouse, camara );	
-	raycaster.set(mouse,new THREE.Vector3(0,-1,0));
+	raycaster.setFromCamera( mouse, camara );	
+	//raycaster.set(mouse,new THREE.Vector3(0,-1,0));
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[i].object.parent instanceof Torre){
+		if(intersects[i].object.parent instanceof Torre && intersects.point.z>10){
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
 			console.log(intersects[i].point.x,intersects[i].point.z,intersects[i].uv.x,intersects[i].uv.z,intersects[i].uv);
