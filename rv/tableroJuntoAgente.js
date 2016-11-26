@@ -414,27 +414,26 @@ function onMouseClick( event ) {
 
 	// calculate mouse position in normalized device coordinates
 	// (-1 to +1) for both components
-
+	var piezaX, piezaZ;
 	mouse.x = ( event.clientX / window.innerWidth ) *2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) *2 + 1;	
 	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	//raycaster.setFromCamera( mouse, camara );	
-	raycaster.set(new THREE.Vector3(0,100,0),new THREE.Vector3(0,-1,0));
+	raycaster.set(mouse,new THREE.Vector3(0,-1,0));
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	for ( var i = 0; i < intersects.length; i++ ) {
 		if(intersects[i].object.parent instanceof Torre && intersects[i].point.y>=10){
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
-			console.log(intersects[i].point.x,intersects[i].point.z,intersects[i].uv.x,intersects[i].uv.z,intersects[i].uv);
+			piezaX=(intersects[i].point.x/5).toFixed(0)*10+5*Math.sign(intersects[i].point.x);
+			console.log(intersects[i].point.x,piezaX,intersects[i].uv.x,intersects[i].uv.z,intersects[i].uv);
 		}
-		else if(intersects[i].object.parent instanceof Environment){
-			if(movimiento==1){
-				intersects[ i ].object.material.color.set( 0x00ff00 );
-				console.log(intersects[i].point.x,mouse.y);
-				movimiento=0;
-				Mueve(intersects[i].object.position.x,intersects[i].object.position.z,piezaTocada);
-			}
+		else if(intersects[i].object.parent instanceof Environment && movimiento==1){
+			intersects[ i ].object.material.color.set( 0x00ff00 );
+			console.log(intersects[i].point.x,mouse.y);
+			movimiento=0;
+			Mueve(intersects[i].object.position.x,intersects[i].object.position.z,piezaTocada);
 		}
 	
 	}
