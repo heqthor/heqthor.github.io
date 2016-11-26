@@ -426,7 +426,7 @@ function onMouseClick( event ) {
 		if(intersects[i].object.parent instanceof Torre && intersects[i].point.y>=10){
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
-			piezaX=(intersects[i].point.x/10);
+			piezaX=(intersects[i].point.x.toFixed());
 			console.log(piezaX);
 			piezaX=piezaX%10;
 			console.log(piezaX);
