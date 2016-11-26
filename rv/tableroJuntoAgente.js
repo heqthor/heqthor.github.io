@@ -432,7 +432,7 @@ function onMouseClick( event ) {
 				intersects[ i ].object.material.color.set( 0x00ff00 );
 				console.log(mouse.x,mouse.y);
 				movimiento=0;
-				Mueve(mouse.x,mouse.y,piezaTocada);
+				Mueve(intersects[i].object.position.x,intersects[i].object.position.z,piezaTocada);
 			}
 		}
 	
@@ -450,8 +450,8 @@ window.addEventListener( 'mousedown', onMouseClick, false );
 function Mueve(x,y,pieza){
 	var m=0;
 	
-	//while(pieza.position.x!==x.toFixed(1) && pieza.position.z!==y.toFixed(1)){
-		if(Math.abs(pieza.position.x-x)>0.001){
+	while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
+		if((pieza.position.x-x)!=0){
 			m=(pieza.position.z-y)/(pieza.position.x-x);
 			if(Math.abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)>=0)
 				pieza.position.x-=0.01;
@@ -465,7 +465,7 @@ function Mueve(x,y,pieza){
 				pieza.position.z+=0.1;
 		}
 		console.log(pieza.position.x,pieza.position.z);
-	//}
+	}
 }
 	
 
