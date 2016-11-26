@@ -428,7 +428,7 @@ function onMouseClick( event ) {
 			piezaTocada=intersects[i].object;
 			piezaX=(intersects[i].point.x.toFixed());
 			console.log(piezaX);
-			piezaX=piezaX/10.toFixed();
+			piezaX=(piezaX/10).toFixed();
 			console.log(piezaX);
 			piezaX=piezaX*10+5*Math.sign(intersects[i].point.x);
 			console.log(intersects[i].point.x,piezaX,intersects[i].uv.x,intersects[i].uv.z,intersects[i].uv);
