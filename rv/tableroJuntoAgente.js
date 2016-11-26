@@ -464,7 +464,8 @@ function Mueve(x,y,pieza){
 			else if(Math.abs(pieza.position.z-y)>0.1 && (pieza.position.z-y)<=0)
 				pieza.position.z+=0.1;
 		}
-		console.log(pieza.position.x,pieza.position.z);
+		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
+		console.log("casillaX:",x,"casillaZ:",y);
 	}
 }
 	
