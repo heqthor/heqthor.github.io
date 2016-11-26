@@ -473,8 +473,9 @@ window.addEventListener( 'mousedown', onMouseClick, false );
 
 function Mueve(x,y,pieza){
 	var m=0;
-	
-	while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
+	pieza.position.x=x;
+	pieza.position.z=y;
+	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
 			m=(pieza.position.z-y)/(pieza.position.x-x);
 			if(Math.abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)>=0)
@@ -490,7 +491,7 @@ function Mueve(x,y,pieza){
 		}
 		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
 		console.log("casillaX:",x,"casillaZ:",y);
-	}
+	}*/
 	console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
 		console.log("casillaX:",x,"casillaZ:",y);
 }
