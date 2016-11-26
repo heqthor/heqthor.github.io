@@ -467,6 +467,8 @@ function Mueve(x,y,pieza){
 		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
 		console.log("casillaX:",x,"casillaZ:",y);
 	}
+	console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
+		console.log("casillaX:",x,"casillaZ:",y);
 }
 	
 
