@@ -430,7 +430,7 @@ function onMouseClick( event ) {
 		else{
 			if(movimiento==1){
 				intersects[ i ].object.material.color.set( 0x00ff00 );
-				console.log(mouse.x,mouse.y);
+				console.log(intersects[i].object.x,mouse.y);
 				movimiento=0;
 				Mueve(intersects[i].object.position.x,intersects[i].object.position.z,piezaTocada);
 			}
