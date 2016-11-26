@@ -43,23 +43,6 @@ function Torre(textura){
 }
 Torre.prototype=new Agent();
 var movimiento=0;
-function Torreplan(pieza){
-	var lugarOcupado=new THREE.Raycaster(new THREE.Vector3(0,0,0), new THREE.Vector3(1,0,0));
-	var tablero=new Array(8);
-	for(var i=0;i<=7;i++){
-		tablero[i]=new Array(8);
-		for(var j=0;j<=7;j++){
-			lugarOcupado.set(new THREE.Vector3(-35+10*j,5.1,-35+10*i),
-					 new THREE.Vector3(0,1,0));
-			tablero[i][j]=lugarOcupado.intersectObjects(escena.children,true);
-		}
-	}
-	console.log(tablero);
-	
-	movimiento=1;
-}
-
-
 
 //------------PEON----------
 var Peon=function(textura){    
@@ -180,13 +163,17 @@ function listener(){
   renderizador.setSize( window.innerWidth, window.innerHeight );
 }
 var torreN1;
+
+/*var tablero=new Array(8);
+for(var i=0; i<=7; i++){
+	var tablero[i]=new Array(8);
+	for(var j=0; j<=7; j++){
+		var tablero*/
+
 //---------- SET UP--------
 function setup(){
     var tipo_evento = 'resize';
     var cambioVentana = false;
-	var cubito=new THREE.Mesh(new THREE.BoxGeometry(10,10,10),new THREE.MeshBasicMaterial());
-	cubito.position.y=5;
-	escena.add(cubito);
 	
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
@@ -445,7 +432,6 @@ function onMouseClick( event ) {
 	
 	console.log('wubba lubba dub dub');	
 	console.log( intersects[0].object);
-	Torreplan(intersects[0].object);
 }
  
 function Redondeo(coor){
@@ -473,8 +459,8 @@ window.addEventListener( 'mousedown', onMouseClick, false );
 
 function Mueve(x,y,pieza){
 	var m=0;
-	pieza.position.x=x;
-	pieza.position.z=y;
+	pieza.position.x=10*x;
+	pieza.position.z=10*y;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
 			m=(pieza.position.z-y)/(pieza.position.x-x);
@@ -503,14 +489,3 @@ var camara = new THREE.PerspectiveCamera();
 var renderizador = new THREE.WebGLRenderer();
 TexturaSetup();
 loop();
-
-
-
-
-
-
-
-
-
-
-
