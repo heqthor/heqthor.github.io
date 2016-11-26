@@ -426,7 +426,7 @@ function onMouseClick( event ) {
 		if(intersects[i].object.parent instanceof Torre && intersects[i].point.y>=10){
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
-			piezaX=(intersects[i].point.x/5).toFixed(0)*10+5*Math.sign(intersects[i].point.x);
+			piezaX=(intersects[i].point.x/10).toFixed(0)*10+5*Math.sign(intersects[i].point.x);
 			console.log(intersects[i].point.x,piezaX,intersects[i].uv.x,intersects[i].uv.z,intersects[i].uv);
 		}
 		else if(intersects[i].object.parent instanceof Environment && movimiento==1){
