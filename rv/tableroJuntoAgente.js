@@ -164,12 +164,6 @@ function listener(){
 }
 var torreN1;
 
-/*var tablero=new Array(8);
-for(var i=0; i<=7; i++){
-	var tablero[i]=new Array(8);
-	for(var j=0; j<=7; j++){
-		var tablero*/
-
 //---------- SET UP--------
 function setup(){
     var tipo_evento = 'resize';
@@ -406,7 +400,6 @@ function onMouseClick( event ) {
 	mouse.y = - ( event.clientY / window.innerHeight ) *2 + 1;	
 	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	raycaster.setFromCamera( mouse, camara );	
-	//raycaster.set(mouse,new THREE.Vector3(0,-1,0));
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	for ( var i = 0; i < intersects.length; i++ ) {
@@ -415,6 +408,7 @@ function onMouseClick( event ) {
 			piezaTocada=intersects[i].object;
 			piezaX=Redondeo(intersects[i].point.x);
 			piezaZ=Redondeo(intersects[i].point.z);
+			movimiento=1;
 			
 			console.log(piezaX,piezaZ);
 		}
