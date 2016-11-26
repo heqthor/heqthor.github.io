@@ -419,7 +419,7 @@ function onMouseClick( event ) {
 	mouse.y = - ( event.clientY / window.innerHeight ) *2 + 1;	
 	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	//raycaster.setFromCamera( mouse, camara );	
-	raycaster.set(mouse,new THREE.Vector3(0,-1,0));
+	raycaster.set(mouse,new THREE.Vector3(0,0,-1));
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	for ( var i = 0; i < intersects.length; i++ ) {
