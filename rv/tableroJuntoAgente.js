@@ -423,7 +423,7 @@ function onMouseClick( event ) {
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[i].object.parent instanceof Torre && intersects[i].point.y>=20){
+		if(intersects[i].object.parent instanceof Torre && intersects[i].point.y>=10){
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
 			console.log(intersects[i].point.x,intersects[i].point.z,intersects[i].uv.x,intersects[i].uv.z,intersects[i].uv);
