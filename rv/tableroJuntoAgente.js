@@ -33,9 +33,6 @@ function Torre(textura){
     
     //THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
     this.add(new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map:textura})));
-    torreForma.scale.x=0.2;
-    torreForma.scale.y=0.2;
-    torreForma.scale.z=0.2;
     this.castShadow=true;
     this.receiveShadow=true;
     
@@ -206,9 +203,9 @@ function setup(){
     
     
     torreN1 =new Torre(TEXTURAS.torreNegra);
-    torreN1.scale.x=0.2;
-    torreN1.scale.y=0.2;
-    torreN1.scale.z=0.2;
+    torreN1.scale.x=0.15;
+    torreN1.scale.y=0.15;
+    torreN1.scale.z=0.15;
     torreN1.position.y=5;
     torreN1.position.x=37.5;
     torreN1.position.z=37.5;
@@ -216,25 +213,25 @@ function setup(){
     torreN1.receiveShadow=true;
     
     var torreN2 = new Torre(TEXTURAS.torreNegra);
-    torreN2.scale.x=0.2;
-    torreN2.scale.y=0.2;
-    torreN2.scale.z=0.2;
+    torreN2.scale.x=0.15;
+    torreN2.scale.y=0.15;
+    torreN2.scale.z=0.15;
     torreN2.position.y=5;
     torreN2.position.x=-32.5;
     torreN2.position.z=37.5;
     
     var torreB1 = new Torre(TEXTURAS.torreBlanca);
-    torreB1.scale.x=0.2;
-    torreB1.scale.y=0.2;
-    torreB1.scale.z=0.2;
+    torreB1.scale.x=0.15;
+    torreB1.scale.y=0.15;
+    torreB1.scale.z=0.15;
     torreB1.position.y=5;
     torreB1.position.x=-32.5;
     torreB1.position.z=-32.5;
     
     var torreB2 = new Torre(TEXTURAS.torreBlanca);
-    torreB2.scale.x=0.2;
-    torreB2.scale.y=0.2;
-    torreB2.scale.z=0.2;
+    torreB2.scale.x=0.15;
+    torreB2.scale.y=0.15;
+    torreB2.scale.z=0.15;
     torreB2.position.y=5;
     torreB2.position.x=37.5;
     torreB2.position.z=-32.5;
