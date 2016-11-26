@@ -426,13 +426,8 @@ function onMouseClick( event ) {
 		if(intersects[i].object.parent instanceof Torre && intersects[i].point.y>=10){
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
-			piezaX=(intersects[i].point.x.toFixed());
-			piezaX=(piezaX-piezaX%10*Math.sign(intersects[i].point.x))/10;
-			piezaX=piezaX*10+5*Math.sign(intersects[i].point.x);
-			
-			piezaZ=(intersects[i].point.z.toFixed());
-			piezaZ=(piezaZ-piezaZ%10*Math.sign(intersects[i].point.z))/10;
-			piezaZ=piezaZ*10+5*Math.sign(intersects[i].point.z);
+			piezaX=Redondeo(intersects[i].point.x);
+			piezaZ=Redondeo(intersects[i].point.z);
 			
 			console.log(piezaX,intersects[i].point.z,piezaZ);
 		}
@@ -451,6 +446,26 @@ function onMouseClick( event ) {
 	Torreplan(intersects[0].object);
 }
  
+function Redondeo(coor){
+	if(coor>=-40 && coor<-30)
+		coor=-35;
+	else if(coor>=-30 && coor<-20)
+		coor=-25;
+	else if(coor>=-20 && coor<-10)
+		coor=-15;
+	else if(coor>=-10 && coor<0)
+		coor=-5;
+	else if(coor>=0 && coor<10)
+		coor=5;
+	else if(coor>=10 && coor<20)
+		coor=15;
+	else if(coor>=20 && coor<30)
+		coor=25;
+	else if(coor>=30 && coor<40)
+		coor=35;
+	return coor;
+}
+
 
 window.addEventListener( 'mousedown', onMouseClick, false );
 
