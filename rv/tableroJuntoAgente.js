@@ -427,11 +427,11 @@ function onMouseClick( event ) {
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
 			piezaX=(intersects[i].point.x.toFixed());
-			piezaX=(piezaX-piezaX%10)/10;
-			piezaX=piezaX*10+5*Math.sign(intersects[i].point.z);
+			piezaX=(piezaX-piezaX%10*Math.sign(intersects[i].point.x))/10;
+			piezaX=piezaX*10+5*Math.sign(intersects[i].point.x);
 			
 			piezaZ=(intersects[i].point.z.toFixed());
-			piezaZ=(piezaZ-piezaZ%10)/10;
+			piezaZ=(piezaZ-piezaZ%10*Math.sign(intersects[i].point.z))/10;
 			piezaZ=piezaZ*10+5*Math.sign(intersects[i].point.z);
 			
 			console.log(piezaX,intersects[i].point.z,piezaZ);
