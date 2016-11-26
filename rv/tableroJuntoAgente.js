@@ -423,12 +423,12 @@ function onMouseClick( event ) {
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[i].object.parent instanceof Torre && intersects[i].point.y>=10){
+		if(intersects[i].object.parent instanceof Torre && intersects[i].point.y>=20){
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
 			console.log(intersects[i].point.x,intersects[i].point.z,intersects[i].uv.x,intersects[i].uv.z,intersects[i].uv);
 		}
-		else{
+		else if(intersects[i].object.parent instanceof Environment){
 			if(movimiento==1){
 				intersects[ i ].object.material.color.set( 0x00ff00 );
 				console.log(intersects[i].point.x,mouse.y);
