@@ -414,7 +414,7 @@ function onMouseClick( event ) {
 
 	// calculate mouse position in normalized device coordinates
 	// (-1 to +1) for both components
-	var piezaX, piezaZ;
+	var piezaX, piezaZ,tableX,tableZ;
 	mouse.x = ( event.clientX / window.innerWidth ) *2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) *2 + 1;	
 	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
@@ -429,13 +429,15 @@ function onMouseClick( event ) {
 			piezaX=Redondeo(intersects[i].point.x);
 			piezaZ=Redondeo(intersects[i].point.z);
 			
-			console.log(piezaX,intersects[i].point.z,piezaZ);
+			console.log(piezaX,piezaZ);
 		}
 		else if(intersects[i].object.parent instanceof Environment && movimiento==1){
 			intersects[ i ].object.material.color.set( 0x00ff00 );
 			console.log(intersects[i].point.x,mouse.y);
-			movimiento=0;
-			Mueve(intersects[i].object.position.x,intersects[i].object.position.z,piezaTocada);
+			movimiento=0;			
+			tableX=Redondeo(intersects[i].point.x);
+			tableZ=Redondeo(intersects[i].point.z);
+			Mueve(tableX,tableZ,piezaTocada);
 		}
 	
 	}
