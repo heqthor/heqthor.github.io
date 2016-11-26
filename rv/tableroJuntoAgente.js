@@ -425,7 +425,7 @@ function onMouseClick( event ) {
 		if(intersects[i].object.parent instanceof Torre){
 			intersects[ i ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[i].object;
-			console.log(intersects[i].point.x,intersects[i].point.z,intersects[i].object.position.x);
+			console.log(intersects[i].point.x,intersects[i].point.z,intersects[i].uv.x,intersects[i].uv.z,intersects[i].uv);
 		}
 		else{
 			if(movimiento==1){
