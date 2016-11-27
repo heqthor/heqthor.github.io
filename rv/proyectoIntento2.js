@@ -224,7 +224,7 @@ function setup(){
     torreB2.position.y=5;
     torreB2.position.x=35;
     torreB2.position.z=-35;		
-    tablero[7][7]=torreB2;
+    tablero[7][0]=torreB2;
     
     escena.add(torreN1);
     escena.add(torreN2);
