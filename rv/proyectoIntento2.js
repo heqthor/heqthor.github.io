@@ -304,9 +304,7 @@ function onMouseClick( event ) {
 			movimiento=0;			
 			tableX=Redondeo(intersects[0].point.x);
 			tableZ=Redondeo(intersects[0].point.z);
-			cubo=intersects[0].object;
 			Mueve(tableX,tableZ,piezaTocada);
-			piezaTocada.material.color.set(0xff00ff);
 		}
 	
 	//}
@@ -363,8 +361,7 @@ function Mueve(x,y,pieza){
 		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
 		console.log("casillaX:",x,"casillaZ:",y);
 	}*/
-	console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
-		console.log("casillaX:",x,"casillaZ:",y);
+	
 }
 	
 
