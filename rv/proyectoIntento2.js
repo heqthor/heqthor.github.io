@@ -272,7 +272,7 @@ var banderaEvento=0;
 //-----------------------------------------------------------------------------------------------------------------RAY
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
-
+var cubo=new THREE.Object3D();
 function onMouseClick( event ) {
 
 	// calculate mouse position in normalized device coordinates
@@ -301,6 +301,7 @@ function onMouseClick( event ) {
 			movimiento=0;			
 			tableX=Redondeo(intersects[0].point.x);
 			tableZ=Redondeo(intersects[0].point.z);
+			cubo=intersects[0].object;
 			Mueve(tableX,tableZ,piezaTocada);
 		}
 	
@@ -340,6 +341,7 @@ function Mueve(x,y,pieza){
 	pieza.position.z=1*y;
 	tablero[(x+35)/10][(y+35)/10]=pieza;
 	console.log(tablero);
+	cubo.material.color.set(0x000000);
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
