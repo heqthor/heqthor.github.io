@@ -341,7 +341,8 @@ function Mueve(x,y,pieza){
 	pieza.position.z=1*y;
 	tablero[(x+35)/10][(y+35)/10]=pieza;
 	console.log(tablero);
-	cubo.material.color.set(0x000000);
+	cubo.material.color.set(0xffffff);
+	pieza.material.color.set(0xffffff);
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
