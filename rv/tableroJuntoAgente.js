@@ -402,26 +402,26 @@ function onMouseClick( event ) {
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
-	for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[i].object.parent instanceof Torre && intersects[i].point.y>=10){
-			intersects[ i ].object.material.color.set( 0xff0000 );
-			piezaTocada=intersects[i].object;
-			piezaX=Redondeo(intersects[i].point.x);
-			piezaZ=Redondeo(intersects[i].point.z);
+	//for ( var i = 0; i < intersects.length; i++ ) {
+		if(intersects[0].object.parent instanceof Torre && intersects[i].point.y>=10){
+			intersects[ 0 ].object.material.color.set( 0xff0000 );
+			piezaTocada=intersects[0].object;
+			piezaX=Redondeo(intersects[0].point.x);
+			piezaZ=Redondeo(intersects[0].point.z);
 			movimiento=1;
 			
 			console.log(piezaX,piezaZ);
 		}
-		else if(intersects[i].object.parent instanceof Environment && movimiento==1){
-			intersects[ i ].object.material.color.set( 0x00ff00 );
-			console.log(intersects[i].point.x,mouse.y);
+		else if(intersects[0].object.parent instanceof Environment && movimiento==1){
+			intersects[ 0 ].object.material.color.set( 0x00ff00 );
+			console.log(intersects[0].point.x,mouse.y);
 			movimiento=0;			
-			tableX=Redondeo(intersects[i].point.x);
-			tableZ=Redondeo(intersects[i].point.z);
+			tableX=Redondeo(intersects[0].point.x);
+			tableZ=Redondeo(intersects[0].point.z);
 			Mueve(tableX,tableZ,piezaTocada);
 		}
 	
-	}
+	/}
 	
 	
 	console.log('wubba lubba dub dub');	
