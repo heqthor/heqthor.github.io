@@ -338,14 +338,17 @@ function Redondeo(coor){
 
 window.addEventListener( 'mousedown', onMouseClick, false );
 
-function Mueve(x,y,pieza){
+function Mueve(x,y,piezaTocada){
 	var m=0;
+	var pieza=new THREE.Object3D();
+	pieza=piezaTocada;
 	pieza.position.x=1*x;
 	pieza.position.z=1*y;
+	pieza.material.color.set(0xffffff);
 	tablero[(x+35)/10][(y+35)/10]=pieza;
 	console.log(tablero);
 	cubo.material.color.set(0xffffff);
-	pieza.material.color.set(0xffffff);
+	pieza.material.color.set(0x00ff00);
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
