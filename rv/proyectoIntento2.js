@@ -163,12 +163,13 @@ function listener(){
   renderizador.setSize( window.innerWidth, window.innerHeight );
 }
 var torreN1;
+var tablero=new Array(8);
 
 //---------- SET UP--------
 function setup(){
     var tipo_evento = 'resize';
     var cambioVentana = false;
-	
+
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
     camara.position.x = 00;    
@@ -182,7 +183,10 @@ function setup(){
     luz.position.y=50;
     luz.position.z=100;
     
-    
+    for(var i=0;  i<=7; i++){
+	    tablero[i]=new Array(8);
+    }
+
     torreN1 =new Torre(TEXTURAS.torreNegra);
     torreN1.scale.x=0.15;
     torreN1.scale.y=0.15;
@@ -192,7 +196,9 @@ function setup(){
     torreN1.position.z=35;
     torreN1.castShadow=true;
     torreN1.receiveShadow=true;
+    tablero[7][7]=torreN1;
     
+	
     var torreN2 = new Torre(TEXTURAS.torreNegra);
     torreN2.scale.x=0.15;
     torreN2.scale.y=0.15;
@@ -258,134 +264,10 @@ function TexturaSetup(){
     
 }
 var piezaTocada=new THREE.Object3D;
-var xGoal=0;
-var zGoal=0;
 var m,xBef,zBef;
 var banderaEvento=0;
-//------------- EVENTOS TECLADO-----------
-var keyDown = function(event){
-    /*switch(event.keyCode){
-        case 97: //a
-        case 65: //A
-            xGoal=-0.1;
-            break;
-        case 83: //s
-            zGoal=0.1;
-            break;
-        case 68:
-            xGoal=0.1;
-            break;
-        case 87:
-            zGoal=-0.1;
-            break;
-                        }*/
-    if(banderaEvento==0){
-        switch(event.keyCode){
-            case 97: //a
-            case 65: //A
-                xGoal=-35;
-                break;
-            case 98: //b
-            case 66: //B
-                xGoal=-25;
-                break;
-            case 99:
-            case 67:
-                xGoal=-15;
-                break;
-            case 100:
-            case 68:
-                xGoal=-5;
-                break;
-            case 101:
-            case 69:
-                xGoal=5;
-                break;
-            case 102: //f
-            case 70: //F
-                xGoal=15;
-                break;
-            case 103:
-            case 71:
-                xGoal=25;
-                break;
-            case 104: //h
-            case 72: //H
-                xGoal=35;
-                break;
-        }
-        banderaEvento=2;
-    }else if(banderaEvento==1){
-        switch(event.keyCode){
-            case 49: //1
-                zGoal=-35
-                break;
-            case 50: //2
-                zGoal=-25
-                break;
-            case 51: //3
-                zGoal=-15
-                break;
-            case 52: //4
-                zGoal=-5
-                break;
-            case 53: //5
-                zGoal=5
-                break;
-            case 54: //6
-                zGoal=15
-                break;
-            case 55: //7
-                zGoal=25
-                break;
-            case 56: //8
-                zGoal=35
-                break;
-        }
-        banderaEvento=3;
-    }
-}
-    
-var keyUp = function(event){
-    /*xGoal=0;
-    zGoal=0;*/
-    if(banderaEvento==2){
-        banderaEvento=1;
-    }else if(banderaEvento==3){
-        banderaEvento=0;
-    }
-}
-document.addEventListener( 'keydown', keyDown, false );
-document.addEventListener( 'keyup', keyUp, false );
 
-function movement(pieza){
-    /*pieza.position.x+=xGoal;
-    pieza.position.z+=zGoal;*/
-    var m=(zGoal-pieza.position.z);
-    if(xGoal-pieza.position.x!==0)
-        m=m/(xGoal-pieza.position.x);
-    var b=zGoal-m*xGoal;
-    var posX,posZ;
-    if(pieza.position.x!==xGoal || pieza.position.z!==zGoal){ 
-        if(pieza.position.x!==xGoal){
-            if(pieza.position.x<xGoal)
-                pieza.position.x+=0.1;
-            else
-                pieza.position.x-=0.1;
-            pieza.position.z=m*pieza.position.x+b;
-        }else if(pieza.position.z!==zGoal){
-            if(pieza.position.z<zGoal)
-                pieza.position.z+=0.1;
-            else
-                pieza.position.z-=0.1;
-            
-            if(xGoal-pieza.position.x!==0)
-                pieza.position.x=(pieza.position.z-b)/m;
-        }else
-            banderaEvento=0;
-        console.log(pieza.position.x,',',pieza.position.z);
-    }
-}
+
 
 //-----------------------------------------------------------------------------------------------------------------RAY
 var raycaster = new THREE.Raycaster();
@@ -405,10 +287,9 @@ function onMouseClick( event ) {
 	//for ( var i = 0; i < intersects.length; i++ ) {
 		if(intersects[0].object.parent instanceof Torre && intersects[0].point.y>=10){
 			intersects[ 0 ].object.material.color.set( 0xff0000 );
-			piezaTocada=intersects[0].object;
 			piezaX=Redondeo(intersects[0].point.x);
 			piezaZ=Redondeo(intersects[0].point.z);
-			delete intersects[0].object;
+			piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
 			movimiento=1;
 			
 			console.log(piezaX,piezaZ);
