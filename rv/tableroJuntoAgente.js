@@ -455,6 +455,7 @@ function Mueve(x,y,pieza){
 	var m=0;
 	pieza.position.x=1*x;
 	pieza.position.z=1*y;
+	delete.pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
 			m=(pieza.position.z-y)/(pieza.position.x-x);
