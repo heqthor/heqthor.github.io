@@ -205,7 +205,8 @@ function setup(){
     torreN2.scale.z=0.15;
     torreN2.position.y=5;
     torreN2.position.x=-35;
-    torreN2.position.z=35;
+    torreN2.position.z=35;	
+    tablero[7][0]=torreN2;
     
     var torreB1 = new Torre(TEXTURAS.torreBlanca);
     torreB1.scale.x=0.15;
@@ -213,7 +214,8 @@ function setup(){
     torreB1.scale.z=0.15;
     torreB1.position.y=5;
     torreB1.position.x=-35;
-    torreB1.position.z=-35;
+    torreB1.position.z=-35;	
+    tablero[0][0]=torreB1;
     
     var torreB2 = new Torre(TEXTURAS.torreBlanca);
     torreB2.scale.x=0.15;
@@ -221,7 +223,8 @@ function setup(){
     torreB2.scale.z=0.15;
     torreB2.position.y=5;
     torreB2.position.x=35;
-    torreB2.position.z=-35;
+    torreB2.position.z=-35;		
+    tablero[0][7]=torreB2;
     
     escena.add(torreN1);
     escena.add(torreN2);
