@@ -171,9 +171,9 @@ function setup(){
 	
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
-    camara.position.x = 100;    
+    camara.position.x = 00;    
     camara.position.y = 100;
-    camara.position.z = 100;
+    camara.position.z = 00;
     camara.lookAt(new THREE.Vector3(0,0,0));
     
     setupDone=true;
