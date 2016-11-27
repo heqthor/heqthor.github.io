@@ -290,6 +290,7 @@ function onMouseClick( event ) {
 			piezaX=Redondeo(intersects[0].point.x);
 			piezaZ=Redondeo(intersects[0].point.z);
 			piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
+			tablero[(piezaX+35)/10][(piezaZ+35)/10]=null;
 			movimiento=1;
 			
 			console.log(piezaX,piezaZ);
@@ -337,6 +338,7 @@ function Mueve(x,y,pieza){
 	var m=0;
 	pieza.position.x=1*x;
 	pieza.position.z=1*y;
+	tablero[(pieza.position.x+35)/10][(pieza.position.z+35)/10]
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
