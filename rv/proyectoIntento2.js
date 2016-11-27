@@ -306,6 +306,7 @@ function onMouseClick( event ) {
 			tableZ=Redondeo(intersects[0].point.z);
 			cubo=intersects[0].object;
 			Mueve(tableX,tableZ,piezaTocada);
+			piezaTocada.material.color.set(0xff00ff);
 		}
 	
 	//}
@@ -342,10 +343,8 @@ function Mueve(x,y,pieza){
 	var m=0;
 	pieza.position.x=1*x;
 	pieza.position.z=1*y;
-	pieza.material.color.set(0x00ff00);
 	tablero[(x+35)/10][(y+35)/10]=pieza;
 	console.log(tablero);
-	cubo.material.color.set(0xffffff);
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
