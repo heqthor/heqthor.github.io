@@ -421,7 +421,7 @@ function onMouseClick( event ) {
 			Mueve(tableX,tableZ,piezaTocada);
 		}
 	
-	/}
+	//}
 	
 	
 	console.log('wubba lubba dub dub');	
