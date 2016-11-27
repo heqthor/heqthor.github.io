@@ -408,7 +408,7 @@ function onMouseClick( event ) {
 			piezaTocada=intersects[0].object;
 			piezaX=Redondeo(intersects[0].point.x);
 			piezaZ=Redondeo(intersects[0].point.z);
-			delete intersects[0];
+			delete intersects[0].object;
 			movimiento=1;
 			
 			console.log(piezaX,piezaZ);
