@@ -188,8 +188,8 @@ function setup(){
     torreN1.scale.y=0.15;
     torreN1.scale.z=0.15;
     torreN1.position.y=5;
-    torreN1.position.x=37.5;
-    torreN1.position.z=37.5;
+    torreN1.position.x=35;
+    torreN1.position.z=35;
     torreN1.castShadow=true;
     torreN1.receiveShadow=true;
     
@@ -198,24 +198,24 @@ function setup(){
     torreN2.scale.y=0.15;
     torreN2.scale.z=0.15;
     torreN2.position.y=5;
-    torreN2.position.x=-32.5;
-    torreN2.position.z=37.5;
+    torreN2.position.x=-35;
+    torreN2.position.z=35;
     
     var torreB1 = new Torre(TEXTURAS.torreBlanca);
     torreB1.scale.x=0.15;
     torreB1.scale.y=0.15;
     torreB1.scale.z=0.15;
     torreB1.position.y=5;
-    torreB1.position.x=-32.5;
-    torreB1.position.z=-32.5;
+    torreB1.position.x=-35;
+    torreB1.position.z=-35;
     
     var torreB2 = new Torre(TEXTURAS.torreBlanca);
     torreB2.scale.x=0.15;
     torreB2.scale.y=0.15;
     torreB2.scale.z=0.15;
     torreB2.position.y=5;
-    torreB2.position.x=37.5;
-    torreB2.position.z=-32.5;
+    torreB2.position.x=35;
+    torreB2.position.z=-35;
     
     escena.add(torreN1);
     escena.add(torreN2);
