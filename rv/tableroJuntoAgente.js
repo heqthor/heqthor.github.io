@@ -403,7 +403,7 @@ function onMouseClick( event ) {
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	//for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[0].object.parent instanceof Torre && intersects[i].point.y>=10){
+		if(intersects[0].object.parent instanceof Torre && intersects[0].point.y>=10){
 			intersects[ 0 ].object.material.color.set( 0xff0000 );
 			piezaTocada=intersects[0].object;
 			piezaX=Redondeo(intersects[0].point.x);
