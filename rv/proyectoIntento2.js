@@ -185,6 +185,9 @@ function setup(){
     
     for(var i=0;  i<=7; i++){
 	    tablero[i]=new Array(8);
+	    for(var j=0; j<=7; j++){
+		    tablero[i][j]=new THREE.Object3D;
+	    }
     }
 
     torreN1 =new Torre(TEXTURAS.torreNegra);
