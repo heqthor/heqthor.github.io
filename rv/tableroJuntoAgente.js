@@ -44,7 +44,7 @@ function Torre(textura){
 Torre.prototype=new Agent();
 var movimiento=0;
 
-var tableroMovimientos= new Arrays(8);
+var tableroMovimientos= new Array(8);
 for(var i=0; i<=7; i++){
 	tableroMovimientos[i]=new Array(8);
 }
