@@ -367,6 +367,7 @@ function Mueve(x,y,pieza){
 		pieza.position.x=1*x;
 		pieza.position.z=1*y;
 		tablero[(x+35)/10][(y+35)/10]=pieza;
+		pieza.mesh.material.color.set(0xffffff);
 	}
 	for(var i=0; i<=7; i++){
 		for(var j=0; j<=7; j++){
