@@ -151,6 +151,19 @@ var Rey=function(textura){
 
 Rey.prototype=new Agent();
 
+function ReyPlan(x,y){
+	x=(x+35)/10;
+	y=(y+35)/10;
+	for(var i=0; i<=7; i++){
+		for(var j=0; j<=7; j++){
+			if((y-1==j && x-1==i) || (y-1==j && x==i) || (y-1==j && x+1==i) (y==j && x+1==i) || (y+1==j && x+1==i) || (y+1==j && x==i) || (y+1==j && x-1==i) || (y==j && x-1==i))
+				tableroMovimientos[i][j]=1;
+			else
+				tableroMovimientos[i][j]=0;
+		}
+	}
+}
+	
 
 
 //------------ TABLERO------
@@ -254,6 +267,16 @@ function setup(){
     torreB2.position.x=35;
     torreB2.position.z=-35;		
     tablero[7][0]=torreB2;
+	
+    var reyB=new Rey(TEXTURAS.torreBlanca);
+    reyB.scale.x=0.15;
+    reyB.scale.y=0.15;
+    reyB.scale.z=0.15;
+    reyB.position.y=5;
+    reyB.position.x=-5;
+    reyB.position.z=-35;	
+    tablero[3][0]=reyB;
+	
     
     escena.add(torreN1);
     escena.add(torreN2);
@@ -323,7 +346,9 @@ function onMouseClick( event ) {
 		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
 		movimiento=1;
 		if(piezaTocada instanceof Torre)
-			TorrePlan(piezaX,piezaZ);
+			TorrePlan(piezaX,piezaZ);		
+		else if(piezaTocada instanceof Rey)
+			ReyPlan(piezaX,piezaZ);
 		console.log(piezaX,piezaZ);
 	}
 	else if((intersects[0].object.parent instanceof Environment || (intersects[1].object.parent instanceof Environment && intersects[0].object.parent instanceof Torre)) && movimiento==1){
