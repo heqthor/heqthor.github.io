@@ -57,7 +57,7 @@ function TorrePlan(x,y){
 	y=(y+35)/10;
 	
 	console.log("x",x,"y",y);
-	for(var i=0; i>=7; i++){
+	for(var i=0; i<=7; i++){
 		for(var j=0; j<=7; j++){
 			if(j===y)
 				tableroMovimientos[i][j]=1;
