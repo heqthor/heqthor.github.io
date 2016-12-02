@@ -106,7 +106,8 @@ Peon.prototype=new Agent();
 
 
 //------------REY-----------
-var Rey=function(textura){    
+var Rey=function(textura){ 
+    Agent.call(this);
     var puntosrey=[];
     
     puntosrey.push( new THREE.Vector2(0,0));
