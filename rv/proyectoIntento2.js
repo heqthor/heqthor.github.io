@@ -366,7 +366,7 @@ function Mueve(x,y,pieza){
 		tablero[(pieza.position.x+35)/10][(pieza.position.z+35)/10]=null;
 		pieza.position.x=1*x;
 		pieza.position.z=1*y;
-		if(tablero[(x+35)/10][(y+35)/10]!===null){
+		if(tablero[(x+35)/10][(y+35)/10]!==null){
 			var lugarOcu=new THREE.Object3D();
 			lugarOcu=tablero[(x+35)/10][(y+35)/10];
 			lugarOcu.position.y=5000;
