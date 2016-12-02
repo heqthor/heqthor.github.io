@@ -282,6 +282,7 @@ function setup(){
     escena.add(torreN2);
     escena.add(torreB1);
     escena.add(torreB2);
+    escena.add(reyB);
     escena.add(luz);
     Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
     
