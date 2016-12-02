@@ -49,7 +49,7 @@ for(var i=0; i<=7; i++){
 	tableroMovimientos[i]=new Array(8);
 }
 
-function Torre.plan(x,y){
+function TorrePlan(x,y){
 	x=(x+35)/7;
 	y=(y+35)/7;
 	
@@ -368,7 +368,7 @@ function Mueve(x,y,pieza){
 		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
 		console.log("casillaX:",x,"casillaZ:",y);
 	}*/
-	Torre.plan(x,y);
+	TorrePlan(x,y);
 	console.log(tableroMovimientos);
 	//console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
 }
