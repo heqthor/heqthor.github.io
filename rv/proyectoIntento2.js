@@ -44,9 +44,9 @@ function Torre(textura){
 Torre.prototype=new Agent();
 var movimiento=0;
 
-var tableroMovimientos= new Array(8);
+var tableroMovimientos=[];
 for(var i=0; i<=7; i++){
-	tableroMovimientos[i]=new Array(8);
+	tableroMovimientos[i]=[];
 }
 
 function TorrePlan(x,y){
@@ -366,7 +366,7 @@ function Mueve(x,y,pieza){
 	tablero[(x+35)/10][(y+35)/10]=pieza;
 	console.log(tablero);
 	TorrePlan(x,y);
-	console.log(tableroMovimientos);
+	console.log("movi",tableroMovimientos);
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
