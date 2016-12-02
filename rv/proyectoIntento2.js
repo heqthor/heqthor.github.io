@@ -158,7 +158,7 @@ function ReyPlan(x,y){
 	y=(y+35)/10;
 	for(var i=0; i<=7; i++){
 		for(var j=0; j<=7; j++){
-			if((y-1==j && x-1==i) || (y-1==j && x==i) || (y-1==j && x+1==i) (y==j && x+1==i) || (y+1==j && x+1==i) || (y+1==j && x==i) || (y+1==j && x-1==i) || (y==j && x-1==i))
+			if((y-1==j && x-1==i) || (y-1==j && x==i) || (y-1==j && x+1==i) || (y==j && x+1==i) || (y+1==j && x+1==i) || (y+1==j && x==i) || (y+1==j && x-1==i) || (y==j && x-1==i))
 				tableroMovimientos[i][j]=1;
 			else
 				tableroMovimientos[i][j]=0;
