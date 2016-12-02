@@ -407,7 +407,6 @@ function Mueve(x,y,pieza){
 			tableroMovimientos[i][j]=0;
 		}
 	}
-	console.log("piezaMalla", pieza.mesh.map);
 	console.log(reyB.position);
 	console.log("movi",tableroMovimientos);
 	//delete pieza;
