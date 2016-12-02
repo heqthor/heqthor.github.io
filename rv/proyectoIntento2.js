@@ -289,8 +289,6 @@ function setup(){
     
     renderizador.setSize( window.innerWidth , window.innerHeight );
     document.body.appendChild( renderizador.domElement );
-    xGoal=torreN1.position.x;
-    zGoal=torreN1.position.z;
 }
 
 var setupDone=false;
