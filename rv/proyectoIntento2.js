@@ -164,6 +164,7 @@ function ReyPlan(x,y){
 				tableroMovimientos[i][j]=0;
 		}
 	}
+	console.log("rey",tableroMovimientos);
 }
 	
 
@@ -213,9 +214,9 @@ function setup(){
 
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
-    camara.position.x = 50;    
+    camara.position.x = 0;    
     camara.position.y = 200;
-    camara.position.z = 50;
+    camara.position.z = 0;
     camara.lookAt(new THREE.Vector3(0,0,0));
     
     setupDone=true;
@@ -271,9 +272,9 @@ function setup(){
     tablero[7][0]=torreB2;
 	
     reyB=new Rey(TEXTURAS.torreBlanca);
-    reyB.scale.x=0.1;
-    reyB.scale.y=0.1;
-    reyB.scale.z=0.1;
+    reyB.scale.x=0.3;
+    reyB.scale.y=0.3;
+    reyB.scale.z=0.3;
     reyB.position.y=5;
     reyB.position.x=-5;
     reyB.position.z=-35;	
