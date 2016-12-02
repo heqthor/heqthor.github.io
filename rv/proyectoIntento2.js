@@ -318,7 +318,6 @@ function onMouseClick( event ) {
 		piezaX=Redondeo(intersects[0].point.x);
 		piezaZ=Redondeo(intersects[0].point.z);
 		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
-		tablero[(piezaX+35)/10][(piezaZ+35)/10]=null;
 		movimiento=1;
 		if(piezaTocada instanceof Torre)
 			TorrePlan(piezaX,piezaZ);
@@ -364,6 +363,7 @@ window.addEventListener( 'mousedown', onMouseClick, false );
 function Mueve(x,y,pieza){
 	var m=0;
 	if(tableroMovimientos[(x+35)/10][(y+35)/10]===1){
+		tablero[(pieza.position.x+35)/10][(pieza.position.z+35)/10]=null;
 		pieza.position.x=1*x;
 		pieza.position.z=1*y;
 		tablero[(x+35)/10][(y+35)/10]=pieza;
