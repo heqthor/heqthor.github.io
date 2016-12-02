@@ -44,6 +44,28 @@ function Torre(textura){
 Torre.prototype=new Agent();
 var movimiento=0;
 
+var tableroMovimientos= new Array(8);
+for(var i=0; i<=7; i++){
+	tableroMovimientos[i]=new Array(8);
+}
+
+function TorrePlan(x,y){
+	x=(x+35)/7;
+	y=(y+35)/7;
+	
+	for(var i=0; i>=7; i++){
+		for(var j=0; j<=7; j++){
+			if(j===y)
+				tableroMovimientos[i][j]=1;
+			else if(i===x)
+				tableroMovimientos[i][j]=1;
+			else
+				tableroMovimientos[i][j]=0;
+		}
+	}
+}
+	
+
 //------------PEON----------
 var Peon=function(textura){    
     var puntospeon=[];
@@ -343,6 +365,8 @@ function Mueve(x,y,pieza){
 	pieza.position.z=1*y;
 	tablero[(x+35)/10][(y+35)/10]=pieza;
 	console.log(tablero);
+	TorrePlan(x,y);
+	console.log(tableroMovimientos);
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
@@ -361,6 +385,7 @@ function Mueve(x,y,pieza){
 		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
 		console.log("casillaX:",x,"casillaZ:",y);
 	}*/
+	
 	
 }
 	
