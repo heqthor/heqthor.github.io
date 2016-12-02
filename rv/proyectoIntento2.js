@@ -313,27 +313,25 @@ function onMouseClick( event ) {
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
-	//for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[0].object.parent instanceof Torre && intersects[0].point.y>=10){
-			intersects[ 0 ].object.material.color.set( 0xff0000 );
-			piezaX=Redondeo(intersects[0].point.x);
-			piezaZ=Redondeo(intersects[0].point.z);
-			piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
-			tablero[(piezaX+35)/10][(piezaZ+35)/10]=null;
-			movimiento=1;
-			
-			console.log(piezaX,piezaZ);
-		}
-		else if(intersects[0].object.parent instanceof Environment && movimiento==1){
-			intersects[ 0 ].object.material.color.set( 0x00ff00 );
-			console.log(intersects[0].point.x,mouse.y);
-			movimiento=0;			
-			tableX=Redondeo(intersects[0].point.x);
-			tableZ=Redondeo(intersects[0].point.z);
-			Mueve(tableX,tableZ,piezaTocada);
-		}
-	
-	//}
+	if(intersects[0].point.y>=10){
+		intersects[ 0 ].object.material.color.set( 0xff0000 );
+		piezaX=Redondeo(intersects[0].point.x);
+		piezaZ=Redondeo(intersects[0].point.z);
+		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
+		tablero[(piezaX+35)/10][(piezaZ+35)/10]=null;
+		movimiento=1;
+		if(piezaTocada instanceof Torre)
+			TorrePlan(piezaX,piezaZ);
+		console.log(piezaX,piezaZ);
+	}
+	else if(intersects[0].object.parent instanceof Environment && movimiento==1){
+		intersects[ 0 ].object.material.color.set( 0x00ff00 );
+		console.log(intersects[0].point.x,mouse.y);
+		movimiento=0;			
+		tableX=Redondeo(intersects[0].point.x);
+		tableZ=Redondeo(intersects[0].point.z);
+		Mueve(tableX,tableZ,piezaTocada);
+	}
 	
 	
 	console.log('wubba lubba dub dub');	
@@ -365,11 +363,17 @@ window.addEventListener( 'mousedown', onMouseClick, false );
 
 function Mueve(x,y,pieza){
 	var m=0;
-	pieza.position.x=1*x;
-	pieza.position.z=1*y;
-	tablero[(x+35)/10][(y+35)/10]=pieza;
+	if(tableromovimientos[(x+35)/10][(y+35)/10]===1){
+		pieza.position.x=1*x;
+		pieza.position.z=1*y;
+		tablero[(x+35)/10][(y+35)/10]=pieza;
+	}
+	for(var i=0; i<=7; i++){
+		for(var j=0; j<=7; j++){
+			tableroMovimientos[i][j]=0;
+		}
+	}
 	console.log(tablero);
-	TorrePlan(x,y);
 	console.log("movi",tableroMovimientos);
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
