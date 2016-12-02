@@ -44,6 +44,28 @@ function Torre(textura){
 Torre.prototype=new Agent();
 var movimiento=0;
 
+var tableroMovimientos= new Arrays(8);
+for(var i=0; i<=7; i++){
+	tableroMovimientos[i]=new Array(8);
+}
+
+function Torre.plan(x,y){
+	x=(x+35)/7;
+	y=(y+35)/7;
+	
+	for(var i=0; i>=7; i++){
+		for(var j=0; j<=7; j++){
+			if(j===y)
+				tableroMovimientos[i][j]=1;
+			else if(i===x)
+				tableroMovimientos[i][j]=1;
+			else
+				tableroMovimientos[i][j]=0;
+		}
+	}
+}
+	
+
 //------------PEON----------
 var Peon=function(textura){    
     var puntospeon=[];
@@ -262,130 +284,7 @@ var xGoal=0;
 var zGoal=0;
 var m,xBef,zBef;
 var banderaEvento=0;
-//------------- EVENTOS TECLADO-----------
-var keyDown = function(event){
-    /*switch(event.keyCode){
-        case 97: //a
-        case 65: //A
-            xGoal=-0.1;
-            break;
-        case 83: //s
-            zGoal=0.1;
-            break;
-        case 68:
-            xGoal=0.1;
-            break;
-        case 87:
-            zGoal=-0.1;
-            break;
-                        }*/
-    if(banderaEvento==0){
-        switch(event.keyCode){
-            case 97: //a
-            case 65: //A
-                xGoal=-35;
-                break;
-            case 98: //b
-            case 66: //B
-                xGoal=-25;
-                break;
-            case 99:
-            case 67:
-                xGoal=-15;
-                break;
-            case 100:
-            case 68:
-                xGoal=-5;
-                break;
-            case 101:
-            case 69:
-                xGoal=5;
-                break;
-            case 102: //f
-            case 70: //F
-                xGoal=15;
-                break;
-            case 103:
-            case 71:
-                xGoal=25;
-                break;
-            case 104: //h
-            case 72: //H
-                xGoal=35;
-                break;
-        }
-        banderaEvento=2;
-    }else if(banderaEvento==1){
-        switch(event.keyCode){
-            case 49: //1
-                zGoal=-35
-                break;
-            case 50: //2
-                zGoal=-25
-                break;
-            case 51: //3
-                zGoal=-15
-                break;
-            case 52: //4
-                zGoal=-5
-                break;
-            case 53: //5
-                zGoal=5
-                break;
-            case 54: //6
-                zGoal=15
-                break;
-            case 55: //7
-                zGoal=25
-                break;
-            case 56: //8
-                zGoal=35
-                break;
-        }
-        banderaEvento=3;
-    }
-}
-    
-var keyUp = function(event){
-    /*xGoal=0;
-    zGoal=0;*/
-    if(banderaEvento==2){
-        banderaEvento=1;
-    }else if(banderaEvento==3){
-        banderaEvento=0;
-    }
-}
-document.addEventListener( 'keydown', keyDown, false );
-document.addEventListener( 'keyup', keyUp, false );
 
-function movement(pieza){
-    /*pieza.position.x+=xGoal;
-    pieza.position.z+=zGoal;*/
-    var m=(zGoal-pieza.position.z);
-    if(xGoal-pieza.position.x!==0)
-        m=m/(xGoal-pieza.position.x);
-    var b=zGoal-m*xGoal;
-    var posX,posZ;
-    if(pieza.position.x!==xGoal || pieza.position.z!==zGoal){ 
-        if(pieza.position.x!==xGoal){
-            if(pieza.position.x<xGoal)
-                pieza.position.x+=0.1;
-            else
-                pieza.position.x-=0.1;
-            pieza.position.z=m*pieza.position.x+b;
-        }else if(pieza.position.z!==zGoal){
-            if(pieza.position.z<zGoal)
-                pieza.position.z+=0.1;
-            else
-                pieza.position.z-=0.1;
-            
-            if(xGoal-pieza.position.x!==0)
-                pieza.position.x=(pieza.position.z-b)/m;
-        }else
-            banderaEvento=0;
-        console.log(pieza.position.x,',',pieza.position.z);
-    }
-}
 
 //-----------------------------------------------------------------------------------------------------------------RAY
 var raycaster = new THREE.Raycaster();
@@ -402,28 +301,24 @@ function onMouseClick( event ) {
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
-	//for ( var i = 0; i < intersects.length; i++ ) {
-		if(intersects[0].object.parent instanceof Torre && intersects[0].point.y>=10){
-			intersects[ 0 ].object.material.color.set( 0xff0000 );
-			piezaTocada=intersects[0].object;
-			piezaX=Redondeo(intersects[0].point.x);
-			piezaZ=Redondeo(intersects[0].point.z);
-			delete intersects[0].object;
-			movimiento=1;
-			
-			console.log(piezaX,piezaZ);
-		}
-		else if(intersects[0].object.parent instanceof Environment && movimiento==1){
-			intersects[ 0 ].object.material.color.set( 0x00ff00 );
-			console.log(intersects[0].point.x,mouse.y);
-			movimiento=0;			
-			tableX=Redondeo(intersects[0].point.x);
-			tableZ=Redondeo(intersects[0].point.z);
-			Mueve(tableX,tableZ,piezaTocada);
-		}
-	
-	//}
-	
+	if(intersects[0].object.parent instanceof Torre && intersects[0].point.y>=10){
+		intersects[ 0 ].object.material.color.set( 0xff0000 );
+		piezaTocada=intersects[0].object;
+		piezaX=Redondeo(intersects[0].point.x);
+		piezaZ=Redondeo(intersects[0].point.z);
+		delete intersects[0].object;
+		movimiento=1;
+
+		console.log(piezaX,piezaZ);
+	}
+	else if(intersects[0].object.parent instanceof Environment && movimiento==1){
+		intersects[ 0 ].object.material.color.set( 0x00ff00 );
+		console.log(intersects[0].point.x,mouse.y);
+		movimiento=0;			
+		tableX=Redondeo(intersects[0].point.x);
+		tableZ=Redondeo(intersects[0].point.z);
+		Mueve(tableX,tableZ,piezaTocada);
+	}
 	
 	console.log('wubba lubba dub dub');	
 	console.log( intersects[0].object);
@@ -456,7 +351,6 @@ function Mueve(x,y,pieza){
 	var m=0;
 	pieza.position.x=1*x;
 	pieza.position.z=1*y;
-	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
 			m=(pieza.position.z-y)/(pieza.position.x-x);
@@ -474,8 +368,9 @@ function Mueve(x,y,pieza){
 		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
 		console.log("casillaX:",x,"casillaZ:",y);
 	}*/
-	console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
-		console.log("casillaX:",x,"casillaZ:",y);
+	Torre.plan(x,y);
+	console.log(tableroMovimientos);
+	//console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
 }
 	
 
