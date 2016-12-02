@@ -272,9 +272,9 @@ function setup(){
     tablero[7][0]=torreB2;
 	
     reyB=new Rey(TEXTURAS.torreBlanca);
-    reyB.scale.x=0.3;
-    reyB.scale.y=0.3;
-    reyB.scale.z=0.3;
+    reyB.scale.x=0.2;
+    reyB.scale.y=0.2;
+    reyB.scale.z=0.2;
     reyB.position.y=5;
     reyB.position.x=-5;
     reyB.position.z=-35;	
