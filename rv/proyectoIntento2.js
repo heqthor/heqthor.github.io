@@ -47,6 +47,9 @@ var movimiento=0;
 var tableroMovimientos=[];
 for(var i=0; i<=7; i++){
 	tableroMovimientos[i]=[];
+	for(var j=0; j<=7; j++){
+		tableroMovimientos[i][j]=0;
+	}
 }
 
 function TorrePlan(x,y){
