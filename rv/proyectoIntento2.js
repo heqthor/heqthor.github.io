@@ -363,7 +363,7 @@ window.addEventListener( 'mousedown', onMouseClick, false );
 
 function Mueve(x,y,pieza){
 	var m=0;
-	if(tableromovimientos[(x+35)/10][(y+35)/10]===1){
+	if(tableroMovimientos[(x+35)/10][(y+35)/10]===1){
 		pieza.position.x=1*x;
 		pieza.position.z=1*y;
 		tablero[(x+35)/10][(y+35)/10]=pieza;
