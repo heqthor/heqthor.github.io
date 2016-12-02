@@ -202,7 +202,7 @@ function listener(){
   camara.updateProjectionMatrix();
   renderizador.setSize( window.innerWidth, window.innerHeight );
 }
-var torreN1;
+var torreN1,reyB;
 var tablero=[];
 
 //---------- SET UP--------
@@ -269,7 +269,7 @@ function setup(){
     torreB2.position.z=-35;		
     tablero[7][0]=torreB2;
 	
-    var reyB=new Rey(TEXTURAS.torreBlanca);
+    reyB=new Rey(TEXTURAS.torreBlanca);
     reyB.scale.x=1;
     reyB.scale.y=1;
     reyB.scale.z=1;
@@ -408,7 +408,7 @@ function Mueve(x,y,pieza){
 		}
 	}
 	console.log("piezaMalla", pieza.mesh.map);
-	console.log(tablero);
+	console.log(reyB.position);
 	console.log("movi",tableroMovimientos);
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
