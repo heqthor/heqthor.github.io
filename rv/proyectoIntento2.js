@@ -212,7 +212,7 @@ function setup(){
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
     camara.position.x = 00;    
-    camara.position.y = 100;
+    camara.position.y = 200;
     camara.position.z = 00;
     camara.lookAt(new THREE.Vector3(0,0,0));
     
@@ -269,9 +269,9 @@ function setup(){
     tablero[7][0]=torreB2;
 	
     var reyB=new Rey(TEXTURAS.torreBlanca);
-    reyB.scale.x=0.15;
-    reyB.scale.y=0.15;
-    reyB.scale.z=0.15;
+    reyB.scale.x=1;
+    reyB.scale.y=1;
+    reyB.scale.z=1;
     reyB.position.y=5;
     reyB.position.x=-5;
     reyB.position.z=-35;	
