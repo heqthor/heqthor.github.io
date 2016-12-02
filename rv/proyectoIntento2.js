@@ -53,9 +53,10 @@ for(var i=0; i<=7; i++){
 }
 
 function TorrePlan(x,y){
-	x=(x+35)/7;
-	y=(y+35)/7;
+	x=(x+35)/10;
+	y=(y+35)/10;
 	
+	console.log("x",x,"y",y);
 	for(var i=0; i>=7; i++){
 		for(var j=0; j<=7; j++){
 			if(j===y)
