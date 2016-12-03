@@ -502,10 +502,10 @@ function onMouseClick( event ) {
 		console.log(piezaX,piezaZ);
 	}else if( intersects[0].object instanceof Planos && movimiento==1){
 		intersects[ 0 ].object.material.color.set( 0x00ff00 );
-		console.log(intersects[0].point.x,mouse.y);
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
 		tableZ=Redondeo(intersects[0].point.z);
+		console.log("plano",tableX,tableZ);
 		Mueve(tableX,tableZ,piezaTocada);
 	}
 	
