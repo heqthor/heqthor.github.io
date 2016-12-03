@@ -331,6 +331,7 @@ function setup(){
 			plane.position.x=i*10-35;
 			plane.position.z=j*10-35;
 			plane.position.y=5.1;
+			escena.add(plane);
 		}
 	}
     	torreN1 =new Torre(TEXTURAS.torreNegra);
