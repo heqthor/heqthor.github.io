@@ -119,6 +119,7 @@ function TorrePlan(x,y,team){
 
 //------------PEON----------
 var Peon=function(textura){    
+    Agent.call(this);
     var puntospeon=[];
     
     puntospeon.push( new THREE.Vector2(0,0));
@@ -368,11 +369,11 @@ function setup(){
 	    peon.position.x=i*10-35;
 	    peon.position.z=-25;
 	    peon.position.y=5;
-    	    peon.scale.x=0.15;
-            peon.scale.y=0.15;
-            peon.scale.z=0.15;
-	    tablero[i][1]=peon;
+    	    peon.scale.x=0.5;
+            peon.scale.y=0.5;
+            peon.scale.z=0.5;
 	    escena.add(peon);
+	    tablero[i][1]=peon;
     }
 	
     
