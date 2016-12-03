@@ -331,7 +331,7 @@ function setup(){
 			plane.position.x=i*10-35;
 			plane.position.z=j*10-35;
 			plane.position.y=5.1;
-			plane.rotateX(Math.PI/4);
+			plane.rotateX(Math.PI/2);
 			escena.add(plane);
 		}
 	}
