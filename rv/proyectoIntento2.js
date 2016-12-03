@@ -451,6 +451,7 @@ function Coloreo(){
 							 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} ));
 				plane.position.x=i*10-35;
 				plane.position.z=j*10-35;
+				plane.positon.y=5.1;
 				plane.rotateX(Math.PI/2);
 			}
 		}
