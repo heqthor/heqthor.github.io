@@ -367,6 +367,10 @@ function setup(){
 	    var peon=new Peon(TEXTURAS.torreBlanca);
 	    peon.position.x=i*10-35;
 	    peon.position.z=-25;
+	    peon.position.y=5;
+    	    peon.scale.x=0.15;
+            peon.scale.y=0.15;
+            peon.scale.z=0.15;
 	    tablero[i][1]=peon;
 	    escena.add(peon);
     }
