@@ -482,7 +482,6 @@ function onMouseClick( event ) {
 	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
-	for(
 	if(intersects[0].point.y>=5){
 		intersects[ 0 ].object.material.color.set( 0xff0000 );
 		piezaX=Redondeo(intersects[0].point.x);
