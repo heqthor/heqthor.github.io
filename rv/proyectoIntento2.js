@@ -509,7 +509,7 @@ function onMouseClick( event ) {
 		Coloreo();
 		
 		console.log(piezaX,piezaZ);
-	}else if( (intersects[0].object.parent instanceof Plano || intersects[1].object.parent instanceof Planos) && movimiento==1){
+	}else if( (intersects[0].object.parent instanceof Planos || intersects[1].object.parent instanceof Planos) && movimiento==1){
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
 		tableZ=Redondeo(intersects[0].point.z);
