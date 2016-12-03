@@ -499,7 +499,7 @@ function onMouseClick( event ) {
 		Coloreo();
 		console.log(piezaX,piezaZ);
 	}
-	else if((intersects[0].object.parent instanceof Environment || intersects[1].object.parent instanceof Environment) && movimiento==1){
+	else if((intersects[0].object.parent instanceof Environment) && movimiento==1){
 		intersects[ 0 ].object.material.color.set( 0x00ff00 );
 		console.log(intersects[0].point.x,mouse.y);
 		movimiento=0;			
