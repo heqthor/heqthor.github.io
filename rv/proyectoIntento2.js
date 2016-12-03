@@ -448,6 +448,8 @@ function onMouseClick( event ) {
 			TorrePlan(piezaX,piezaZ,piezaTocada.team);		
 		else if(piezaTocada instanceof Rey)
 			ReyPlan(piezaX,piezaZ,piezaTocada.team);
+		else if(piezaTocada instanceof Peon)
+			PeonPlan(piezaX,piezaZ,piezaTocada.team,piezaTocada.primer);
 		Coloreo();
 		console.log(piezaX,piezaZ);
 	}
