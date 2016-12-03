@@ -209,7 +209,8 @@ function ReyPlan(x,y,team){
 	for(var i=0; i<=7; i++){
 		for(var j=0; j<=7; j++){
 			if((y-1==j && x-1==i) || (y-1==j && x==i) || (y-1==j && x+1==i) || (y==j && x+1==i) || (y+1==j && x+1==i) || (y+1==j && x==i) || (y+1==j && x-1==i) || (y==j && x-1==i))
-				tableroMovimientos[i][j]=1;
+				if(tableroMovimientos[i][j]===null || tablero[i][j].team!==team)
+					tableroMovimientos[i][j]=1;
 			else
 				tableroMovimientos[i][j]=0;
 		}
@@ -392,7 +393,7 @@ function onMouseClick( event ) {
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	if(intersects[0].point.y>=10){
-		//intersects[ 0 ].object.material.color.set( 0xff0000 );
+		intersects[ 0 ].object.material.color.set( 0xff0000 );
 		piezaX=Redondeo(intersects[0].point.x);
 		piezaZ=Redondeo(intersects[0].point.z);
 		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
@@ -405,7 +406,7 @@ function onMouseClick( event ) {
 		console.log(piezaX,piezaZ);
 	}
 	else if((intersects[0].object.parent instanceof Environment || intersects[1].object.parent instanceof Environment ||(intersects[1].object.parent instanceof Environment && intersects[0].object.parent instanceof Torre)) && movimiento==1){
-		//intersects[ 0 ].object.material.color.set( 0x00ff00 );
+		intersects[ 0 ].object.material.color.set( 0x00ff00 );
 		console.log(intersects[0].point.x,mouse.y);
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
