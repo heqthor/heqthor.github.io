@@ -41,9 +41,9 @@ function Torre(textura){
     this.radius = 4;
     this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
     if(textura===TEXTURAS.torreBlanca)
-	    this.team=0;
-    else if(textura===TEXTURAS.torreNegra)
 	    this.team=1;
+    else if(textura===TEXTURAS.torreNegra)
+	    this.team=0;
 }
 Torre.prototype=new Agent();
 var movimiento=0;
@@ -150,9 +150,9 @@ var Peon=function(textura){
     this.castShadow=true;
     this.receiveShadow=true;
     if(textura===TEXTURAS.torreBlanca)
-	    this.team=0;
-    else if(textura===TEXTURAS.torreNegra)
 	    this.team=1;
+    else if(textura===TEXTURAS.torreNegra)
+	    this.team=0;
     this.primer=1;
     
 }
@@ -230,9 +230,9 @@ var Rey=function(textura){
     this.castShadow=true;
     this.receiveShadow=true;
     if(textura===TEXTURAS.torreBlanca)
-	    this.team=0;
-    else if(textura===TEXTURAS.torreNegra)
 	    this.team=1;
+    else if(textura===TEXTURAS.torreNegra)
+	    this.team=0;
 }
 
 Rey.prototype=new Agent();
@@ -365,7 +365,7 @@ function setup(){
     reyB.position.z=-35;	
     tablero[4][0]=reyB;
 	
-    var reyN=new Rey(TEXTURAS.torreBlanca);
+    var reyN=new Rey(TEXTURAS.torreNegra);
     reyN.scale.x=0.2;
     reyN.scale.y=0.2;
     reyN.scale.z=0.2;
