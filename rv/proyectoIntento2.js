@@ -326,11 +326,12 @@ function setup(){
 	for(var i=0; i<=7; i++){
 		tabCol[i]=[];
 		for(var j=0; j<=7; j++){
-			var plane=new THREE.Mesh( new THREE.PlaneGeometry( 5, 20, 32 ), 
+			var plane=new THREE.Mesh( new THREE.PlaneGeometry( 10, 10, 32 ), 
 						 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} ));
 			plane.position.x=i*10-35;
 			plane.position.z=j*10-35;
 			plane.position.y=5.1;
+			plane.rotateX(Math.PI/4);
 			escena.add(plane);
 		}
 	}
@@ -421,7 +422,6 @@ function setup(){
 	escena.add(reyB);
 	escena.add(reyN);
 	escena.add(luz);
-	escena.add(tabCol);
 	Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
 
 	renderizador.setSize( window.innerWidth , window.innerHeight );
