@@ -333,7 +333,8 @@ function setup(){
 	for(var i=0; i<=7; i++){
 		tabCol[i]=[];
 		for(var j=0; j<=7; j++){
-			var plane= new Planos();
+			var plane= new THREE.Mesh( new THREE.PlaneGeometry( 10, 10, 32 ), 
+						 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} ));;
 			plane.position.x=i*10-35;
 			plane.position.z=j*10-35;
 			plane.position.y=500;
@@ -483,6 +484,7 @@ function onMouseClick( event ) {
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	if(intersects[0].point.y>=5){
+		Descoloreo();
 		intersects[ 0 ].object.material.color.set( 0xff0000 );
 		piezaX=Redondeo(intersects[0].point.x);
 		piezaZ=Redondeo(intersects[0].point.z);
