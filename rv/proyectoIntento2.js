@@ -484,7 +484,7 @@ function onMouseClick( event ) {
 	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
-	if(intersects[0].point.y>=5 && !(intersects[0].object instanceof Planos)){
+	if(intersects[0].point.y>=5 && !(intersects[0].object.parent instanceof Planos)){
 		ResetMoves();
 		Descoloreo();
 		intersects[ 0 ].object.material.color.set( 0xff0000 );
@@ -501,8 +501,7 @@ function onMouseClick( event ) {
 		Coloreo();
 		
 		console.log(piezaX,piezaZ);
-	}
-	if( intersects[0].object instanceof Planos && movimiento==1){
+	}else if( intersects[0].object.parent instanceof Planos && movimiento==1){
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
 		tableZ=Redondeo(intersects[0].point.z);
