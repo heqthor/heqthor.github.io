@@ -144,12 +144,44 @@ var Peon=function(textura){
     var puntaPeonMalla =new THREE.Mesh(puntaPeonForma); 
     peonForma.merge(puntaPeonMalla.geometry, puntaPeonMalla.matrix);
         
-    THREE.Mesh.call(this, peonForma, new THREE.MeshLambertMaterial({map:textura}));
+    //THREE.Mesh.call(this, peonForma, new THREE.MeshLambertMaterial({map:textura}));
     this.castShadow=true;
     this.receiveShadow=true;
+    if(textura===TEXTURAS.torreBlanca)
+	    this.team=0;
+    else if(textura===TEXTURAS.torreNegra)
+	    this.team=1;
+    this.primer=1;
     
 }
 Peon.prototype=new Agent();
+
+function PeonPlan(x,y,team,primer){
+	x=(x+35)/10;
+	y=(y+35)/10;
+	if(team===0){
+		if(primer===1){
+			tableroMovimientos[x][y-2]==1;
+			primer=0;
+		}
+		tableroMovimiento[x][y-1]=1;
+		if( x-1>=0 && tablero[x-1][y-1]!==null && tablero[x-1][y-1].team!==team)
+			tableroMovimientos[x-1][y-1]=1;
+		if( x+1<=7 && tablero[x+1][y-1]!==null && tablero[x+1][y-1].team!==team)
+			tableroMovimientos[x+1][y-1]=1;
+	}else if(team===1){
+		if(primer===1){
+			tableroMovimientos[x][y+2]==1;
+			primer=0;
+		}
+		tableroMovimiento[x][y+1]=1;
+		if( x-1>=0 && tablero[x-1][y+1]!==null && tablero[x-1][y+1].team!==team)
+			tableroMovimientos[x-1][y-1]=1;
+		if( x+1<=7 && tablero[x+1][y+1]!==null && tablero[x+1][y+1].team!==team)
+			tableroMovimientos[x+1][y+1]=1;
+	}
+}
+		
 
 
 //------------REY-----------
@@ -330,6 +362,14 @@ function setup(){
     reyB.position.x=-5;
     reyB.position.z=-35;	
     tablero[3][0]=reyB;
+	
+    for(var i=0; i<=7; i++){
+	    var peon=new Peon(TEXTURAS.torreBlanca);
+	    peon.position.x=i*10-35;
+	    peon.position.z=-25;
+	    tablero[i][1]=peon;
+	    escena.add(peon);
+    }
 	
     
     escena.add(torreN1);
