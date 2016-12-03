@@ -330,7 +330,7 @@ function setup(){
 						 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} ));
 			plane.position.x=i*10-35;
 			plane.position.z=j*10-35;
-			plane.position.y=5.1;
+			plane.position.y=500;
 			plane.rotateX(Math.PI/2);
 			escena.add(plane);
 		}
@@ -529,17 +529,10 @@ function Redondeo(coor){
 window.addEventListener( 'mousedown', onMouseClick, false );
 
 function Coloreo(){
-	var tabCol=[];
 	for(var i=0; i<=7; i++){
-		tabCol[i]=[];
 		for(var j=0; j<=7; j++){
 			if(tableroMovimientos[i][j]===1){
-				var plane=new THREE.Mesh( new THREE.PlaneGeometry( 5, 20, 32 ), 
-							 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} ));
-				plane.position.x=i*10-35;
-				plane.position.z=j*10-35;
-				plane.position.y=5.1;
-				plane.rotateX(Math.PI/2);
+				tabCol[i][j].position.y=5.1;
 			}
 		}
 	}
