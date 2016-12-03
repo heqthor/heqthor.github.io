@@ -146,7 +146,7 @@ var Peon=function(textura){
     peonForma.merge(puntaPeonMalla.geometry, puntaPeonMalla.matrix);
         
     //THREE.Mesh.call(this, peonForma, new THREE.MeshLambertMaterial({map:textura}));
-    this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
+    this.add(new THREE.Mesh(peonForma, new THREE.MeshLambertMaterial({map:textura})));
     this.castShadow=true;
     this.receiveShadow=true;
     if(textura===TEXTURAS.torreBlanca)
