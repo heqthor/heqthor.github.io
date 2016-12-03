@@ -392,7 +392,7 @@ function onMouseClick( event ) {
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
 	if(intersects[0].point.y>=10){
-		intersects[ 0 ].object.material.color.set( 0xff0000 );
+		//intersects[ 0 ].object.material.color.set( 0xff0000 );
 		piezaX=Redondeo(intersects[0].point.x);
 		piezaZ=Redondeo(intersects[0].point.z);
 		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
@@ -401,10 +401,11 @@ function onMouseClick( event ) {
 			TorrePlan(piezaX,piezaZ,piezaTocada.team);		
 		else if(piezaTocada instanceof Rey)
 			ReyPlan(piezaX,piezaZ,piezaTocada.team);
+		Coloreo();
 		console.log(piezaX,piezaZ);
 	}
-	else if((intersects[0].object.parent instanceof Environment || (intersects[1].object.parent instanceof Environment && intersects[0].object.parent instanceof Torre)) && movimiento==1){
-		intersects[ 0 ].object.material.color.set( 0x00ff00 );
+	else if((intersects[0].object.parent instanceof Environment || intersects[1].object.parent instanceof Environment ||(intersects[1].object.parent instanceof Environment && intersects[0].object.parent instanceof Torre)) && movimiento==1){
+		//intersects[ 0 ].object.material.color.set( 0x00ff00 );
 		console.log(intersects[0].point.x,mouse.y);
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
@@ -439,6 +440,24 @@ function Redondeo(coor){
 
 
 window.addEventListener( 'mousedown', onMouseClick, false );
+
+function Coloreo(){
+	var tabCol=[];
+	for(var i=0; i<=7; i++){
+		tabCol[i]=[];
+		for(var j=0; j<=7; j++){
+			if(tableroMovimientos[i][j]===1){
+				var plane=new THREE.Mesh( new THREE.PlaneGeometry( 5, 20, 32 ), 
+							 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} ));
+				plane.position.x=i*10-35;
+				plane.position.z=j*10-35;
+				plane.rotateX(Math.PI/2);
+			}
+		}
+	}
+}
+							 
+
 
 function Mueve(x,y,pieza){
 	var m=0;
