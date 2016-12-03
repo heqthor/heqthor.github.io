@@ -500,6 +500,7 @@ function onMouseClick( event ) {
 		console.log(piezaX,piezaZ);
 	}
 	else if((intersects[0].object.parent instanceof Environment) && movimiento==1){
+		Descoloreo();
 		intersects[ 0 ].object.material.color.set( 0x00ff00 );
 		console.log(intersects[0].point.x,mouse.y);
 		movimiento=0;			
@@ -557,6 +558,7 @@ function Descoloreo(){
 
 
 function Mueve(x,y,pieza){
+	Descoloreo();
 	var m=0;
 	if(tableroMovimientos[(x+35)/10][(y+35)/10]===1){
 		tablero[(pieza.position.x+35)/10][(pieza.position.z+35)/10]=null;
@@ -575,7 +577,6 @@ function Mueve(x,y,pieza){
 			tableroMovimientos[i][j]=0;
 		}
 	}
-	Descoloreo();
 	console.log(reyB.position);
 	console.log("movi",tableroMovimientos);
 	//delete pieza;
