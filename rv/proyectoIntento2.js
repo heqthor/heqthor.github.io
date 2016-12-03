@@ -248,7 +248,9 @@ function ReyPlan(x,y,team){
 	for(var i=0; i<=7; i++){
 		for(var j=0; j<=7; j++){
 			if((y-1==j && x-1==i) || (y-1==j && x==i) || (y-1==j && x+1==i) || (y==j && x+1==i) || (y+1==j && x+1==i) || (y+1==j && x==i) || (y+1==j && x-1==i) || (y==j && x-1==i))
-				if(tableroMovimientos[i][j]===null || tablero[i][j].team!==team)
+				if(tableroMovimientos[i][j]===null)					
+					tableroMovimientos[i][j]=1;
+				else if(tablero[i][j].team!==team)
 					tableroMovimientos[i][j]=1;
 			else
 				tableroMovimientos[i][j]=0;
@@ -333,8 +335,7 @@ function setup(){
 	for(var i=0; i<=7; i++){
 		tabCol[i]=[];
 		for(var j=0; j<=7; j++){
-			var plane= new THREE.Mesh( new THREE.PlaneGeometry( 10, 10, 32 ), 
-						 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} ));;
+			var plane= new Planos();
 			plane.position.x=i*10-35;
 			plane.position.z=j*10-35;
 			plane.position.y=500;
