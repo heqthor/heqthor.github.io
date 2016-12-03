@@ -305,9 +305,9 @@ function setup(){
 
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
-    camara.position.x = 0;    
+    camara.position.x = 100;    
     camara.position.y = 200;
-    camara.position.z = 0;
+    camara.position.z = 100;
     camara.lookAt(new THREE.Vector3(0,0,0));
     
     setupDone=true;
@@ -331,7 +331,6 @@ function setup(){
 			plane.position.x=i*10-35;
 			plane.position.z=j*10-35;
 			plane.position.y=5.1;
-			plane.rotateX(Math.PI/2);
 		}
 	}
     	torreN1 =new Torre(TEXTURAS.torreNegra);
