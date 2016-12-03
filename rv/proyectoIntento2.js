@@ -161,24 +161,27 @@ Peon.prototype=new Agent();
 function PeonPlan(x,y,team,primer){
 	x=(x+35)/10;
 	y=(y+35)/10;
+	var primero=primer.primer;
 	if(team===0){
-		if(primer===1){
-			tableroMovimientos[x][y-2]=1;
-			primer=0;
-		}
-		if(tablero[x][y-1]===null)
+		if(tablero[x][y-1]===null){
 			tableroMovimientos[x][y-1]=1;
+			if(primero===1){
+				tableroMovimientos[x][y-2]=1;
+				primer.primer=0;
+			}
+		}
 		if( x-1>=0 && tablero[x-1][y-1]!==null && tablero[x-1][y-1].team!==team)
 			tableroMovimientos[x-1][y-1]=1;
 		if( x+1<=7 && tablero[x+1][y-1]!==null && tablero[x+1][y-1].team!==team)
 			tableroMovimientos[x+1][y-1]=1;
 	}else if(team===1){
-		if(primer===1){
-			tableroMovimientos[x][y+2]=1;
-			primer=0;
-		}
-		if(tablero[x][y+1]===null)
+		if(tablero[x][y+1]===null){
+			if(primero===1){
+				tableroMovimientos[x][y+2]=1;
+				primer.primer=0;
+			}
 			tableroMovimientos[x][y+1]=1;
+		}
 		if( x-1>=0 && tablero[x-1][y+1]!==null && tablero[x-1][y+1].team!==team)
 			tableroMovimientos[x-1][y+1]=1;
 		if( x+1<=7 && tablero[x+1][y+1]!==null && tablero[x+1][y+1].team!==team)
@@ -472,7 +475,7 @@ function onMouseClick( event ) {
 		else if(piezaTocada instanceof Rey)
 			ReyPlan(piezaX,piezaZ,piezaTocada.team);
 		else if(piezaTocada instanceof Peon)
-			PeonPlan(piezaX,piezaZ,piezaTocada.team,piezaTocada.primer);
+			PeonPlan(piezaX,piezaZ,piezaTocada.team,piezaTocada);
 		Coloreo();
 		console.log(piezaX,piezaZ);
 	}
