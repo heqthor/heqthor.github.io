@@ -477,7 +477,7 @@ function onMouseClick( event ) {
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
-	if(intersects[0].point.y>=10){
+	if(intersects[0].point.y>=5){
 		intersects[ 0 ].object.material.color.set( 0xff0000 );
 		piezaX=Redondeo(intersects[0].point.x);
 		piezaZ=Redondeo(intersects[0].point.z);
@@ -538,6 +538,14 @@ function Coloreo(){
 		}
 	}
 }
+
+function Descoloreo(){
+	for(var i=0; i<=7; i++){
+		for(var j=0; j<=7; j++){
+			tabCol[i][j].position.y=500;
+		}
+	}
+}
 							 
 
 
@@ -560,6 +568,7 @@ function Mueve(x,y,pieza){
 			tableroMovimientos[i][j]=0;
 		}
 	}
+	Descoloreo();
 	console.log(reyB.position);
 	console.log("movi",tableroMovimientos);
 	//delete pieza;
