@@ -40,6 +40,10 @@ function Torre(textura){
     this.colision = 0;
     this.radius = 4;
     this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
+    if(textura===TEXTURA.torreBlanca)
+	    this.team=0;
+    else if(textura===TEXTURA.torreNegra)
+	    this.team=1;
 }
 Torre.prototype=new Agent();
 var movimiento=0;
@@ -148,7 +152,10 @@ var Rey=function(textura){
     this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
     this.castShadow=true;
     this.receiveShadow=true;
-    
+    if(textura===TEXTURA.torreBlanca)
+	    this.team=0;
+    else if(textura===TEXTURA.torreNegra)
+	    this.team=1;
 }
 
 Rey.prototype=new Agent();
@@ -396,7 +403,7 @@ function Mueve(x,y,pieza){
 		tablero[(pieza.position.x+35)/10][(pieza.position.z+35)/10]=null;
 		pieza.position.x=1*x;
 		pieza.position.z=1*y;
-		if(tablero[(x+35)/10][(y+35)/10]!==null){
+		if(tablero[(x+35)/10][(y+35)/10]!==null && pieza.team!==tablero[(x+35)/10][(y+35)/10].team){
 			var lugarOcu=new THREE.Object3D();
 			lugarOcu=tablero[(x+35)/10][(y+35)/10];
 			lugarOcu.position.y=5000;
