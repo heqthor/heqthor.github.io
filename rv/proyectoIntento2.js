@@ -166,7 +166,7 @@ function PeonPlan(x,y,team,primer){
 			tableroMovimientos[x][y-2]==1;
 			primer=0;
 		}
-		tableroMovimiento[x][y-1]=1;
+		tableroMovimientos[x][y-1]=1;
 		if( x-1>=0 && tablero[x-1][y-1]!==null && tablero[x-1][y-1].team!==team)
 			tableroMovimientos[x-1][y-1]=1;
 		if( x+1<=7 && tablero[x+1][y-1]!==null && tablero[x+1][y-1].team!==team)
@@ -176,7 +176,7 @@ function PeonPlan(x,y,team,primer){
 			tableroMovimientos[x][y+2]==1;
 			primer=0;
 		}
-		tableroMovimiento[x][y+1]=1;
+		tableroMovimientos[x][y+1]=1;
 		if( x-1>=0 && tablero[x-1][y+1]!==null && tablero[x-1][y+1].team!==team)
 			tableroMovimientos[x-1][y-1]=1;
 		if( x+1<=7 && tablero[x+1][y+1]!==null && tablero[x+1][y+1].team!==team)
@@ -361,9 +361,18 @@ function setup(){
     reyB.scale.y=0.2;
     reyB.scale.z=0.2;
     reyB.position.y=5;
-    reyB.position.x=-5;
+    reyB.position.x=5;
     reyB.position.z=-35;	
-    tablero[3][0]=reyB;
+    tablero[4][0]=reyB;
+	
+    var reyN=new Rey(TEXTURAS.torreBlanca);
+    reyN.scale.x=0.2;
+    reyN.scale.y=0.2;
+    reyN.scale.z=0.2;
+    reyN.position.y=5;
+    reyN.position.x=5;
+    reyN.position.z=35;	
+    tablero[4][7]=reyN;
 	
     for(var i=0; i<=7; i++){
 	    var peon=new Peon(TEXTURAS.torreBlanca);
@@ -376,6 +385,17 @@ function setup(){
 	    escena.add(peon);
 	    tablero[i][1]=peon;
     }
+    for(var i=0; i<=7; i++){
+	    var peon=new Peon(TEXTURAS.torreNegra);
+	    peon.position.x=i*10-35;
+	    peon.position.z=25;
+	    peon.position.y=5;
+    	    peon.scale.x=0.15;
+            peon.scale.y=0.15;
+            peon.scale.z=0.15;
+	    escena.add(peon);
+	    tablero[i][6]=peon;
+    }
 	
     
     escena.add(torreN1);
@@ -383,6 +403,7 @@ function setup(){
     escena.add(torreB1);
     escena.add(torreB2);
     escena.add(reyB);
+    escena.add(reyN);
     escena.add(luz);
     Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
     
