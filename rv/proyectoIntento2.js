@@ -500,7 +500,7 @@ function onMouseClick( event ) {
 		Coloreo();
 		console.log(piezaX,piezaZ);
 	}
-	else if((intersects[0].object.parent instanceof Environment) && movimiento==1){
+	else if((intersects[0].object.parent instanceof Planos) && movimiento==1){
 		Descoloreo();
 		intersects[ 0 ].object.material.color.set( 0x00ff00 );
 		console.log(intersects[0].point.x,mouse.y);
