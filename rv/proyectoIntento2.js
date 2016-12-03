@@ -456,6 +456,7 @@ function Coloreo(){
 			}
 		}
 	}
+	escena.add(tabCol);
 }
 							 
 
