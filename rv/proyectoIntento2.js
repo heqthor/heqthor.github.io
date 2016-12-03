@@ -40,9 +40,9 @@ function Torre(textura){
     this.colision = 0;
     this.radius = 4;
     this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
-    if(textura===TEXTURA.torreBlanca)
+    if(textura===TEXTURAS.torreBlanca)
 	    this.team=0;
-    else if(textura===TEXTURA.torreNegra)
+    else if(textura===TEXTURAS.torreNegra)
 	    this.team=1;
 }
 Torre.prototype=new Agent();
@@ -152,9 +152,9 @@ var Rey=function(textura){
     this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
     this.castShadow=true;
     this.receiveShadow=true;
-    if(textura===TEXTURA.torreBlanca)
+    if(textura===TEXTURAS.torreBlanca)
 	    this.team=0;
-    else if(textura===TEXTURA.torreNegra)
+    else if(textura===TEXTURAS.torreNegra)
 	    this.team=1;
 }
 
@@ -313,8 +313,8 @@ function loop(){
     renderizador.render(escena, camara);
 }
 
+var cargador = new THREE.TextureLoader();
 function TexturaSetup(){
-    var cargador = new THREE.TextureLoader();
     cargador.load("texturaMarmolNegro.jpg",
                   function(textura){ TEXTURAS.torreNegra = textura;});
     cargador.load("texturaMarmolBlanco.jpg",
