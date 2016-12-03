@@ -332,6 +332,7 @@ function setup(){
 			plane.position.z=j*10-35;
 			plane.position.y=500;
 			plane.rotateX(Math.PI/2);
+			tabCol[i][j]=plane;
 			escena.add(plane);
 		}
 	}
