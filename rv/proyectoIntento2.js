@@ -296,6 +296,7 @@ function listener(){
 }
 var torreN1,reyB;
 var tablero=[];
+var tabCol=[];
 
 //---------- SET UP--------
 function setup(){
@@ -321,99 +322,110 @@ function setup(){
 		    tablero[i][j]=null;
 	    }
     }
+	
+	for(var i=0; i<=7; i++){
+		tabCol[i]=[];
+		for(var j=0; j<=7; j++){
+			var plane=new THREE.Mesh( new THREE.PlaneGeometry( 5, 20, 32 ), 
+						 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} ));
+			plane.position.x=i*10-35;
+			plane.position.z=j*10-35;
+			plane.position.y=5.1;
+			plane.rotateX(Math.PI/2);
+		}
+	}
+    	torreN1 =new Torre(TEXTURAS.torreNegra);
+	torreN1.scale.x=0.15;
+	torreN1.scale.y=0.15;
+	torreN1.scale.z=0.15;
+	torreN1.position.y=5;
+	torreN1.position.x=35;
+	torreN1.position.z=35;
+	torreN1.castShadow=true;
+	torreN1.receiveShadow=true;
+	tablero[7][7]=torreN1;
 
-    torreN1 =new Torre(TEXTURAS.torreNegra);
-    torreN1.scale.x=0.15;
-    torreN1.scale.y=0.15;
-    torreN1.scale.z=0.15;
-    torreN1.position.y=5;
-    torreN1.position.x=35;
-    torreN1.position.z=35;
-    torreN1.castShadow=true;
-    torreN1.receiveShadow=true;
-    tablero[7][7]=torreN1;
-    
-	
-    var torreN2 = new Torre(TEXTURAS.torreNegra);
-    torreN2.scale.x=0.15;
-    torreN2.scale.y=0.15;
-    torreN2.scale.z=0.15;
-    torreN2.position.y=5;
-    torreN2.position.x=-35;
-    torreN2.position.z=35;	
-    tablero[0][7]=torreN2;
-    
-    var torreB1 = new Torre(TEXTURAS.torreBlanca);
-    torreB1.scale.x=0.15;
-    torreB1.scale.y=0.15;
-    torreB1.scale.z=0.15;
-    torreB1.position.y=5;
-    torreB1.position.x=-35;
-    torreB1.position.z=-35;	
-    tablero[0][0]=torreB1;
-    
-    var torreB2 = new Torre(TEXTURAS.torreBlanca);
-    torreB2.scale.x=0.15;
-    torreB2.scale.y=0.15;
-    torreB2.scale.z=0.15;
-    torreB2.position.y=5;
-    torreB2.position.x=35;
-    torreB2.position.z=-35;		
-    tablero[7][0]=torreB2;
-	
-    reyB=new Rey(TEXTURAS.torreBlanca);
-    reyB.scale.x=0.2;
-    reyB.scale.y=0.2;
-    reyB.scale.z=0.2;
-    reyB.position.y=5;
-    reyB.position.x=5;
-    reyB.position.z=-35;	
-    tablero[4][0]=reyB;
-	
-    var reyN=new Rey(TEXTURAS.torreNegra);
-    reyN.scale.x=0.2;
-    reyN.scale.y=0.2;
-    reyN.scale.z=0.2;
-    reyN.position.y=5;
-    reyN.position.x=5;
-    reyN.position.z=35;	
-    tablero[4][7]=reyN;
-	
-    for(var i=0; i<=7; i++){
-	    var peon=new Peon(TEXTURAS.torreBlanca);
-	    peon.position.x=i*10-35;
-	    peon.position.z=-25;
-	    peon.position.y=5;
-    	    peon.scale.x=0.15;
-            peon.scale.y=0.15;
-            peon.scale.z=0.15;
-	    escena.add(peon);
-	    tablero[i][1]=peon;
-    }
-    for(var i=0; i<=7; i++){
-	    var peon=new Peon(TEXTURAS.torreNegra);
-	    peon.position.x=i*10-35;
-	    peon.position.z=25;
-	    peon.position.y=5;
-    	    peon.scale.x=0.15;
-            peon.scale.y=0.15;
-            peon.scale.z=0.15;
-	    escena.add(peon);
-	    tablero[i][6]=peon;
-    }
-	
-    
-    escena.add(torreN1);
-    escena.add(torreN2);
-    escena.add(torreB1);
-    escena.add(torreB2);
-    escena.add(reyB);
-    escena.add(reyN);
-    escena.add(luz);
-    Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
-    
-    renderizador.setSize( window.innerWidth , window.innerHeight );
-    document.body.appendChild( renderizador.domElement );
+
+	var torreN2 = new Torre(TEXTURAS.torreNegra);
+	torreN2.scale.x=0.15;
+	torreN2.scale.y=0.15;
+	torreN2.scale.z=0.15;
+	torreN2.position.y=5;
+	torreN2.position.x=-35;
+	torreN2.position.z=35;	
+	tablero[0][7]=torreN2;
+
+	var torreB1 = new Torre(TEXTURAS.torreBlanca);
+	torreB1.scale.x=0.15;
+	torreB1.scale.y=0.15;
+	torreB1.scale.z=0.15;
+	torreB1.position.y=5;
+	torreB1.position.x=-35;
+	torreB1.position.z=-35;	
+	tablero[0][0]=torreB1;
+
+	var torreB2 = new Torre(TEXTURAS.torreBlanca);
+	torreB2.scale.x=0.15;
+	torreB2.scale.y=0.15;
+	torreB2.scale.z=0.15;
+	torreB2.position.y=5;
+	torreB2.position.x=35;
+	torreB2.position.z=-35;		
+	tablero[7][0]=torreB2;
+
+	reyB=new Rey(TEXTURAS.torreBlanca);
+	reyB.scale.x=0.2;
+	reyB.scale.y=0.2;
+	reyB.scale.z=0.2;
+	reyB.position.y=5;
+	reyB.position.x=5;
+	reyB.position.z=-35;	
+	tablero[4][0]=reyB;
+
+	var reyN=new Rey(TEXTURAS.torreNegra);
+	reyN.scale.x=0.2;
+	reyN.scale.y=0.2;
+	reyN.scale.z=0.2;
+	reyN.position.y=5;
+	reyN.position.x=5;
+	reyN.position.z=35;	
+	tablero[4][7]=reyN;
+
+	    for(var i=0; i<=7; i++){
+		    var peon=new Peon(TEXTURAS.torreBlanca);
+		    peon.position.x=i*10-35;
+		    peon.position.z=-25;
+		    peon.position.y=5;
+		    peon.scale.x=0.15;
+		    peon.scale.y=0.15;
+		    peon.scale.z=0.15;
+		    escena.add(peon);
+		    tablero[i][1]=peon;
+	    }
+	    for(var i=0; i<=7; i++){
+		    var peon=new Peon(TEXTURAS.torreNegra);
+		    peon.position.x=i*10-35;
+		    peon.position.z=25;
+		    peon.position.y=5;
+		    peon.scale.x=0.15;
+		    peon.scale.y=0.15;
+		    peon.scale.z=0.15;
+		    escena.add(peon);
+		    tablero[i][6]=peon;
+	    }
+
+	escena.add(torreN1);
+	escena.add(torreN2);
+	escena.add(torreB1);
+	escena.add(torreB2);
+	escena.add(reyB);
+	escena.add(reyN);
+	escena.add(luz);
+	escena.add(tabCol);
+	Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
+
+	renderizador.setSize( window.innerWidth , window.innerHeight );
+	document.body.appendChild( renderizador.domElement );
 }
 
 var setupDone=false;
@@ -531,7 +543,6 @@ function Coloreo(){
 			}
 		}
 	}
-	escena.add(tabCol);
 }
 							 
 
