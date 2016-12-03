@@ -245,17 +245,25 @@ Rey.prototype=new Agent();
 function ReyPlan(x,y,team){
 	x=(x+35)/10;
 	y=(y+35)/10;
-	for(var i=0; i<=7; i++){
-		for(var j=0; j<=7; j++){
-			if((y-1==j && x-1==i) || (y-1==j && x==i) || (y-1==j && x+1==i) || (y==j && x+1==i) || (y+1==j && x+1==i) || (y+1==j && x==i) || (y+1==j && x-1==i) || (y==j && x-1==i))
-				if(tableroMovimientos[i][j]===null)					
-					tableroMovimientos[i][j]=1;
-				else if(tablero[i][j].team!==team)
-					tableroMovimientos[i][j]=1;
-			else
-				tableroMovimientos[i][j]=0;
-		}
-	}
+	
+	if((y-1>=0 && x-1>=0)&& (tablero[x-1][y-1]===null || tablero[x-1][y-1].team!==team))
+		tableroMovimientos[x-1][y-1]=1;
+	if((y-1>=0 )&& (tablero[x][y-1]===null || tablero[x][y-1].team!==team))
+		tableroMovimientos[x][y-1]=1;
+	if((y-1>=0 && x+1<=7)&& (tablero[x+1][y-1]===null || tablero[x+1][y-1].team!==team))
+		tableroMovimientos[x+1][y-1]=1;
+	if((x+1<=7)&& (tablero[x+1][y]===null || tablero[x+1][y].team!==team))
+		tableroMovimientos[x+1][y]=1;
+	if((y+1<=7 && x+1<=7)&& (tablero[x+1][y+1]===null || tablero[x+1][y+1].team!==team))
+		tableroMovimientos[x+1][y+1]=1;
+	if((y+1<=7 )&& (tablero[x][y+1]===null || tablero[x][y+1].team!==team))
+		tableroMovimientos[x][y+1]=1;
+	if((y+1<=7 && x-1>=0)&& (tablero[x-1][y+1]===null || tablero[x-1][y+1].team!==team))
+		tableroMovimientos[x-1][y+1]=1;
+	if((x-1>=0)&& (tablero[x-1][y]===null || tablero[x-1][y].team!==team))
+		tableroMovimientos[x-1][y]=1;
+	
+	
 	console.log("rey",tableroMovimientos);
 }
 
@@ -501,7 +509,7 @@ function onMouseClick( event ) {
 		Coloreo();
 		
 		console.log(piezaX,piezaZ);
-	}else if( intersects[0].object.parent instanceof Planos && movimiento==1){
+	}else if( (intersects[0].object.parent instanceof Plano || intersects[1].object.parent instanceof Planos) && movimiento==1){
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
 		tableZ=Redondeo(intersects[0].point.z);
