@@ -333,7 +333,7 @@ function setup(){
 	for(var i=0; i<=7; i++){
 		tabCol[i]=[];
 		for(var j=0; j<=7; j++){
-			var plane=
+			var plane= new Planos();
 			plane.position.x=i*10-35;
 			plane.position.z=j*10-35;
 			plane.position.y=500;
