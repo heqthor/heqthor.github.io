@@ -163,22 +163,24 @@ function PeonPlan(x,y,team,primer){
 	y=(y+35)/10;
 	if(team===0){
 		if(primer===1){
-			tableroMovimientos[x][y-2]==1;
+			tableroMovimientos[x][y-2]=1;
 			primer=0;
 		}
-		tableroMovimientos[x][y-1]=1;
+		if(tablero[x][y-1]===null)
+			tableroMovimientos[x][y-1]=1;
 		if( x-1>=0 && tablero[x-1][y-1]!==null && tablero[x-1][y-1].team!==team)
 			tableroMovimientos[x-1][y-1]=1;
 		if( x+1<=7 && tablero[x+1][y-1]!==null && tablero[x+1][y-1].team!==team)
 			tableroMovimientos[x+1][y-1]=1;
 	}else if(team===1){
 		if(primer===1){
-			tableroMovimientos[x][y+2]==1;
+			tableroMovimientos[x][y+2]=1;
 			primer=0;
 		}
-		tableroMovimientos[x][y+1]=1;
+		if(tablero[x][y+1]===null)
+			tableroMovimientos[x][y+1]=1;
 		if( x-1>=0 && tablero[x-1][y+1]!==null && tablero[x-1][y+1].team!==team)
-			tableroMovimientos[x-1][y-1]=1;
+			tableroMovimientos[x-1][y+1]=1;
 		if( x+1<=7 && tablero[x+1][y+1]!==null && tablero[x+1][y+1].team!==team)
 			tableroMovimientos[x+1][y+1]=1;
 	}
