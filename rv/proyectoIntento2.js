@@ -261,8 +261,8 @@ function ReyPlan(x,y,team){
 
 function Planos(){
 	Agent.call(this);
-	var plano=new THREE.Mesh( new THREE.PlaneGeometry( 10, 10, 32 ), 
-						 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} ));
+	this.add(new THREE.Mesh( new THREE.PlaneGeometry( 10, 10, 32 ), 
+						 new THREE.MeshBasicMaterial( {color: 0x00ffff, side: THREE.DoubleSide} )));
 }
 
 Planos.prototype=new Agent();
