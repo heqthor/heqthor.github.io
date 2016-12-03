@@ -488,6 +488,7 @@ function onMouseClick( event ) {
 		ResetMoves();
 		Descoloreo();
 		intersects[ 0 ].object.material.color.set( 0xff0000 );
+		console.log(intersects[0].object);
 		piezaX=Redondeo(intersects[0].point.x);
 		piezaZ=Redondeo(intersects[0].point.z);
 		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
@@ -499,6 +500,7 @@ function onMouseClick( event ) {
 		else if(piezaTocada instanceof Peon)
 			PeonPlan(piezaX,piezaZ,piezaTocada.team,piezaTocada);
 		Coloreo();
+		
 		console.log(piezaX,piezaZ);
 	}else if( intersects[0].object instanceof Planos && movimiento==1){
 		intersects[ 0 ].object.material.color.set( 0x00ff00 );
