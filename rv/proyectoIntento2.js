@@ -56,21 +56,64 @@ for(var i=0; i<=7; i++){
 	}
 }
 
-function TorrePlan(x,y){
+function TorrePlan(x,y,team){
 	x=(x+35)/10;
 	y=(y+35)/10;
 	
 	console.log("x",x,"y",y);
-	for(var i=0; i<=7; i++){
-		for(var j=0; j<=7; j++){
-			if(j===y)
-				tableroMovimientos[i][j]=1;
-			else if(i===x)
-				tableroMovimientos[i][j]=1;
-			else
-				tableroMovimientos[i][j]=0;
+	var i=x+1;
+	while(i<=7){
+		if(tablero[i][y]===null)
+			tableroMovimientos[i][y]=1;
+		else if(tablero[i][y]!==null && team!==tablero[i][y].team){
+			tableroMovimientos[i][y]=1;
+			i+=10;
+		}else if(tablero[i][y]!==null && team===tablero[i][y].team){
+			tableroMovimientos[i][y]=0;
+			i+=10;
 		}
+		i++;
 	}
+	i=x-1;
+	while(i>=0){
+		if(tablero[i][y]===null)
+			tableroMovimientos[i][y]=1;
+		else if(tablero[i][y]!==null && team!==tablero[i][y].team){
+			tableroMovimientos[i][y]=1;
+			i-=10;
+		}else if(tablero[i][y]!==null && team===tablero[i][y].team){
+			tableroMovimientos[i][y]=0;
+			i-=10;
+		}
+		i--;
+	}
+	var j=y+1;
+	while(j<=7){
+		if(tablero[x][j]===null)
+			tableroMovimientos[x][j]=1;
+		else if(tablero[x][j]!==null && team!==tablero[x][j].team){
+			tableroMovimientos[x][j]=1;
+			j+=10;
+		}else if(tablero[x][j]!==null && team===tablero[x][j].team){
+			tableroMovimientos[x][j]=0;
+			j+=10;
+		}
+		j++;
+	}
+	j=y-1;
+	while(j>=0){
+		if(tablero[x][j]===null)
+			tableroMovimientos[x][j]=1;
+		else if(tablero[x][j]!==null && team!==tablero[x][j].team){
+			tableroMovimientos[x][j]=1;
+			j-=10;
+		}else if(tablero[x][j]!==null && team===tablero[x][j].team){
+			tableroMovimientos[x][j]=0;
+			j-=10;
+		}
+		j--;
+	}
+					
 }
 	
 
@@ -160,7 +203,7 @@ var Rey=function(textura){
 
 Rey.prototype=new Agent();
 
-function ReyPlan(x,y){
+function ReyPlan(x,y,team){
 	x=(x+35)/10;
 	y=(y+35)/10;
 	for(var i=0; i<=7; i++){
@@ -355,9 +398,9 @@ function onMouseClick( event ) {
 		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
 		movimiento=1;
 		if(piezaTocada instanceof Torre)
-			TorrePlan(piezaX,piezaZ);		
+			TorrePlan(piezaX,piezaZ,piezaTocada.team);		
 		else if(piezaTocada instanceof Rey)
-			ReyPlan(piezaX,piezaZ);
+			ReyPlan(piezaX,piezaZ,piezaTocada.team);
 		console.log(piezaX,piezaZ);
 	}
 	else if((intersects[0].object.parent instanceof Environment || (intersects[1].object.parent instanceof Environment && intersects[0].object.parent instanceof Torre)) && movimiento==1){
@@ -403,7 +446,7 @@ function Mueve(x,y,pieza){
 		tablero[(pieza.position.x+35)/10][(pieza.position.z+35)/10]=null;
 		pieza.position.x=1*x;
 		pieza.position.z=1*y;
-		if(tablero[(x+35)/10][(y+35)/10]!==null && pieza.team!==tablero[(x+35)/10][(y+35)/10].team){
+		if(tablero[(x+35)/10][(y+35)/10]!==null ){
 			var lugarOcu=new THREE.Object3D();
 			lugarOcu=tablero[(x+35)/10][(y+35)/10];
 			lugarOcu.position.y=5000;
