@@ -488,7 +488,7 @@ function listener(){
 var animar=0;
 var aniX;
 var aniY;
-var angulo=0,incre=0.01;
+var angulo=0,incre=0.1;
 function Animar(pieza){
 	if(pieza.position.x!==aniX || pieza.position.z!==aniY){
 		if(Math.abs(pieza.position.x-aniX)<=0.1)
