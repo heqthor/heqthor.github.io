@@ -314,7 +314,7 @@ function listener(){
 var torreN1,reyB;
 var tablero=[];
 var tabCol=[];
-
+var turno=true;
 //---------- SET UP--------
 function setup(){
     var tipo_evento = 'resize';
@@ -499,16 +499,18 @@ function onMouseClick( event ) {
 		piezaX=Redondeo(intersects[0].point.x);
 		piezaZ=Redondeo(intersects[0].point.z);
 		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
-		movimiento=1;
-		if(piezaTocada instanceof Torre)
-			TorrePlan(piezaX,piezaZ,piezaTocada.team);		
-		else if(piezaTocada instanceof Rey)
-			ReyPlan(piezaX,piezaZ,piezaTocada.team);
-		else if(piezaTocada instanceof Peon)
-			PeonPlan(piezaX,piezaZ,piezaTocada.team,piezaTocada);
-		Coloreo();
-		
-		console.log(piezaX,piezaZ);
+		if((turno===true && piezaTocada.team===1) || (turno===false && piezaTocada.team===0)){
+			movimiento=1;
+			if(piezaTocada instanceof Torre)
+				TorrePlan(piezaX,piezaZ,piezaTocada.team);		
+			else if(piezaTocada instanceof Rey)
+				ReyPlan(piezaX,piezaZ,piezaTocada.team);
+			else if(piezaTocada instanceof Peon)
+				PeonPlan(piezaX,piezaZ,piezaTocada.team,piezaTocada);
+			Coloreo();
+
+			console.log(piezaX,piezaZ);
+		}
 	}else if( (intersects[0].object.parent instanceof Planos || intersects[1].object.parent instanceof Planos) && movimiento==1){
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
@@ -591,6 +593,7 @@ function Mueve(x,y,pieza){
 			tableroMovimientos[i][j]=0;
 		}
 	}
+	turno=!turno;
 	console.log(reyB.position);
 	console.log("movi",tableroMovimientos);
 	//delete pieza;
