@@ -160,11 +160,23 @@ var Peon=function(textura){
     //THREE.Mesh.call(this, peonForma, new THREE.MeshLambertMaterial({map:textura}));
     this.add(new THREE.Mesh(peonForma, new THREE.MeshLambertMaterial({map:textura})));
     this.castShadow=true;
-    this.receiveShadow=true;
-    if(textura===TEXTURAS.torreBlanca)
+	this.receiveShadow=true;
+    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie1.position.x=15;
+    this.pie2.position.x=-15;
+
+    this.add(this.pie1,this.pie2);
+    if(textura===TEXTURAS.torreBlanca){
 	    this.team=1;
-    else if(textura===TEXTURAS.torreNegra)
+	    this.pie1.position.z=10;
+	    this.pie2.position.z=10;
+    }
+    else if(textura===TEXTURAS.torreNegra){
 	    this.team=0;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
+    }
     this.primer=1;
     
 }
@@ -246,10 +258,22 @@ var Rey=function(textura){
     this.add(new THREE.Mesh(reyForma, new THREE.MeshLambertMaterial({map:textura})));
     this.castShadow=true;
     this.receiveShadow=true;
-    if(textura===TEXTURAS.torreBlanca)
+    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie1.position.x=15;
+    this.pie2.position.x=-15;
+
+    this.add(this.pie1,this.pie2);
+    if(textura===TEXTURAS.torreBlanca){
 	    this.team=1;
-    else if(textura===TEXTURAS.torreNegra)
+	    this.pie1.position.z=10;
+	    this.pie2.position.z=10;
+    }
+    else if(textura===TEXTURAS.torreNegra){
 	    this.team=0;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
+    }
 }
 
 Rey.prototype=new Agent();
@@ -322,10 +346,22 @@ function Alfil(textura){
 	Alfil.merge(puntitaAlfilMalla.geometry, puntitaAlfilMalla.matrix);
 	var material= new THREE.MeshLambertMaterial({map:textura});
 	this.add( new THREE.Mesh(Alfil, material));
-	if(textura===TEXTURAS.torreBlanca)
+    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie1.position.x=15;
+    this.pie2.position.x=-15;
+
+    this.add(this.pie1,this.pie2);
+    if(textura===TEXTURAS.torreBlanca){
 	    this.team=1;
-    	else if(textura===TEXTURAS.torreNegra)
+	    this.pie1.position.z=10;
+	    this.pie2.position.z=10;
+    }
+    else if(textura===TEXTURAS.torreNegra){
 	    this.team=0;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
+    }
 	
 }
 Alfil.prototype=new Agent();
