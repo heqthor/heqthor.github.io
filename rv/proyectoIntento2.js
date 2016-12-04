@@ -310,6 +310,10 @@ function Alfil(textura){
 	Alfil.merge(puntitaAlfilMalla.geometry, puntitaAlfilMalla.matrix);
 	var material= new THREE.MeshLambertMaterial({map:textura});
 	this.add( new THREE.Mesh(Alfil, material));
+	if(textura===TEXTURAS.torreBlanca)
+	    this.team=1;
+    	else if(textura===TEXTURAS.torreNegra)
+	    this.team=0;
 	
 }
 Alfil.prototype=new Agent();
