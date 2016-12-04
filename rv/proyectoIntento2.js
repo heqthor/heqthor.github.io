@@ -308,8 +308,9 @@ function Alfil(textura){
 	Alfil.merge(baseAlfilMalla.geometry, baseAlfilMalla.matrix);
 	Alfil.merge(gorroAlfilMalla.geometry, gorroAlfilMalla.matrix);
 	Alfil.merge(puntitaAlfilMalla.geometry, puntitaAlfilMalla.matrix);
-	var material= new THREE.MeshNormalMaterial();
+	var material= new THREE.MeshLambertMaterial({map:textura});
 	this.add( new THREE.Mesh(Alfil, material));
+	
 }
 Alfil.prototype=new Agent();
 
@@ -480,6 +481,10 @@ function setup(){
 		    tablero[i][6]=peon;
 	    }
 	var alfilB1=new Alfil(TEXTURAS.torreBlanca);
+	alfilB1.scale.x=0.15;
+	alfilB1.scale.y=0.15;
+	alfilB1.scale.z=0.15;
+	
 	escena.add(alfilB1);
 	escena.add(torreN1);
 	escena.add(torreN2);
