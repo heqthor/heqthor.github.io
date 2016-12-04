@@ -48,6 +48,8 @@ function Torre(textura){
     this.add(this.pie1,this.pie2);
     if(textura===TEXTURAS.torreBlanca){
 	    this.team=1;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
     }
     else if(textura===TEXTURAS.torreNegra)
 	    this.team=0;
