@@ -761,19 +761,21 @@ function Mueve(x,y,pieza){
 	}
 	turno=!turno;
 	while(pieza.position.x!==x || pieza.position.z!==y){
-		if(pieza.position.x-x>0)
-			pieza.position.x-=0.1;
-		else 
-			pieza.position.x+=0.1;
-		if(Math.abs(pieza.position.x-x)>0.1)
+		if(Math.abs(pieza.position.x-x)<=0.1)
 			pieza.position.x=x;
-		
-		if(pieza.position.z-y>0)
-			pieza.position.z-=0.1;
 		else
-			pieza.position.z+=0.1;
-		if(Math.abs(pieza.position.z-y)>0.1)
+			if(pieza.position.x-x>0)
+				pieza.position.x-=0.1;
+			else 
+				pieza.position.x+=0.1;
+
+		if(Math.abs(pieza.position.z-y)<=0.1)
 			pieza.position.z=y;
+		else
+			if(pieza.position.z-y>0)
+				pieza.position.z-=0.1;
+			else
+				pieza.position.z+=0.1;
 		console.log("posicion",pieza.position.x, pieza.position.z);
 		
   requestAnimationFrame(loop);
