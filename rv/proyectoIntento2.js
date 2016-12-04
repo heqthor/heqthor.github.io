@@ -40,10 +40,10 @@ function Torre(textura){
     this.colision = 0;
     this.radius = 4;
     this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
-    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(5,10,20),new THREE.MeshLambertMaterial({map:textura}));
-    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(5,10,20),new THREE.MeshLambertMaterial({map:textura}));
-    this.pie1.position.x=10;
-    this.pie2.position.x=-10;
+    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,20),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,20),new THREE.MeshBasicMaterial({color: 0xff0000}));
+    this.pie1.position.x=15;
+    this.pie2.position.x=-15;
 
     this.add(this.pie1,this.pie2);
     if(textura===TEXTURAS.torreBlanca){
