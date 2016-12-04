@@ -488,7 +488,7 @@ function listener(){
 var animar=0;
 var aniX;
 var aniY;
-var angulo=0,incre=0.001;
+var angulo=0,incre=0.01;
 function Animar(pieza){
 	if(pieza.position.x!==aniX || pieza.position.z!==aniY){
 		if(Math.abs(pieza.position.x-aniX)<=0.1)
@@ -506,10 +506,10 @@ function Animar(pieza){
 				pieza.position.z-=0.1;
 			else
 				pieza.position.z+=0.1;
-		if(Math.abs(angulo)>0.1)
+		if(Math.abs(angulo)>1)
 			incre=-incre;
-		pieza.pie1.rotateX(angulo);
-		pieza.pie2.rotateX(-angulo);
+		pieza.pie1.rotateX(incre);
+		pieza.pie2.rotateX(-incre);
 		angulo+=incre;
 		console.log("posicion",pieza.position.x, pieza.position.z);
 	}else 
