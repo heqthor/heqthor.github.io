@@ -447,7 +447,7 @@ function setup(){
 	reyB.position.y=5;
 	reyB.position.x=5;
 	reyB.position.z=-35;	
-	tablero[4][0]=reyB;
+	tablero[3][0]=reyB;
 
 	var reyN=new Rey(TEXTURAS.torreNegra);
 	reyN.scale.x=0.2;
@@ -456,7 +456,7 @@ function setup(){
 	reyN.position.y=5;
 	reyN.position.x=5;
 	reyN.position.z=35;	
-	tablero[4][7]=reyN;
+	tablero[3][7]=reyN;
 
 	    for(var i=0; i<=7; i++){
 		    var peon=new Peon(TEXTURAS.torreBlanca);
@@ -480,10 +480,24 @@ function setup(){
 		    escena.add(peon);
 		    tablero[i][6]=peon;
 	    }
+	
 	var alfilB1=new Alfil(TEXTURAS.torreBlanca);
 	alfilB1.scale.x=0.15;
 	alfilB1.scale.y=0.15;
 	alfilB1.scale.z=0.15;
+	alfilB1.position.x=-15;
+	alfilB1.position.z=-35;
+	alfilB1.position.y=5;
+	tablero[0][2]=alfilB1;
+	
+	var alfilB2=new Alfil(TEXTURAS.torreBlanca);
+	alfilB2.scale.x=0.15;
+	alfilB2.scale.y=0.15;
+	alfilB2.scale.z=0.15;
+	alfilB2.position.x=15;
+	alfilB2.position.z=-35;
+	alfilB2.position.y=5;
+	tablero[0][5]=alfilB1;
 	
 	escena.add(alfilB1);
 	escena.add(torreN1);
