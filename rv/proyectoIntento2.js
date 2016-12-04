@@ -482,24 +482,45 @@ function setup(){
 	    }
 	
 	var alfilB1=new Alfil(TEXTURAS.torreBlanca);
-	alfilB1.scale.x=0.15;
+	alfilB1.scale.x=0.10;
 	alfilB1.scale.y=0.15;
-	alfilB1.scale.z=0.15;
+	alfilB1.scale.z=0.10;
 	alfilB1.position.x=-15;
 	alfilB1.position.z=-35;
 	alfilB1.position.y=5;
 	tablero[0][2]=alfilB1;
 	
 	var alfilB2=new Alfil(TEXTURAS.torreBlanca);
-	alfilB2.scale.x=0.15;
+	alfilB2.scale.x=0.10;
 	alfilB2.scale.y=0.15;
-	alfilB2.scale.z=0.15;
+	alfilB2.scale.z=0.10;
 	alfilB2.position.x=15;
 	alfilB2.position.z=-35;
 	alfilB2.position.y=5;
 	tablero[0][5]=alfilB1;
 	
+	var alfilN1=new Alfil(TEXTURAS.torreNegra);
+	alfilN1.scale.x=0.10;
+	alfilN1.scale.y=0.15;
+	alfilN1.scale.z=0.10;
+	alfilN1.position.x=-15;
+	alfilN1.position.z=35;
+	alfilN1.position.y=5;
+	tablero[7][2]=alfilN1;
+	
+	var alfilN2=new Alfil(TEXTURAS.torreNegra);
+	alfilN2.scale.x=0.10;
+	alfilN2.scale.y=0.15;
+	alfilN2.scale.z=0.10;
+	alfilN2.position.x=15;
+	alfilN2.position.z=35;
+	alfilN2.position.y=5;
+	tablero[7][5]=alfilN2;
+	
 	escena.add(alfilB1);
+	escena.add(alfilB2);
+	escena.add(alfilN1);
+	escena.add(alfilN2);
 	escena.add(torreN1);
 	escena.add(torreN2);
 	escena.add(torreB1);
