@@ -744,8 +744,8 @@ function Mueve(x,y,pieza){
 	var m=0;
 	if(tableroMovimientos[(x+35)/10][(y+35)/10]===1){
 		tablero[(pieza.position.x+35)/10][(pieza.position.z+35)/10]=null;
-		pieza.position.x=1*x;
-		pieza.position.z=1*y;
+		//pieza.position.x=1*x;
+		//pieza.position.z=1*y;
 		if(tablero[(x+35)/10][(y+35)/10]!==null ){
 			var lugarOcu=new THREE.Object3D();
 			lugarOcu=tablero[(x+35)/10][(y+35)/10];
@@ -762,6 +762,18 @@ function Mueve(x,y,pieza){
 	turno=!turno;
 	console.log(reyB.position);
 	console.log("movi",tableroMovimientos);
+	while(pieza.position.x!==x && pieza.position.z!==y){
+		if(pieza.position.x-x>0)
+			pieza.position.x-=0.1;
+		else 
+			pieza.position.x+=0.1;
+		
+		if(pieza.position.z-y>0)
+			pieza.position.z-=0.1;
+		else
+			pieza.position.z+=0.1;
+		renderizador.render(escena,camara);
+	}
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
