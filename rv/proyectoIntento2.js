@@ -435,6 +435,29 @@ function listener(){
   camara.updateProjectionMatrix();
   renderizador.setSize( window.innerWidth, window.innerHeight );
 }
+var animar=0;
+function Animar(pieza){
+	if(pieza.position.x!==x || pieza.position.z!==y){
+		if(Math.abs(pieza.position.x-x)<=0.1)
+			pieza.position.x=x;
+		else
+			if(pieza.position.x-x>0)
+				pieza.position.x-=0.1;
+			else 
+				pieza.position.x+=0.1;
+
+		if(Math.abs(pieza.position.z-y)<=0.1)
+			pieza.position.z=y;
+		else
+			if(pieza.position.z-y>0)
+				pieza.position.z-=0.1;
+			else
+				pieza.position.z+=0.1;
+		console.log("posicion",pieza.position.x, pieza.position.z);
+	}else 
+		animar=0;
+}
+	
 var torreN1,reyB;
 var tablero=[];
 var tabCol=[];
@@ -619,6 +642,8 @@ function loop(){
     escena.sense();
     escena.plan();
     escena.act();
+    if(animar===1)
+	    Animar(piezaTocada);
     renderizador.render(escena, camara);
 }
 
@@ -760,27 +785,7 @@ function Mueve(x,y,pieza){
 		}
 	}
 	turno=!turno;
-	while(pieza.position.x!==x || pieza.position.z!==y){
-		if(Math.abs(pieza.position.x-x)<=0.1)
-			pieza.position.x=x;
-		else
-			if(pieza.position.x-x>0)
-				pieza.position.x-=0.1;
-			else 
-				pieza.position.x+=0.1;
-
-		if(Math.abs(pieza.position.z-y)<=0.1)
-			pieza.position.z=y;
-		else
-			if(pieza.position.z-y>0)
-				pieza.position.z-=0.1;
-			else
-				pieza.position.z+=0.1;
-		console.log("posicion",pieza.position.x, pieza.position.z);
-		
-  requestAnimationFrame(loop);
-		renderizador.render(escena,camara);
-	}
+	animar=1;
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
