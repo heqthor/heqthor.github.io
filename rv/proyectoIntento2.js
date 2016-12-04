@@ -506,7 +506,7 @@ function Animar(pieza){
 				pieza.position.z-=0.1;
 			else
 				pieza.position.z+=0.1;
-		if(Math.abs(angulo)>1)
+		if(Math.abs(angulo)>0.1)
 			incre=-incre;
 		pieza.pie1.rotateX(angulo);
 		pieza.pie2.rotateX(-angulo);
