@@ -32,7 +32,6 @@ function Torre(textura){
     }
     
     //THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
-    this.add(new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map:textura})));
     this.castShadow=true;
     this.receiveShadow=true;
     
@@ -40,11 +39,12 @@ function Torre(textura){
     this.colision = 0;
     this.radius = 4;
     this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
-    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(100,100,20),new THREE.MeshLambertMaterial({map:textura}));
-    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(100,100,20),new THREE.MeshLambertMaterial({map:textura}));
+    this.pie1= new THREE.Mesh(new THREE.BoxGeometry(100,50,100),new THREE.MeshLambertMaterial({map:textura}));
+    this.pie2= new THREE.Mesh(new THREE.BoxGeometry(100,50,100),new THREE.MeshLambertMaterial({map:textura}));
+    this.add(new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map:textura})));
+    this.pie1.position.x=10;
+    this.pie1.position.z=10;
     this.add(this.pie1,this.pie2);
-	    this.pie1.position.x=5;
-	    this.pie1.position.z=5;
     if(textura===TEXTURAS.torreBlanca){
 	    this.team=1;
     }
