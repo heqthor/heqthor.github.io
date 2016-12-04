@@ -597,7 +597,7 @@ function setup(){
 	alfilB2.position.x=15;
 	alfilB2.position.z=-35;
 	alfilB2.position.y=5;
-	tablero[5][0]=alfilB1;
+	tablero[5][0]=alfilB2;
 	
 	var alfilN1=new Alfil(TEXTURAS.torreNegra);
 	alfilN1.scale.x=0.10;
