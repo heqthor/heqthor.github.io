@@ -760,7 +760,7 @@ function Mueve(x,y,pieza){
 		}
 	}
 	turno=!turno;
-	while(pieza.position.x!==x && pieza.position.z!==y){
+	while(pieza.position.x!==x || pieza.position.z!==y){
 		if(pieza.position.x-x>0)
 			pieza.position.x-=0.1;
 		else 
