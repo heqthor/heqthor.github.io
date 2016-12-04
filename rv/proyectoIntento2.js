@@ -314,7 +314,78 @@ function Alfil(textura){
 }
 Alfil.prototype=new Agent();
 
-
+function AlfilPlan(x,y,team){
+	x=(x+35)/10;
+	y=(y+35)/10;
+	
+	var i=x-1;
+	var j=y-1;
+	while(i>=0 && j>=0){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i-=10;
+			j-=10;
+		}else if(tablero[i][j].team===team){
+			i-=10;
+			j-=10;
+		}
+		i--;
+		j--;
+	}
+	
+	i=x+1;
+	j=y-1;
+	while(i<=7 && j>=0){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i+=10;
+			j-=10;
+		}else if(tablero[i][j].team===team){
+			i+=10;
+			j-=10;
+		}
+		i++;
+		j--;
+	}
+		
+	i=x+1;
+	j=y+1;
+	while(i<=7 && j<=7){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i+=10;
+			j+=10;
+		}else if(tablero[i][j].team===team){
+			i+=10;
+			j+=10;
+		}
+		i++;
+		j++;
+	}
+	
+	i=x-1;
+	j=y+1;
+	while(i>=0 && j<=7){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i-=10;
+			j+=10;
+		}else if(tablero[i][j].team===team){
+			i-=10;
+			j+=10;
+		}
+		i--;
+		j++;
+	}
+}
 
 function Planos(){
 	Agent.call(this);
@@ -596,6 +667,8 @@ function onMouseClick( event ) {
 				ReyPlan(piezaX,piezaZ,piezaTocada.team);
 			else if(piezaTocada instanceof Peon)
 				PeonPlan(piezaX,piezaZ,piezaTocada.team,piezaTocada);
+			else if(piezaTocada instanceof Alfil)
+				AlfilPlan(piezaX,piezaZ,piezaTocada.team);
 			Coloreo();
 
 			console.log(piezaX,piezaZ);
