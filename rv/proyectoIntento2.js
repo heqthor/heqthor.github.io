@@ -436,20 +436,22 @@ function listener(){
   renderizador.setSize( window.innerWidth, window.innerHeight );
 }
 var animar=0;
+var aniX;
+var aniY;
 function Animar(pieza){
-	if(pieza.position.x!==x || pieza.position.z!==y){
-		if(Math.abs(pieza.position.x-x)<=0.1)
-			pieza.position.x=x;
+	if(pieza.position.x!==aniX || pieza.position.z!==aniY){
+		if(Math.abs(pieza.position.x-aniX)<=0.1)
+			pieza.position.x=aniX;
 		else
-			if(pieza.position.x-x>0)
+			if(pieza.position.x-aniX>0)
 				pieza.position.x-=0.1;
 			else 
 				pieza.position.x+=0.1;
 
-		if(Math.abs(pieza.position.z-y)<=0.1)
-			pieza.position.z=y;
+		if(Math.abs(pieza.position.z-aniY)<=0.1)
+			pieza.position.z=aniY;
 		else
-			if(pieza.position.z-y>0)
+			if(pieza.position.z-aniY>0)
 				pieza.position.z-=0.1;
 			else
 				pieza.position.z+=0.1;
@@ -786,6 +788,8 @@ function Mueve(x,y,pieza){
 	}
 	turno=!turno;
 	animar=1;
+	aniX=x;
+	aniY=y;
 	//delete pieza;
 	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
 		if((pieza.position.x-x)!=0){
