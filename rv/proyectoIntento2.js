@@ -760,8 +760,6 @@ function Mueve(x,y,pieza){
 		}
 	}
 	turno=!turno;
-	console.log(reyB.position);
-	console.log("movi",tableroMovimientos);
 	while(pieza.position.x!==x && pieza.position.z!==y){
 		if(pieza.position.x-x>0)
 			pieza.position.x-=0.1;
@@ -772,6 +770,7 @@ function Mueve(x,y,pieza){
 			pieza.position.z-=0.1;
 		else
 			pieza.position.z+=0.1;
+		console.log("posicion",pieza.position.x, pieza.position.z);
 		renderizador.render(escena,camara);
 	}
 	//delete pieza;
