@@ -778,7 +778,7 @@ function setup(){
 	tablero[5][7]=alfilN2;
 	
 	var reinaB=new Reina(TEXTURAS.torreBlanca);
-	reinaB.scale=0.1;
+	reinaB.scale=0.05;
 	
 	escena.add(reinaB);
 	escena.add(alfilB1);
