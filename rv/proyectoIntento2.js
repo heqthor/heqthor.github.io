@@ -954,7 +954,7 @@ function setup(){
 	reinaN.position.y=5;
 	tablero[3][7]=reinaN;
 	
-	var cabaB1=new Caballo(TEXTURAS.torreNegra);
+	var cabaB1=new Caballo(TEXTURAS.torreBlanca);
 	cabaB1.scale.x=0.2;
 	cabaB1.scale.z=0.2;
 	cabaB1.scale.y=0.2;
@@ -971,6 +971,7 @@ function setup(){
 	cabaN1.position.y=5;
 	
 	escena.add(cabaB1);
+	escena.add(cabaN1);
 	escena.add(reinaB);
 	escena.add(reinaN);
 	escena.add(alfilB1);
