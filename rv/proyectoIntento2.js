@@ -680,6 +680,7 @@ function Caballo(textura){
 
 	var material= new THREE.MeshLambertMaterial({map: textura});
 	this.add(new THREE.Mesh(Caballo, material));
+	this.rotateY(-Math.PI/2);
 	this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
 	this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
 	this.pie1.position.x=15;
