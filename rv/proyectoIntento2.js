@@ -965,7 +965,7 @@ function setup(){
 	reinaB.scale.x=0.2;
 	reinaB.scale.z=0.2;
 	reinaB.scale.y=0.2;
-	reinaB.position.x=-5;
+	reinaB.position.x=5;
 	reinaB.position.z=-35;
 	reinaB.position.y=5;
 	tablero[4][0]=reinaB;
@@ -974,7 +974,7 @@ function setup(){
 	reinaN.scale.x=0.2;
 	reinaN.scale.z=0.2;
 	reinaN.scale.y=0.2;
-	reinaN.position.x=-5;
+	reinaN.position.x=5;
 	reinaN.position.z=35;
 	reinaN.position.y=5;
 	tablero[4][7]=reinaN;
