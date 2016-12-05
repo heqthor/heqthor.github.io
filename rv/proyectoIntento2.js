@@ -439,6 +439,54 @@ function AlfilPlan(x,y,team){
 	}
 }
 
+function Reina(textura){
+	Agent.call(this);
+	var puntosreina= [];
+
+	puntosreina.push( new THREE.Vector2(0,0));
+	puntosreina.push( new THREE.Vector2(20,0));
+	puntosreina.push( new THREE.Vector2(20,10));
+	puntosreina.push( new THREE.Vector2(15,10));
+	puntosreina.push( new THREE.Vector2(15,15));
+	puntosreina.push( new THREE.Vector2(10,15));
+	puntosreina.push( new THREE.Vector2(5,60));
+	puntosreina.push( new THREE.Vector2(20,60));
+	puntosreina.push( new THREE.Vector2(20,65));
+	puntosreina.push( new THREE.Vector2(10,65));
+	puntosreina.push( new THREE.Vector2(10,70));
+	puntosreina.push( new THREE.Vector2(15,70));
+	puntosreina.push( new THREE.Vector2(15,80));
+	puntosreina.push( new THREE.Vector2(10,80));
+	puntosreina.push( new THREE.Vector2(20,100));
+	puntosreina.push( new THREE.Vector2(0,100));
+
+	var Reina= new THREE.Geometry();
+
+	for(var i=0; i<=6; i++){
+		var picoForma = new THREE.ConeGeometry( 7, 15 );
+		picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),108,13*(Math.cos(Math.PI*2/6*i)));
+		var picoMalla =new THREE.Mesh(picoForma); 
+		var picoPunta= new THREE.SphereGeometry(3);
+		picoPunta.translate(13*(Math.sin(Math.PI*2/6*i)),116,13*(Math.cos(Math.PI*2/6*i)));
+		var picoPuntaMalla =new THREE.Mesh(picoPunta); 
+		Reina.merge(picoMalla.geometry, picoMalla.matrix);
+		Reina.merge(picoPuntaMalla.geometry, picoPuntaMalla.matrix);
+	}
+
+	var baseReina= new THREE.LatheGeometry(puntosreina);
+	var baseReinaMalla= new THREE.Mesh(baseReina);
+
+	Reina.merge(baseReinaMalla.geometry, baseReinaMalla.matrix);
+
+	var material= new THREE.MeshLambertMaterial({map: textura});
+	this.add( new THREE.Mesh(Reina, material));
+	
+	this.rotateX(Math.PI/6);
+	
+}
+Reina.prototype=new Aget();
+	
+
 function Planos(){
 	Agent.call(this);
 	this.add(new THREE.Mesh( new THREE.PlaneGeometry( 10, 10, 32 ), 
@@ -673,6 +721,9 @@ function setup(){
 	alfilN2.position.y=5;
 	tablero[5][7]=alfilN2;
 	
+	var reinaB=new Reina(TEXTURAS.torreBlanca);
+	
+	escena.add(reinaB);
 	escena.add(alfilB1);
 	escena.add(alfilB2);
 	escena.add(alfilN1);
