@@ -484,7 +484,7 @@ function Reina(textura){
 	this.rotateX(Math.PI/6);
 	
 }
-Reina.prototype=new Aget();
+Reina.prototype=new Agent();
 	
 
 function Planos(){
