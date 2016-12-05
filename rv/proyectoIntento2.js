@@ -701,6 +701,29 @@ function Caballo(textura){
 }
 Caballo.prototype=new Agent();
 
+function CaballoPlan(x,y,team){
+	x=(x+35)/10;
+	y=(y+35)/10;
+	
+	if(x-1>=0 && y-2>=0 && (tablero[x-1][y-2]===null || tablero[x-1][y-2].team!==team))
+		tableroMovimientos[x-1][y-2]=1;
+	if(x+1<=7 && y-2>=0 && (tablero[x+1][y-2]===null || tablero[x+1][y-2].team!==team))
+		tableroMovimientos[x+1][y-2]=1;
+	if(x+2<=7 && y-1>=0 && (tablero[x+2][y-1]===null || tablero[x+2][y-1].team!==team))
+		tableroMovimientos[x+2][y-1]=1;
+	if(x+2<=7 && y+1<=7 && (tablero[x+2][y+1]===null || tablero[x+2][y+1].team!==team))
+		tableroMovimientos[x+2][y+1]=1;
+	if(x+1<=7 && y+2<=7 && (tablero[x+1][y+2]===null || tablero[x+1][y+2].team!==team))
+		tableroMovimientos[x+1][y+2]=1;
+	if(x-1>=0 && y+2<=7 && (tablero[x-1][y+2]===null || tablero[x-1][y+2].team!==team))
+		tableroMovimientos[x-1][y+2]=1;
+	if(x-1>=0 && y+2<=7 && (tablero[x-1][y+2]===null || tablero[x-1][y+2].team!==team))
+		tableroMovimientos[x-1][y+2]=1;
+	if(x-2>=0 && y+1<=7 && (tablero[x-2][y+1]===null || tablero[x-2][y+1].team!==team))
+		tableroMovimientos[x-2][y+1]=1;
+	if(x-2>=0 && y-1>=0 && (tablero[x-2][y-1]===null || tablero[x-2][y-1].team!==team))
+		tableroMovimientos[x-2][y-1]=1;
+}
 
 function Planos(){
 	Agent.call(this);
@@ -961,6 +984,7 @@ function setup(){
 	cabaB1.position.x=-25;
 	cabaB1.position.z=-35;
 	cabaB1.position.y=5;
+	tablero[1][0]=cabaB1;
 	
 	var cabaN1=new Caballo(TEXTURAS.torreNegra);
 	cabaN1.scale.x=0.2;
@@ -969,6 +993,25 @@ function setup(){
 	cabaN1.position.x=-25;
 	cabaN1.position.z=35;
 	cabaN1.position.y=5;
+	tablero[1][7]=cabaN1;
+	
+	var cabaB2=new Caballo(TEXTURAS.torreBlanca);
+	cabaB2.scale.x=0.2;
+	cabaB2.scale.z=0.2;
+	cabaB2.scale.y=0.2;
+	cabaB2.position.x=25;
+	cabaB2.position.z=-35;
+	cabaB2.position.y=5;
+	tablero[6][0]=cabaB2;
+	
+	var cabaN2=new Caballo(TEXTURAS.torreNegra);
+	cabaN2.scale.x=0.2;
+	cabaN2.scale.z=0.2;
+	cabaN2.scale.y=0.2;
+	cabaN2.position.x=25;
+	cabaN2.position.z=35;
+	cabaN2.position.y=5;
+	tablero[6][7]=cabaN2;
 	
 	escena.add(cabaB1);
 	escena.add(cabaN1);
@@ -1059,6 +1102,8 @@ function onMouseClick( event ) {
 				AlfilPlan(piezaX,piezaZ,piezaTocada.team);
 			else if(piezaTocada instanceof Reina)
 				ReinaPlan(piezaX,piezaZ,piezaTocada.team);
+			else if(piezaTocada instanceof Caballo)
+				CaballoPlan(piezaX,piezaZ,piezaTocada.team);
 			Coloreo();
 
 			console.log(piezaX,piezaZ);
