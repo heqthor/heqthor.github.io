@@ -889,7 +889,7 @@ function setup(){
 	reyB.scale.y=0.2;
 	reyB.scale.z=0.2;
 	reyB.position.y=5;
-	reyB.position.x=5;
+	reyB.position.x=-5;
 	reyB.position.z=-35;	
 	tablero[3][0]=reyB;
 
@@ -898,7 +898,7 @@ function setup(){
 	reyN.scale.y=0.2;
 	reyN.scale.z=0.2;
 	reyN.position.y=5;
-	reyN.position.x=5;
+	reyN.position.x=-5;
 	reyN.position.z=35;	
 	tablero[3][7]=reyN;
 
@@ -968,7 +968,7 @@ function setup(){
 	reinaB.position.x=-5;
 	reinaB.position.z=-35;
 	reinaB.position.y=5;
-	tablero[3][0]=reinaB;
+	tablero[4][0]=reinaB;
 	
 	var reinaN=new Reina(TEXTURAS.torreNegra);
 	reinaN.scale.x=0.2;
@@ -977,7 +977,7 @@ function setup(){
 	reinaN.position.x=-5;
 	reinaN.position.z=35;
 	reinaN.position.y=5;
-	tablero[3][7]=reinaN;
+	tablero[4][7]=reinaN;
 	
 	var cabaB1=new Caballo(TEXTURAS.torreBlanca);
 	cabaB1.scale.x=0.2;
