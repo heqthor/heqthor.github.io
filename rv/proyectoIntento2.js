@@ -683,9 +683,9 @@ function Caballo(textura){
 	this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
 	this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
 	this.pie1.position.x=15;
-	this.pie1.rotateY(-Math.PI/2);
+	
 	this.pie2.position.x=-15;
-	this.pie2.rotateY(-Math.PI/2);
+	
 
 	if(textura===TEXTURAS.torreBlanca){
 	    this.team=1;
