@@ -481,11 +481,67 @@ function Reina(textura){
 	var material= new THREE.MeshLambertMaterial({map: textura});
 	this.add( new THREE.Mesh(Reina, material));
 	
-	this.rotateX(Math.PI/6);
 	
 }
 Reina.prototype=new Agent();
-	
+
+function Caballo(textura){
+	Agent.call(this);
+	var shape= new THREE.Shape();
+
+	shape.moveTo(7.7,0);
+	shape.lineTo(4.0,3.2);
+	shape.lineTo(2.0,20.5);
+	shape.lineTo(12.0,40.2);
+	shape.lineTo(23.7,41.2);
+	shape.lineTo(27.3,45.0);
+	shape.lineTo(28.1,38.4);
+	shape.lineTo(37.2,25.0);
+	shape.lineTo(32.2,20.6);
+	shape.lineTo(29.4,23.4);
+	shape.lineTo(21.5,22.3);
+	shape.lineTo(20.5,26.3);
+	shape.lineTo(18.5,26.1);
+	shape.lineTo(17.6,22.4);
+	shape.lineTo(30.7,9.7);
+	shape.lineTo(30.9,3.0);
+	shape.lineTo(28.3,0);
+	shape.lineTo(7.7,0);
+
+	var extrudeSettings = {
+		steps: 4,
+		amount: 10,
+		bevelEnabled: true,
+		bevelThickness: 2,
+		bevelSize: 2,
+		bevelSegments: 1
+	};
+
+	var perfilCaballo= new THREE.ExtrudeGeometry(shape,extrudeSettings);
+	perfilCaballo.translate(-18,17,-5);
+	var perfilCaballoMalla= new THREE.Mesh(perfilCaballo);
+
+	var puntoscaballo= [];
+
+	puntoscaballo.push( new THREE.Vector2(0,0));
+	puntoscaballo.push( new THREE.Vector2(20,0));
+	puntoscaballo.push( new THREE.Vector2(20,10));
+	puntoscaballo.push( new THREE.Vector2(15,10));
+	puntoscaballo.push( new THREE.Vector2(15,15));
+	puntoscaballo.push( new THREE.Vector2(0,15));
+
+	var baseCaballo= new THREE.LatheGeometry(puntoscaballo);
+	var baseCaballoMalla= new THREE.Mesh(baseCaballo);
+
+	var Caballo= new THREE.Geometry();
+	Caballo.merge(perfilCaballoMalla.geometry, perfilCaballoMalla.matrix);
+	Caballo.merge(baseCaballoMalla.geometry, baseCaballoMalla.matrix);
+
+	var material= new THREE.MeshLambertMaterial({map: textura});
+	this.add(new THREE.Mesh(Caballo, material));
+}
+Caballo.prototype=new Agent();
+
 
 function Planos(){
 	Agent.call(this);
@@ -722,6 +778,7 @@ function setup(){
 	tablero[5][7]=alfilN2;
 	
 	var reinaB=new Reina(TEXTURAS.torreBlanca);
+	reinaB.scale=0.1;
 	
 	escena.add(reinaB);
 	escena.add(alfilB1);
