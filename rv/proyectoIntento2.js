@@ -685,19 +685,19 @@ function Caballo(textura){
 	this.pie1.position.x=15;
 	this.pie2.position.x=-15;
 
-	this.add(this.pie1,this.pie2);
 	if(textura===TEXTURAS.torreBlanca){
 	    this.team=1;
 	    this.pie1.position.z=10;
 	    this.pie2.position.z=10;
-		this.rotateY(Math.PI/2);
+		this.rotateY(-Math.PI/2);
 	}
 	else if(textura===TEXTURAS.torreNegra){
 	    this.team=0;
 	    this.pie1.position.z=-10;
 	    this.pie2.position.z=-10;
-		this.rotateY(-Math.PI/2);
+		this.rotateY(+Math.PI/2);
 	}
+	this.add(this.pie1,this.pie2);
 }
 Caballo.prototype=new Agent();
 
