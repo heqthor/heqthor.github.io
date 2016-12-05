@@ -680,6 +680,24 @@ function Caballo(textura){
 
 	var material= new THREE.MeshLambertMaterial({map: textura});
 	this.add(new THREE.Mesh(Caballo, material));
+	this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+	this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+	this.pie1.position.x=15;
+	this.pie2.position.x=-15;
+
+	this.add(this.pie1,this.pie2);
+	if(textura===TEXTURAS.torreBlanca){
+	    this.team=1;
+	    this.pie1.position.z=10;
+	    this.pie2.position.z=10;
+		this.rotateY(Math.PI/2);
+	}
+	else if(textura===TEXTURAS.torreNegra){
+	    this.team=0;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
+		this.rotateY(-Math.PI/2);
+	}
 }
 Caballo.prototype=new Agent();
 
@@ -936,10 +954,21 @@ function setup(){
 	reinaN.position.y=5;
 	tablero[3][7]=reinaN;
 	
-	var cabaB1=new Caballo(TEXTURAS.torreBlanca);
+	var cabaB1=new Caballo(TEXTURAS.torreNegra);
 	cabaB1.scale.x=0.2;
 	cabaB1.scale.z=0.2;
 	cabaB1.scale.y=0.2;
+	cabaB1.position.x=-25;
+	cabaB1.position.z=-35;
+	cabaB1.position.y=5;
+	
+	var cabaN1=new Caballo(TEXTURAS.torreNegra);
+	cabaN1.scale.x=0.2;
+	cabaN1.scale.z=0.2;
+	cabaN1.scale.y=0.2;
+	cabaN1.position.x=-25;
+	cabaN1.position.z=35;
+	cabaN1.position.y=5;
 	
 	escena.add(cabaB1);
 	escena.add(reinaB);
