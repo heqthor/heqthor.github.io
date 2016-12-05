@@ -72,7 +72,6 @@ function TorrePlan(x,y,team){
 	x=(x+35)/10;
 	y=(y+35)/10;
 	
-	console.log("x",x,"y",y);
 	var i=x+1;
 	while(i<=7){
 		if(tablero[i][y]===null)
@@ -480,10 +479,152 @@ function Reina(textura){
 
 	var material= new THREE.MeshLambertMaterial({map: textura});
 	this.add( new THREE.Mesh(Reina, material));
+	this.pie1= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+	this.pie2= new THREE.Mesh(new THREE.BoxGeometry(10,10,30),new THREE.MeshBasicMaterial({color: 0xff0000}));
+	this.pie1.position.x=15;
+	this.pie2.position.x=-15;
+
+	this.add(this.pie1,this.pie2);
+	if(textura===TEXTURAS.torreBlanca){
+	    this.team=1;
+	    this.pie1.position.z=10;
+	    this.pie2.position.z=10;
+	}
+	else if(textura===TEXTURAS.torreNegra){
+	    this.team=0;
+	    this.pie1.position.z=-10;
+	    this.pie2.position.z=-10;
+	}
 	
 	
 }
 Reina.prototype=new Agent();
+
+function ReinaPlan(x,y,team){
+	x=(x+35)/10;
+	y=(y+35)/10;
+	
+	var i=x-1;
+	var j=y-1;
+	while(i>=0 && j>=0){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i-=10;
+			j-=10;
+		}else if(tablero[i][j].team===team){
+			i-=10;
+			j-=10;
+		}
+		i--;
+		j--;
+	}
+	
+	i=x+1;
+	j=y-1;
+	while(i<=7 && j>=0){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i+=10;
+			j-=10;
+		}else if(tablero[i][j].team===team){
+			i+=10;
+			j-=10;
+		}
+		i++;
+		j--;
+	}
+		
+	i=x+1;
+	j=y+1;
+	while(i<=7 && j<=7){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i+=10;
+			j+=10;
+		}else if(tablero[i][j].team===team){
+			i+=10;
+			j+=10;
+		}
+		i++;
+		j++;
+	}
+	
+	i=x-1;
+	j=y+1;
+	while(i>=0 && j<=7){
+		if(tablero[i][j]===null)
+			tableroMovimientos[i][j]=1;
+		else if(tablero[i][j].team!==team){
+			tableroMovimientos[i][j]=1;
+			i-=10;
+			j+=10;
+		}else if(tablero[i][j].team===team){
+			i-=10;
+			j+=10;
+		}
+		i--;
+		j++;
+	}
+	i=x+1;
+	while(i<=7){
+		if(tablero[i][y]===null)
+			tableroMovimientos[i][y]=1;
+		else if(tablero[i][y]!==null && team!==tablero[i][y].team){
+			tableroMovimientos[i][y]=1;
+			i+=10;
+		}else if(tablero[i][y]!==null && team===tablero[i][y].team){
+			tableroMovimientos[i][y]=0;
+			i+=10;
+		}
+		i++;
+	}
+	i=x-1;
+	while(i>=0){
+		if(tablero[i][y]===null)
+			tableroMovimientos[i][y]=1;
+		else if(tablero[i][y]!==null && team!==tablero[i][y].team){
+			tableroMovimientos[i][y]=1;
+			i-=10;
+		}else if(tablero[i][y]!==null && team===tablero[i][y].team){
+			tableroMovimientos[i][y]=0;
+			i-=10;
+		}
+		i--;
+	}
+	 j=y+1;
+	while(j<=7){
+		if(tablero[x][j]===null)
+			tableroMovimientos[x][j]=1;
+		else if(tablero[x][j]!==null && team!==tablero[x][j].team){
+			tableroMovimientos[x][j]=1;
+			j+=10;
+		}else if(tablero[x][j]!==null && team===tablero[x][j].team){
+			tableroMovimientos[x][j]=0;
+			j+=10;
+		}
+		j++;
+	}
+	j=y-1;
+	while(j>=0){
+		if(tablero[x][j]===null)
+			tableroMovimientos[x][j]=1;
+		else if(tablero[x][j]!==null && team!==tablero[x][j].team){
+			tableroMovimientos[x][j]=1;
+			j-=10;
+		}else if(tablero[x][j]!==null && team===tablero[x][j].team){
+			tableroMovimientos[x][j]=0;
+			j-=10;
+		}
+		j--;
+	}
+}
+	
 
 function Caballo(textura){
 	Agent.call(this);
@@ -781,9 +922,28 @@ function setup(){
 	reinaB.scale.x=0.2;
 	reinaB.scale.z=0.2;
 	reinaB.scale.y=0.2;
+	reinaB.position.x=-5;
+	reinaB.position.z=-35;
 	reinaB.position.y=5;
+	tablero[3][0]=reinaB;
 	
+	var reinaN=new Reina(TEXTURAS.torreNegra);
+	reinaN.scale.x=0.2;
+	reinaN.scale.z=0.2;
+	reinaN.scale.y=0.2;
+	reinaN.position.x=-5;
+	reinaN.position.z=35;
+	reinaN.position.y=5;
+	tablero[3][7]=reinaN;
+	
+	var cabaB1=new Caballo(TEXTURAS.torreBlanca);
+	cabaB1.scale.x=0.2;
+	cabaB1.scale.z=0.2;
+	cabaB1.scale.y=0.2;
+	
+	escena.add(cabaB1);
 	escena.add(reinaB);
+	escena.add(reinaN);
 	escena.add(alfilB1);
 	escena.add(alfilB2);
 	escena.add(alfilN1);
@@ -867,6 +1027,8 @@ function onMouseClick( event ) {
 				PeonPlan(piezaX,piezaZ,piezaTocada.team,piezaTocada);
 			else if(piezaTocada instanceof Alfil)
 				AlfilPlan(piezaX,piezaZ,piezaTocada.team);
+			else if(piezaTocada instanceof Reina)
+				ReinaPlan(piezaX,piezaZ,piezaTocada.team);
 			Coloreo();
 
 			console.log(piezaX,piezaZ);
