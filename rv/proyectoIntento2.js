@@ -330,6 +330,7 @@ function ReyCheck(team){
 	if(tableroMovimientos[x][y]===1){
 		alert("Check");
 	}
+	Coloreo();
 }
 
 
@@ -1142,6 +1143,7 @@ function onMouseClick( event ) {
 			console.log(piezaX,piezaZ);
 		}
 	}else if( (intersects[0].object.parent instanceof Planos || intersects[1].object.parent instanceof Planos) && movimiento==1){
+		ResetMoves();
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
 		tableZ=Redondeo(intersects[0].point.z);
