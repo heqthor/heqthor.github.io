@@ -831,7 +831,16 @@ function Animar(pieza){
 		pieza.pie2.rotateX(-incre);
 		angulo+=incre;
 	}else 
-		animar=0;
+	{animar=0;
+		if(piezaTocada.team===0){
+			ResetMoves();
+			ReyCheck(1);
+		}else if(piezaTocada.team===1){
+			ResetMoves();
+			ReyCheck(0);
+		}
+	Coloreo();
+	}
 }
 	
 var torreN1,reyB;
@@ -1228,14 +1237,6 @@ function Mueve(x,y,pieza){
 	animar=1;
 	aniX=x;
 	aniY=y;
-		if(pieza.team===0){
-			ResetMoves();
-			ReyCheck(1);
-		}else if(pieza.team===1){
-			ResetMoves();
-			ReyCheck(0);
-		}
-	Coloreo();
 }
 	
 
