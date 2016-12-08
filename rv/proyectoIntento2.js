@@ -304,7 +304,7 @@ function ReyPlan(x,y,team){
 
 function ReyCheck(team){
 	for(var i=0; i<=7;i++){
-		for(var j=0<=7; j++){
+		for(var j=0;j<=7; j++){
 			if(tablero[i][j].team!==team){
 				if(tablero[i][j] instanceof Torre)
 					TorrePlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
