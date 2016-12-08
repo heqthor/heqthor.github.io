@@ -848,9 +848,9 @@ function Animar(pieza){
 		pieza.pie1.rotateX(incre);
 		pieza.pie2.rotateX(-incre);
 		angulo+=incre;
-	}else 
-	{animar=0;
-	 CheckMate(piezaTocada.team);
+	}else {	
+		animar=0;
+	 	CheckMate(piezaTocada.team);
 		if(piezaTocada.team===0){
 			ResetMoves();
 			ReyCheck(1);
@@ -858,9 +858,44 @@ function Animar(pieza){
 			ResetMoves();
 			ReyCheck(0);
 		}
+		PeonCheckQueen();
+	 	
 	Coloreo();
 	}
 }
+
+function PeonCheckQueen(){
+	if(piezaTocada instanceof Peon){
+			piezaTocada.position.z=Redondeo(piezaTocada.position.z);
+			piezaTocada.position.x=Redondeo(piezaTocada.position.x);
+			var px=(piezaTocada.position.x+35)/10;
+			var pz=(piezaTocada.position.z+35)/10;			
+			if(piezaTocada.team==0 && pz==0){
+				piezaTocada.position.y=6000;
+				tablero[px][pz]=null;
+				var reina=new Reina(TEXTURAS.torreNegra);
+				reina.scale.x=0.2;
+				reina.scale.z=0.2;
+				reina.scale.y=0.2;
+				reina.position.x=piezaTocada.position.x;
+				reina.position.z=piezaTocada.position.z;
+				reina.position.y=5;
+				tablero[px][pz]=reina;
+			}else if(piezaTocada.team===1 && pz==7){
+				piezaTocada.position.y=6000;
+				tablero[px][pz]=null;
+				var reina=new Reina(TEXTURAS.torreBlanca);
+				reina.scale.x=0.2;
+				reina.scale.z=0.2;
+				reina.scale.y=0.2;
+				reina.position.x=piezaTocada.position.x;
+				reina.position.z=piezaTocada.position.z;
+				reina.position.y=5;
+				tablero[px][pz]=reina;
+			}
+	}
+}
+	
 	
 var torreN1,reyB;
 var tablero=[];
