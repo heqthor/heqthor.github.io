@@ -1143,16 +1143,18 @@ function onMouseClick( event ) {
 			console.log(piezaX,piezaZ);
 		}
 	}else if( (intersects[0].object.parent instanceof Planos || intersects[1].object.parent instanceof Planos) && movimiento==1){
-		ResetMoves();
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
 		tableZ=Redondeo(intersects[0].point.z);
 		console.log("plano",tableX,tableZ);
 		Mueve(tableX,tableZ,piezaTocada);
-		if(piezaTocada.team===0)
+		if(piezaTocada.team===0){
+			ResetMoves();
 			ReyCheck(0);
-		else if(piezaTocada===1)
+		}else if(piezaTocada===1){
+			ResetMoves();
 			ReyCheck(1);
+		}
 	}
 	
 	
