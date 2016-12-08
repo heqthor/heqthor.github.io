@@ -201,7 +201,7 @@ function PeonPlan(x,y,team,primer){
 		if(tablero[x][y+1]===null){
 			if(primero===1){
 				tableroMovimientos[x][y+2]=1;
-				primer.primer=0;
+				piezaTocada.primer=0;
 			}
 			tableroMovimientos[x][y+1]=1;
 		}
