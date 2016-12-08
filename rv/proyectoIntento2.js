@@ -869,7 +869,8 @@ function PeonCheckQueen(){
 			piezaTocada.position.z=Redondeo(piezaTocada.position.z);
 			piezaTocada.position.x=Redondeo(piezaTocada.position.x);
 			var px=(piezaTocada.position.x+35)/10;
-			var pz=(piezaTocada.position.z+35)/10;			
+			var pz=(piezaTocada.position.z+35)/10;	
+		console.log("px",px,"pz",pz);
 			if(piezaTocada.team==0 && pz==0){
 				piezaTocada.position.y=6000;
 				tablero[px][pz]=null;
@@ -1203,19 +1204,16 @@ function onMouseClick( event ) {
 				CaballoPlan(piezaX,piezaZ,piezaTocada.team);
 			Coloreo();
 
-			console.log(piezaX,piezaZ);
 		}
 	}else if( (intersects[0].object.parent instanceof Planos || intersects[1].object.parent instanceof Planos) && movimiento==1){
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
 		tableZ=Redondeo(intersects[0].point.z);
-		console.log("plano",tableX,tableZ);
 		Mueve(tableX,tableZ,piezaTocada);
 	}
 	
 	
-	console.log('wubba lubba dub dub');	
-	console.log( intersects[0].object);
+	console.log('wubba lubba dub dub');
 }
  
 function Redondeo(coor){
