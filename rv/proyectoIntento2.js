@@ -305,23 +305,25 @@ function ReyPlan(x,y,team){
 function ReyCheck(team){
 	for(var i=0; i<=7;i++){
 		for(var j=0;j<=7; j++){
-			if(tablero[i][j].team!==team){
-				if(tablero[i][j] instanceof Torre)
-					TorrePlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
-				else if(tablero[i][j] instanceof Peon)
-					PeonPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team,tablero[i][j]);
-				else if(tablero[i][j] instanceof Rey)
-					ReyPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
-				else if(tablero[i][j] instanceof Reina)
-					ReinaPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
-				else if(tablero[i][j] instanceof Cabello)
-					CaballoPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
-				else if (tablero[i][j] instanceof Alfil)
-					AlfilPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
-			}
-			if(tablero[i][j] instanceof Rey && tablero[i][j].team===team){
-				var x=i;
-				var y=j;
+			if(tablero[i][j]!==null){
+				if(tablero[i][j].team!==team){
+					if(tablero[i][j] instanceof Torre)
+						TorrePlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+					else if(tablero[i][j] instanceof Peon)
+						PeonPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team,tablero[i][j]);
+					else if(tablero[i][j] instanceof Rey)
+						ReyPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+					else if(tablero[i][j] instanceof Reina)
+						ReinaPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+					else if(tablero[i][j] instanceof Cabello)
+						CaballoPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+					else if (tablero[i][j] instanceof Alfil)
+						AlfilPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+				}
+				if(tablero[i][j] instanceof Rey && tablero[i][j].team===team){
+					var x=i;
+					var y=j;
+				}
 			}
 		}
 	}
