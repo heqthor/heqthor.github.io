@@ -336,15 +336,18 @@ function ReyCheck(team){
 }
 
 function CheckMate(team){
+	var checkMate=true;
 	for(var i=0; i<=7;i++){
 		for(var j=0;j<=7; j++){
-			if(tablero[i][j]instanceof Rey && tablero[i][j].team!==team && tablero[i][j].position.y>100)
-				if(team==0)
-					alert("CheckMate, ganador equipo Negro");
-				else if(team==1)
-					alert("CheckMate, ganador equipo Blanco");
+			if(tablero[i][j]instanceof Rey && tablero[i][j].team!==team)
+				checkMate=false;
 		}
 	}
+	if(checkMate)
+		if(team==0)
+			alert("CheckMate, ganador equipo Negro");
+		else if(team==1)
+			alert("CheckMate, ganador equipo Blanco");
 }
 	
 
