@@ -315,7 +315,7 @@ function ReyCheck(team){
 						ReyPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
 					else if(tablero[i][j] instanceof Reina)
 						ReinaPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
-					else if(tablero[i][j] instanceof Cabello)
+					else if(tablero[i][j] instanceof Caballo)
 						CaballoPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
 					else if (tablero[i][j] instanceof Alfil)
 						AlfilPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
@@ -829,7 +829,6 @@ function Animar(pieza){
 		pieza.pie1.rotateX(incre);
 		pieza.pie2.rotateX(-incre);
 		angulo+=incre;
-		console.log("posicion",pieza.position.x, pieza.position.z);
 	}else 
 		animar=0;
 }
