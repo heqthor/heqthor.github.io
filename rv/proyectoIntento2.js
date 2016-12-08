@@ -1150,10 +1150,10 @@ function onMouseClick( event ) {
 		Mueve(tableX,tableZ,piezaTocada);
 		if(piezaTocada.team===0){
 			ResetMoves();
-			ReyCheck(0);
-		}else if(piezaTocada===1){
-			ResetMoves();
 			ReyCheck(1);
+		}else if(piezaTocada.team===1){
+			ResetMoves();
+			ReyCheck(0);
 		}
 	}
 	
