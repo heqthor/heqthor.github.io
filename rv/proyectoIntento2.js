@@ -327,6 +327,8 @@ function ReyCheck(team){
 			}
 		}
 	}
+
+	console.log(y);
 	if(tableroMovimientos[x][y]===1){
 		alert("Check");
 	}
@@ -845,6 +847,7 @@ function Animar(pieza){
 		angulo+=incre;
 	}else 
 	{animar=0;
+	 CheckMate(piezaTocada.team);
 		if(piezaTocada.team===0){
 			ResetMoves();
 			ReyCheck(1);
@@ -853,7 +856,6 @@ function Animar(pieza){
 			ReyCheck(0);
 		}
 	Coloreo();
-	 CheckMate(piezaTocada.team);
 	}
 }
 	
