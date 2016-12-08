@@ -302,6 +302,34 @@ function ReyPlan(x,y,team){
 	console.log("rey",tableroMovimientos);
 }
 
+function ReyCheck(team){
+	for(var i=0,; i<=7;i++){
+		for(var j=0<=7; j++){
+			if(tablero[i][j].team!==team){
+				if(tablero[i][j] instanceof Torre)
+					TorrePlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+				else if(tablero[i][j] instanceof Peon)
+					PeonPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team,tablero[i][j]);
+				else if(tablero[i][j] instanceof Rey)
+					ReyPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+				else if(tablero[i][j] instanceof Reina)
+					ReinaPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+				else if(tablero[i][j] instanceof Cabello)
+					CaballoPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+				else if (tablero[i][j] instanceof Alfil)
+					AlfilPlan(tablero[i][j].position.x,tablero[i][j].position.z,tablero[i][j].team);
+			}
+			if(tablero[i][j] instanceof Rey && tablero[i][j].team===team){
+				var x=i;
+				var y=j;
+			}
+		}
+	}
+	if(tableroMovimientos[x][y]===1){
+		alert("Check");
+	}
+}
+
 
 //---------------------ALFIL
 
@@ -1118,6 +1146,10 @@ function onMouseClick( event ) {
 		tableZ=Redondeo(intersects[0].point.z);
 		console.log("plano",tableX,tableZ);
 		Mueve(tableX,tableZ,piezaTocada);
+		if(piezaTocada.team===0)
+			ReyCheck(1);
+		else if(piezaTocada===1)
+			ReyCheck(0);
 	}
 	
 	
