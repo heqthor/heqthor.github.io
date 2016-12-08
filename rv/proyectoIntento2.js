@@ -850,6 +850,7 @@ function Animar(pieza){
 		angulo+=incre;
 	}else {	
 		animar=0;
+		PeonCheckQueen();
 	 	CheckMate(piezaTocada.team);
 		if(piezaTocada.team===0){
 			ResetMoves();
@@ -858,7 +859,6 @@ function Animar(pieza){
 			ResetMoves();
 			ReyCheck(0);
 		}
-		PeonCheckQueen();
 	 	
 	Coloreo();
 	}
