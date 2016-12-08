@@ -1148,13 +1148,6 @@ function onMouseClick( event ) {
 		tableZ=Redondeo(intersects[0].point.z);
 		console.log("plano",tableX,tableZ);
 		Mueve(tableX,tableZ,piezaTocada);
-		if(piezaTocada.team===0){
-			ResetMoves();
-			ReyCheck(1);
-		}else if(piezaTocada.team===1){
-			ResetMoves();
-			ReyCheck(0);
-		}
 	}
 	
 	
@@ -1235,26 +1228,14 @@ function Mueve(x,y,pieza){
 	animar=1;
 	aniX=x;
 	aniY=y;
-	//delete pieza;
-	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
-		if((pieza.position.x-x)!=0){
-			m=(pieza.position.z-y)/(pieza.position.x-x);
-			if(Math.abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)>=0)
-				pieza.position.x-=0.01;
-			if(Math.abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)<=0)
-				pieza.position.x+=0.01;
-			pieza.position.z=m*pieza.position.x;
-		}else{
-			if(Math.abs(pieza.position.z-y)>0.1 && (pieza.position.z-y)>=0)
-				pieza.position.z-=0.1;
-			else if(Math.abs(pieza.position.z-y)>0.1 && (pieza.position.z-y)<=0)
-				pieza.position.z+=0.1;
+		if(pieza.team===0){
+			ResetMoves();
+			ReyCheck(1);
+		}else if(pieza.team===1){
+			ResetMoves();
+			ReyCheck(0);
 		}
-		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
-		console.log("casillaX:",x,"casillaZ:",y);
-	}*/
-	
-	
+	Coloreo();
 }
 	
 
