@@ -1148,9 +1148,9 @@ function onMouseClick( event ) {
 		console.log("plano",tableX,tableZ);
 		Mueve(tableX,tableZ,piezaTocada);
 		if(piezaTocada.team===0)
-			ReyCheck(1);
-		else if(piezaTocada===1)
 			ReyCheck(0);
+		else if(piezaTocada===1)
+			ReyCheck(1);
 	}
 	
 	
