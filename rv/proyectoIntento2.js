@@ -882,6 +882,7 @@ function PeonCheckQueen(){
 				reina.position.z=piezaTocada.position.z;
 				reina.position.y=5;
 				tablero[px][pz]=reina;
+				escena.add(reina);
 			}else if(piezaTocada.team===1 && pz==7){
 				piezaTocada.position.y=6000;
 				tablero[px][pz]=null;
@@ -893,6 +894,7 @@ function PeonCheckQueen(){
 				reina.position.z=piezaTocada.position.z;
 				reina.position.y=5;
 				tablero[px][pz]=reina;
+				escena.add(reina);
 			}
 	}
 }
