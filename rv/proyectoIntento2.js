@@ -333,6 +333,19 @@ function ReyCheck(team){
 	Coloreo();
 }
 
+function CheckMate(team){
+	for(var i=0; i<=7;i++){
+		for(var j=0;j<=7; j++){
+			if(tablero[i][j]instanceof Rey && tablero[i][j].team!==team && tablero[i][j].position.y>100)
+				if(team==0)
+					alert("CheckMate, ganador equipo Negro");
+				else if(team==1)
+					alert("CheckMate, ganador equipo Blanco");
+		}
+	}
+}
+	
+
 
 //---------------------ALFIL
 
@@ -840,6 +853,7 @@ function Animar(pieza){
 			ReyCheck(0);
 		}
 	Coloreo();
+	 CheckMate(piezaTocada.team);
 	}
 }
 	
