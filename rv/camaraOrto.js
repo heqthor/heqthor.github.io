@@ -97,7 +97,7 @@ function setup(){
     
    
  
-    	torreN1 =new Torre(TEXTURAS.torreNegra);
+    	torreN1 =new Torre();
 	torreN1.scale.x=0.15;
 	torreN1.scale.y=0.15;
 	torreN1.scale.z=0.15;
