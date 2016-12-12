@@ -51,9 +51,9 @@ function Tablero (texturaBlanco, texturaNegro,texturaMadera){
         var cuboForma=  new THREE.BoxGeometry(10,5,10);
         cuboForma.translate(-35+i*10,0,35-j*10);
         if(color%2!==0){
-          var material = new THREE.MeshLambertMaterial({map:texturaNegro});
+          var material = new THREE.MeshBasicMaterial({color: 0xcccccc});
         }else{
-          var material = new THREE.MeshLambertMaterial({map: texturaBlanco});
+          var material = new THREE.MeshBasicMaterial({color: 0x555555});
         }
         var cuboMalla = new THREE.Mesh(cuboForma,material);
         color=color+1;
@@ -65,7 +65,7 @@ function Tablero (texturaBlanco, texturaNegro,texturaMadera){
 
     var bordeForma = new THREE.BoxGeometry(100,100,5);
     bordeForma.translate(0,0,-5);
-    var bordeMaterial = new THREE.MeshLambertMaterial({map:texturaMadera});
+    var bordeMaterial = new THREE.MeshBasicMaterial({color: 0x586a55});
     var bordeMalla = new THREE.Mesh(bordeForma,bordeMaterial);
     bordeMalla.rotateX(-Math.PI/2);
     bordeMalla.receiveShadow=true;
@@ -117,27 +117,12 @@ var setupDone=false;
 
 function loop(){
   requestAnimationFrame(loop);
-  if(TEXTURAS.madera!==undefined && TEXTURAS.torreBlanca!==undefined && TEXTURAS.marmolBlanco!==undefined && TEXTURAS.marmolNegro!==undefined && !setupDone){
+  if( !setupDone){
       setup();
   }
 
     renderizador.render(escena, camara);
 }
 
-var cargador = new THREE.TextureLoader();
-function TexturaSetup(){
-    cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ TEXTURAS.torreNegra = textura;});
-    cargador.load("texturaMarmolBlanco.jpg",
-                  function(textura){ TEXTURAS.torreBlanca = textura;});
-    cargador.load("texturaMarmolBlanco.jpg",
-                  function(textura){ TEXTURAS.marmolBlanco = textura;});
-    cargador.load("texturaMarmolNegro.jpg",
-                  function(textura){ TEXTURAS.marmolNegro = textura;});
-    cargador.load("texturaMadera.jpg",
-                  function(textura){ TEXTURAS.madera = textura;});
-    
-}
 
-TexturaSetup();
 loop();
