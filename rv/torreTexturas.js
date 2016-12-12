@@ -30,7 +30,13 @@ function Torre(textura){
       torreForma.merge(picoMalla.geometry, picoMalla.matrix);
     }
     var torreHecha=new THREE.Mesh(torreForma, new THREE.MeshLambertMaterial({map: textura}));
-    escena.add(torreHecha);
+    
+	torreHecha.scale.x=0.15;
+	torreHecha.scale.y=0.15;
+	torreHecha.scale.z=0.15;
+	torreHecha.receiveShadow=true;
+	torreHecha.castShadow=true;
+	escena.add(torreHecha);
     
 }
 
