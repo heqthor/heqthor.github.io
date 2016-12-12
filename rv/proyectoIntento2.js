@@ -825,7 +825,7 @@ function listener(){
 var animar=0;
 var aniX;
 var aniY;
-var angulo=0,incre=0.1,increCaba=0.1,posiSum=0;
+var angulo=0,incre=0.1,increCaba=0.2,posiSum=0;
 function Animar(pieza){
 	if(pieza.position.x!==aniX || pieza.position.z!==aniY){
 		if(Math.abs(pieza.position.x-aniX)<=0.1)
@@ -844,7 +844,7 @@ function Animar(pieza){
 			else
 				pieza.position.z+=0.1;
 		if(pieza instanceof Caballo){
-			pieza.position.y+=0.1;
+			pieza.position.y+=increCaba;
 			if(posiSum>=150){
 				increCaba=-increCaba;
 				posiSum++;
