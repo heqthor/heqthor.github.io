@@ -33,7 +33,7 @@ function Torre(){
     //THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
     this.add(new THREE.Mesh(torreForma, new THREE.MeshNormaltMaterial()));
     this.castShadow=true;
-    this.receiveShadow=true;
+    this.receiveShadow=true; 
     
     this.step = 0.1;
     this.colision = 0;
