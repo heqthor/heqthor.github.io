@@ -82,11 +82,6 @@ function listener(){
 
 
 
-	
-var torreN1,reyB;
-var tablero=[];
-var tabCol=[];
-var turno=true;
 //---------- SET UP--------
 function setup(){
     var tipo_evento = 'resize';
@@ -104,7 +99,7 @@ function setup(){
     var luz=new THREE.PointLight(0xCCCCCC);
     luz.position.y=50;
     luz.position.z=100;
-    Torre(TEXTURAS.torreBlanca);
+    //Torre(TEXTURAS.torreBlanca);
     
 	Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
 
