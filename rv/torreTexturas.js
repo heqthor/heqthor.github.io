@@ -34,6 +34,7 @@ function Torre(textura){
 	torreHecha.scale.x=0.15;
 	torreHecha.scale.y=0.15;
 	torreHecha.scale.z=0.15;
+	torreHecha.position.y=5;
 	torreHecha.receiveShadow=true;
 	torreHecha.castShadow=true;
 	escena.add(torreHecha);
