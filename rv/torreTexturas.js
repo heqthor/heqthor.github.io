@@ -99,7 +99,7 @@ function setup(){
     var luz=new THREE.PointLight(0xCCCCCC);
     luz.position.y=50;
     luz.position.z=100;
-    //Torre(TEXTURAS.torreBlanca);
+    Torre(TEXTURAS.torreBlanca);
     
 	Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
 escena.add(luz);
