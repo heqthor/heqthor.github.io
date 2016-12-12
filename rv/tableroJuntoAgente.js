@@ -350,6 +350,7 @@ function Mueve(x,y,pieza){
 	var m=0;
 	pieza.position.x=1*x;
 	pieza.position.z=1*y;
+	console.log("hdjd", pieza.position.x,pieza.position.z);
 	
 }
 	
