@@ -85,7 +85,7 @@ function setup(){
     var tipo_evento = 'resize';
     var cambioVentana = false;
     var escena=new THREE.Scene();
-    var camara=new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 1000 );
+    var camara=new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 1000 );
     window.addEventListener( tipo_evento, listener, cambioVentana);
     
     camara.position.x = 100;    
