@@ -845,8 +845,10 @@ function Animar(pieza){
 				pieza.position.z+=0.1;
 		if(pieza instanceof Caballo){
 			pieza.position.y+=0.1;
-			if(posiSum<=150)
+			if(posiSum>=150){
 				increCaba=-increCaba;
+				posiSum++;
+			}
 		}
 		if(Math.abs(angulo)>1)
 			incre=-incre;
@@ -855,6 +857,7 @@ function Animar(pieza){
 		angulo+=incre;
 	}else {	
 		animar=0;
+		posiSum=0;
 		increCaba=0.1;
 		PeonCheckQueen();
 	 	CheckMate(piezaTocada.team);
