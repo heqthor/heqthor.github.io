@@ -123,6 +123,13 @@ function setup(){
     luz.position.y=50;
     luz.position.z=100;
     
+	for(var i=0;i<=7;i++){
+		tablero[i]=[];
+		for(var j=0;j<=7;j++){
+			tablero[i][j]=null;
+		}
+	}
+	
     
     	torreN1 =new Torre(TEXTURAS.torreNegra);
 	torreN1.scale.x=0.15;
