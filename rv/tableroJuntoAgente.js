@@ -297,7 +297,6 @@ function onMouseClick( event ) {
 	var piezaX, piezaZ,tableX,tableZ;
 	mouse.x = ( event.clientX / window.innerWidth ) *2 - 1;
 	mouse.y = - ( event.clientY / window.innerHeight ) *2 + 1;	
-	//mouse.z = - ( event.clientZ / window.innerHeight ) * 2 + 1;
 	raycaster.setFromCamera( mouse, camara );	
 	var intersects = raycaster.intersectObjects( escena.children,true );
 	
@@ -313,10 +312,10 @@ function onMouseClick( event ) {
 	}
 	else if(intersects[0].object.parent instanceof Environment && movimiento==1){
 		intersects[ 0 ].object.material.color.set( 0x00ff00 );
-		console.log(intersects[0].point.x,mouse.y);
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
 		tableZ=Redondeo(intersects[0].point.z);
+		console.log(tableX,tableZ);
 		Mueve(tableX,tableZ,piezaTocada);
 	}
 	
@@ -351,24 +350,7 @@ function Mueve(x,y,pieza){
 	var m=0;
 	pieza.position.x=1*x;
 	pieza.position.z=1*y;
-	/*while(Math.abs(pieza.position.x-x)>0.1 && Math.abs(pieza.position.z-y)>0.1){
-		if((pieza.position.x-x)!=0){
-			m=(pieza.position.z-y)/(pieza.position.x-x);
-			if(Math.abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)>=0)
-				pieza.position.x-=0.01;
-			if(Math.abs(pieza.position.x-x)>0.1 && (pieza.position.x-x)<=0)
-				pieza.position.x+=0.01;
-			pieza.position.z=m*pieza.position.x;
-		}else{
-			if(Math.abs(pieza.position.z-y)>0.1 && (pieza.position.z-y)>=0)
-				pieza.position.z-=0.1;
-			else if(Math.abs(pieza.position.z-y)>0.1 && (pieza.position.z-y)<=0)
-				pieza.position.z+=0.1;
-		}
-		console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
-		console.log("casillaX:",x,"casillaZ:",y);
-	}*/
-	//console.log("piezaX:",pieza.position.x,"piezaZ:",pieza.position.z);
+	
 }
 	
 
