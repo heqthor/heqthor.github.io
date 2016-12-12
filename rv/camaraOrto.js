@@ -1,4 +1,5 @@
 function Torre(){ 
+	THREE.Mesh.call(this);
     var puntos=[];
     
     puntos.push(new THREE.Vector2(0,0));
@@ -41,6 +42,7 @@ function Torre(){
     this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
 
 }
+Torre.prototype=new THREE.Object3D();
 
 
 //------------ TABLERO------
