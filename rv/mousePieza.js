@@ -203,6 +203,7 @@ function onMouseClick( event ) {
 		piezaX=Redondeo(intersects[0].point.x);
 		piezaZ=Redondeo(intersects[0].point.z);
 		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
+		console.log("posiPieza",piezaX,piezaZ);
 	
 
 		
@@ -210,6 +211,7 @@ function onMouseClick( event ) {
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
 		tableZ=Redondeo(intersects[0].point.z);
+		console.log("posiMov",tableX,tableZ);
 		Mueve(tableX,tableZ,piezaTocada);
 	}
 	
@@ -253,6 +255,7 @@ function Mueve(x,y,pieza){
 			tablero[(x+35)/10][(y+35)/10]=null;
 		}
 		tablero[(x+35)/10][(y+35)/10]=pieza;
+		console.log("posiPieza",pieza.position.x,pieza.position.z);
 	
 }
 	
