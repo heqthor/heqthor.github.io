@@ -102,7 +102,7 @@ function setup(){
     //Torre(TEXTURAS.torreBlanca);
     
 	Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
-
+escena.add(luz);
 	renderizador.setSize( window.innerWidth , window.innerHeight );
 	document.body.appendChild( renderizador.domElement );
 }
