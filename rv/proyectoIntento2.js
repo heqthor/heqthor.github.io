@@ -860,6 +860,7 @@ function Animar(pieza){
 		animar=0;
 		posiSum=0;
 		increCaba=0.1;
+		subBaja=false;
 		PeonCheckQueen();
 	 	CheckMate(piezaTocada.team);
 		if(piezaTocada.team===0){
