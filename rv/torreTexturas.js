@@ -133,7 +133,7 @@ function TexturaSetup(){
 
 
 var TEXTURAS= new THREE.Object3D();
-var escena = new Scene();
+var escena = new THREE.Scene();
 var camara = new THREE.PerspectiveCamera();
 var renderizador = new THREE.WebGLRenderer();
 TexturaSetup();
