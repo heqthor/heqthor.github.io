@@ -847,6 +847,7 @@ function Animar(pieza){
 			pieza.position.y+=0.1;
 			if(posiSum<=150)
 				increCaba=-increCaba;
+		}
 		if(Math.abs(angulo)>1)
 			incre=-incre;
 		pieza.pie1.rotateX(incre);
