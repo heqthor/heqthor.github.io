@@ -332,7 +332,6 @@ function ReyCheck(team){
 	if(tableroMovimientos[x][y]===1){
 		alert("Check");
 	}
-	Coloreo();
 }
 
 function CheckMate(team){
