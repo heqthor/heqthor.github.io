@@ -200,7 +200,7 @@ function onMouseClick( event ) {
 		piezaTocada=tablero[(piezaX+35)/10][(piezaZ+35)/10];
 	
 
-		}
+		
 	}else if(  movimiento==1){
 		movimiento=0;			
 		tableX=Redondeo(intersects[0].point.x);
