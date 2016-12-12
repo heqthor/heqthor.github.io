@@ -1,48 +1,3 @@
-function Torre(){ 
-	THREE.Mesh.call(this);
-    var puntos=[];
-    
-    puntos.push(new THREE.Vector2(0,0));
-    puntos.push(new THREE.Vector2(20,0));
-    puntos.push(new THREE.Vector2(20,10));
-    puntos.push(new THREE.Vector2(15,10));
-    puntos.push(new THREE.Vector2(15,15));
-    puntos.push(new THREE.Vector2(10,15));
-    puntos.push(new THREE.Vector2(10,40));
-    puntos.push(new THREE.Vector2(20,40));
-    puntos.push(new THREE.Vector2(20,45));
-    puntos.push(new THREE.Vector2(10,45));
-    puntos.push(new THREE.Vector2(10,50));
-    puntos.push(new THREE.Vector2(15,50));
-    puntos.push(new THREE.Vector2(15,60));
-    puntos.push(new THREE.Vector2(0,60));
-    
-    var baseForma= new THREE.LatheGeometry(puntos);
-    var baseMalla = new THREE.Mesh(baseForma);
-
-    var torreForma= new THREE.Geometry();
-
-    torreForma.merge(baseMalla.geometry, baseMalla.matrix);
-
-    for(var i=0; i<=6; i++){
-    var picoForma = new THREE.CylinderGeometry( 4, 2, 15, 32 );
-      picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),60,13*(Math.cos(Math.PI*2/6*i)));
-    var picoMalla =new THREE.Mesh(picoForma); 
-      torreForma.merge(picoMalla.geometry, picoMalla.matrix);
-    }
-    
-    //THREE.Mesh.call(this, torreForma, new THREE.MeshLambertMaterial({map:textura}));
-    this.add(new THREE.Mesh(torreForma, new THREE.MeshNormaltMaterial()));
-    this.castShadow=true;
-    this.receiveShadow=true; 
-    
-    this.step = 0.1;
-    this.colision = 0;
-    this.radius = 4;
-    this.sensor = new THREE.Raycaster(this.position, new THREE.Vector3(1,0,0)); //vector para detectar colisiones
-
-}
-Torre.prototype=new THREE.Object3D();
 
 
 //------------ TABLERO------
@@ -97,20 +52,41 @@ function setup(){
     camara.lookAt(new THREE.Vector3(0,0,0));
     
     setupDone=true;
+    var puntos=[];
     
-   
- 
-    	torreN1 =new Torre();
-	torreN1.scale.x=0.15;
-	torreN1.scale.y=0.15;
-	torreN1.scale.z=0.15;
-	torreN1.position.y=5;
-	torreN1.position.x=35;
-	torreN1.position.z=35;
-	torreN1.castShadow=true;
-	torreN1.receiveShadow=true;
+    puntos.push(new THREE.Vector2(0,0));
+    puntos.push(new THREE.Vector2(20,0));
+    puntos.push(new THREE.Vector2(20,10));
+    puntos.push(new THREE.Vector2(15,10));
+    puntos.push(new THREE.Vector2(15,15));
+    puntos.push(new THREE.Vector2(10,15));
+    puntos.push(new THREE.Vector2(10,40));
+    puntos.push(new THREE.Vector2(20,40));
+    puntos.push(new THREE.Vector2(20,45));
+    puntos.push(new THREE.Vector2(10,45));
+    puntos.push(new THREE.Vector2(10,50));
+    puntos.push(new THREE.Vector2(15,50));
+    puntos.push(new THREE.Vector2(15,60));
+    puntos.push(new THREE.Vector2(0,60));
+    
+    var baseForma= new THREE.LatheGeometry(puntos);
+    var baseMalla = new THREE.Mesh(baseForma);
 
-	Tablero(TEXTURAS.marmolNegro, TEXTURAS.marmolBlanco, TEXTURAS.madera);
+    var torreForma= new THREE.Geometry();
+
+    torreForma.merge(baseMalla.geometry, baseMalla.matrix);
+
+    for(var i=0; i<=6; i++){
+    var picoForma = new THREE.CylinderGeometry( 4, 2, 15, 32 );
+      picoForma.translate(13*(Math.sin(Math.PI*2/6*i)),60,13*(Math.cos(Math.PI*2/6*i)));
+    var picoMalla =new THREE.Mesh(picoForma); 
+      torreForma.merge(picoMalla.geometry, picoMalla.matrix);
+    }
+	
+   var torreHecha= new THREE.Mesh(torreForma, new THREE.MeshNormalMaterial());
+	escena.add(torreHecha);
+
+	Tablero();
 
 	renderizador.setSize( window.innerWidth , window.innerHeight );
 	document.body.appendChild( renderizador.domElement );
